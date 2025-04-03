@@ -1,0 +1,12 @@
+{
+  "name": "card-stitcher",
+  "version": "1.0.0",
+  "description": "A tool to stitch card images into deck sheets",
+  "main": "stitch_cards.js",
+  "scripts": {
+    "start": "node stitch_cards.js"
+  },
+  "dependencies": {
+    "sharp": "^0.32.6"
+  }
+}

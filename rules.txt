@@ -1,0 +1,67 @@
+THE POST-HUMAN WAR
+Rules Guide
+OVERVIEW
+In The Post-Human War, you control a faction fighting for dominance in the Sol System. Your goal is to grow your faction's population while eliminating your opponents through strategic expansion, resource management, and combat.
+Players: 2-4 players Game Length: 30-60 minutes (estimated)
+CORE CONCEPTS
+Holdings
+Holdings represent significant locations across the solar system (e.g., the Ares Industrial Complex on Mars). These are where your population lives and your base of operations.
+Population is tracked using d6 dice on each holding
+Each holding can "tap" for one or more essence types (Materia, Anima, Data)
+Some holdings have Garrisons that provide automatic defense
+Descendants
+Descendants are your units that attack and defend. Each descendant has four attributes:
+FORCE: Physical and kinetic strength (determines damage dealt)
+PSYCHE: Mental strength and fortitude
+VECTOR: Integration into networks and cyber warfare capability
+SYNC: Overall synchronicity (determines attack order)
+Many descendants also have special traits and abilities.
+Essences
+There are three types of essences used to pay for cards:
+Materia: Physical matter (steel, gunpowder, etc.)
+Anima: Will and determination
+Data: Information that fuels AI and networks
+GAME SETUP
+(Game setup instructions can be added here based on additional information)
+TURN SEQUENCE
+On your turn, follow these steps in order:
+Draw Phase: Draw one card from your deck
+Explore Action: Select a new holding from the System Deck and add it to your empire
+Populate Action: Choose ONE of the following:
+Move population between your holdings
+Increase a population by 1 on one of your holdings
+Main Phase: Play cards by paying their essence costs
+Deploy descendants to specific holdings
+Play Works and other card types
+Attack Phase: Declare attacks against opponents' holdings
+End Phase: Refresh your holdings and Garrisons
+PLAYING CARDS
+Every card has an essence cost that must be paid to play it. Gain essences by tapping your holdings.
+When you play a descendant, you must choose which of your holdings to deploy it to. This is crucial as descendants can only defend the holding where they are deployed.
+COMBAT
+When you declare an attack:
+Declare which of your descendants are attacking and which opponent's holding they target
+Your opponent declares which, if any, of their descendants will defend
+If there are defenders, begin the Combat Phase:
+Order all combatants by SYNC score (highest goes first)
+In SYNC order, each combatant chooses a target to deal damage to equal to their FORCE
+When a descendant takes FORCE damage, reduce their FORCE score by that amount
+If a descendant's FORCE is reduced to 0, they are destroyed
+Damaging Holdings
+If all defending descendants are destroyed and attacking descendants still have attacks remaining, or if there is excess FORCE damage:
+This damage is directed at the holding
+Damage can be applied to either the population OR Works built on the holding
+Garrisons
+Some holdings have a Garrison with a specified FORCE value
+Garrisons act as token descendants with SYNC 0 (always last to attack)
+The holding's controller decides where the Garrison deals its damage
+Garrisons must be destroyed before damage can be done to the holding
+Garrisons replenish to full strength at the end of every turn
+WINNING THE GAME
+A player is eliminated when the population of all their holdings is reduced to zero
+The last player remaining is the winner
+CARD TYPES
+(Add details about different card types based on additional information)
+GLOSSARY
+(Add a glossary of key terms as needed)
+

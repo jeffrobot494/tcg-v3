@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Design Prototype</title>
+    <style>
+        body {
+            background: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: "Courier New", monospace;
+        }
+        
+        .card {
+            width: 300px;
+            height: 420px;
+            position: relative;
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(0, 150, 50, 0.3);
+            overflow: hidden;
+            background-color: #000;
+        }
+        
+        /* Card content wrapper to ensure content appears above border */
+        .card-content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 20;
+        }
+        
+        /* Card Border using md_02.png */
+        .card-border {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("md_02.png");
+            background-size: cover;
+            background-position: center;
+            opacity: 0.9;
+            z-index: 6;
+            pointer-events: none;
+            border-radius: 12px;
+            filter: brightness(0.5) contrast(1.2) hue-rotate(20deg) saturate(1.5);
+            box-shadow: inset 0 0 20px rgba(0, 100, 0, 0.4);
+        }
+        
+        .monitor-background {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, rgba(4,20,20,0.6) 30%, rgba(4,20,20,0.6) 70%, rgba(0,0,0,0.7) 100%);
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+        }
+        
+        .scan-line {
+            position: absolute;
+            width: 100%;
+            height: 4px;
+            background: rgba(100, 200, 100, 0.1);
+            animation: scan 6s linear infinite;
+            box-shadow: 0 0 8px rgba(0, 150, 50, 0.2);
+        }
+        
+        .scanlines {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                to bottom,
+                transparent 0%,
+                rgba(0, 0, 0, 0.2) 50%,
+                transparent 51%,
+                rgba(0, 0, 0, 0.2) 100%
+            );
+            background-size: 100% 8px; /* Lower resolution scanlines */
+            z-index: 2;
+        }
+        
+        .glow {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            box-shadow: inset 0 0 60px rgba(0, 100, 50, 0.3);
+            z-index: 1;
+        }
+        
+        .title-box {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%) rotateX(4deg) scale(1.02);
+            width: 90%;
+            height: 20px;
+            border: 1px solid #2a2;
+            border-radius: 10px/5px;
+            background: rgba(0, 20, 0, 0.6);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10;
+            box-shadow: 
+                0 0 10px rgba(0, 150, 50, 0.2),
+                inset 0 0 8px rgba(0, 80, 0, 0.2);
+            backdrop-filter: blur(1px);
+            perspective: 600px;
+            perspective-origin: 50% 50%;
+            transform-style: preserve-3d;
+            overflow: hidden;
+        }
+        
+        /* Add subtle curved scanlines to title */
+        .title-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(
+                ellipse at center,
+                transparent 40%,
+                rgba(0, 60, 0, 0.3) 100%
+            );
+            pointer-events: none;
+            z-index: 0;
+            border-radius: 50%/10%;
+            opacity: 0.8;
+            transform: scale(1.2);
+        }
+        
+        .title {
+            color: #3f3;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            width: 100%;
+            text-shadow: 
+                0 0 5px rgba(50, 150, 50, 0.6),
+                0 0 10px rgba(0, 100, 0, 0.3);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-family: "Courier New", monospace;
+            position: relative;
+            z-index: 1;
+            transform: rotateX(-3deg); /* Counter-rotation */
+            filter: blur(0.3px);
+            opacity: 0.95;
+        }
+        
+        .image-frame {
+            position: absolute;
+            top: 60px;
+            left: 50%;
+            transform: translateX(-50%) rotateX(4deg) scale(1.02);
+            width: 85%;
+            height: 180px;
+            border: 1px solid #2a2;
+            border-radius: 10px/5px;
+            overflow: hidden;
+            z-index: 10;
+            box-shadow: 
+                0 0 10px rgba(0, 150, 50, 0.2),
+                inset 0 0 15px rgba(0, 80, 0, 0.2);
+            background: rgba(0, 20, 0, 0.4);
+            perspective: 600px;
+            perspective-origin: 50% 50%;
+            transform-style: preserve-3d;
+        }
+        
+        .card-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.9) contrast(1.1) sepia(0.1) hue-rotate(20deg) blur(0.2px);
+            opacity: 0.85;
+            transform: rotateX(-3deg); /* Counter the parent's rotation */
+            transform-origin: center;
+            background-color: #000; /* For video loading */
+        }
+        
+        video.card-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at center, rgba(0,50,0,0) 0%, rgba(0,50,0,0.3) 100%);
+            z-index: 11;
+            pointer-events: none;
+        }
+        
+        
+        .text-box {
+            position: absolute;
+            top: 260px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 85%;
+            height: 140px;
+            border: 1px solid #2a2;
+            border-radius: 6px;
+            background: rgba(0, 20, 0, 0.6);
+            padding: 10px;
+            padding-left: 12px;
+            padding-right: 12px;
+            box-sizing: border-box;
+            z-index: 10;
+            box-shadow: 
+                0 0 10px rgba(0, 150, 50, 0.2),
+                inset 0 0 15px rgba(0, 80, 0, 0.3);
+            backdrop-filter: blur(1px);
+            /* CRT curve effect */
+            perspective: 500px;
+            transform: translateX(-50%) rotateX(5deg) scale(1.03);
+            perspective-origin: 50% 50%;
+            transform-style: preserve-3d;
+            border-radius: 10px/5px;
+            overflow: hidden;
+        }
+        
+        /* Add inner curved vignette */
+        .text-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(
+                ellipse at center,
+                transparent 40%,
+                rgba(0, 60, 0, 0.3) 100%
+            );
+            pointer-events: none;
+            z-index: 2;
+            border-radius: 50%/10%;
+            transform: scale(1.2);
+        }
+        
+        /* Add subtle curved scanlines */
+        .text-box::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(
+                to bottom,
+                transparent 0%,
+                rgba(0, 0, 0, 0.15) 50%,
+                transparent 51%,
+                rgba(0, 0, 0, 0.15) 100%
+            );
+            background-size: 100% 4px;
+            border-radius: 50%/10%;
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0.8;
+            transform: scale(1.1);
+        }
+        
+        .text-content {
+            color: #3f3;
+            font-size: 9px;
+            line-height: 1.1;
+            text-shadow: 0 0 5px rgba(50, 150, 50, 0.4);
+            position: relative;
+            z-index: 3;
+            transform: rotateX(-3deg) scale(0.98); /* Counteract the parent rotation */
+            transform-origin: center;
+            filter: blur(0.3px);
+            opacity: 0.95;
+        }
+        
+        .stats {
+            margin: 8px 0;
+            font-size: 9px;
+            color: #4f4;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-shadow: 0 0 5px rgba(50, 150, 50, 0.6);
+            position: relative;
+            z-index: 3;
+            line-height: 1.3;
+        }
+        
+        .grid {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                linear-gradient(rgba(0, 100, 50, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 100, 50, 0.05) 1px, transparent 1px);
+            background-size: 30px 30px; /* Larger grid size for older look */
+            z-index: 1;
+        }
+        
+        /* Enhanced screen flicker effect */
+        .flicker {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.05);
+            z-index: 4;
+            animation: flicker 3s infinite;
+            pointer-events: none;
+        }
+        
+        /* Add some noise texture */
+        .noise {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNSR0IArs4c6QAABBlJREFUaEPtmcuPHEUQh7+sZ3Zrr/Fj1+CQJSYkshHiEBCICAkhgTgAEhxBQuIvRYIDEnCAgxEiEiBeEhICWbE2fqy9687O43dVx1RNVXVXVXfP+IASLbmnu2e6v/giIiO6Wghd1WqRGhCvpV3XcAy2gJuAu4CPAO3X76vAEnBdz432f3KNHaQFuA14FXgB2AW8DTwHfA58DDwJvAK8AjwPLAL/VQHTVphR4H7gfeA54JCCHAHWAL8Gzx1gA9gDXAOsZpjeEu4Hfik7rl0woZX2AT8Cu4FvgVvkJYXQ39MpRTl11d+i38UZudcO/w34HHii+AatgonB6O9/AReCH79K9hG3f9a6VG0GGMd30YqxBPwCfGUBmoUxGJ2p37nrVXMWHgaeAb4BfjOb0SwYg9H5+R34rprZi0etQ1PvJHCHdWQzYAzmdLCwFw+dbKB35U1g1jqwWTDrwIFCU0nGD2JbYS6q/m+d+qsC5DmwCdN2ahW1ljtHLdNEE+ZCoX67YApgtHqc64JGxpQBc5UG03Zt1m3arGs6n0m4t0q/WkNcvUWYc5pxumCKMCHzLG5TqDM1xq1xJswX1kBNhKs1CzMrm9S1AvtSr6uZrg84q+Hkht+BL0sG1jzMjEb8LlXgXMTwFi2RdWUFOAA8AzxdUvK2APOPWl4r3GjB8XuM5RXMPcCNZcWdrYAZA2aAnFq23h0dO4FD2u0GPGI/2wkwl+QKM39d1FLT7BbgesOkJ8wEaA9wZCfCSNP4FvhWYV4sOz+5zzUt4BTwXvDo0u/HMHqRTwBPRVbA5zXDdDRKs9LnFM5pcRtAOvlHpNm5+tSZQxKPl4G7dNWzrE4fHSBZG4AxOZcHWlLrbLaxcEBaZpXQF0rNX4E/rSG686SbOcuASS5HLiw1J0NtU2IpzV0VnrfwSkUEJjMUa8l0F5gHXGg+qDGh6KmPk5YyTQFLOh6a3tDIZGEG/CfKgXlkPWVtVXUZjwC7ij8vBRO0JYvDuClj4Zx52FJmFXgO+KiQe1UxVp6VTFrMTDarxUCq67wdZl43KzFpOiItKX6L9ZJtgFPO1jnNBq1g+8eqzWUNyM1K29+mGfQE8Jg7yZgHwgZMk6I2nGaVXdQnfvPUBaZ2mNguGhjtUEtdMdKCMWk7lT9VAoW4QDZa8GnG/KLd+UGhUW8QU+GjWbWbp9gqtjebN5kcVJNELU7sRrPB8bxWqsvAzEZqG80ztbrJEyfMoTgB1QqCJ1pbZa2RUspbPGDcmZALG0oqeM0i/Z2ZU2a8RhjnFvKb8LDMaCFdm6XGW0qhwMoFowHlgYVGqTrLwmA8WKS80rYX6dtplr2v1eRsZXcwPpNLKYHGaqz/lBPJNSBei15rdZtIacavOQa+Rq8t1WIzd9Ryrw+A/g80FUQi/GHNcAAAAABJRU5ErkJggg==');
+            opacity: 0.05;
+            z-index: 3;
+            pointer-events: none;
+        }
+        
+        /* Enhanced text distortion */
+        .title span {
+            display: inline-block;
+            animation: textGlitch 3s infinite;
+            animation-delay: calc(var(--i) * 0.025s);
+        }
+        
+        /* Add a screen horizontal distortion */
+        .horizontal-distortion {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 5;
+            animation: horizontalDistortion 7s infinite;
+            pointer-events: none;
+        }
+        
+        /* Image scanline effect */
+        .image-scanlines {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                to bottom,
+                rgba(0, 0, 0, 0.2) 0%,
+                rgba(0, 0, 0, 0) 50%,
+                rgba(0, 0, 0, 0.2) 100%
+            );
+            background-size: 100% 4px;
+            z-index: 3;
+            pointer-events: none;
+        }
+        
+        /* German text flicker styles */
+        .english-text {
+            display: block;
+        }
+        
+        .german-text {
+            display: none;
+        }
+        
+        @keyframes scan {
+            0% { top: -5%; }
+            100% { top: 105%; }
+        }
+        
+        @keyframes flicker {
+            0%, 100% { opacity: 0; }
+            5% { opacity: 0.1; }
+            10% { opacity: 0; }
+            15% { opacity: 0.3; }
+            20% { opacity: 0; }
+            22% { opacity: 0.15; }
+            24% { opacity: 0; }
+            30% { opacity: 0; }
+            40% { opacity: 0.15; }
+            50% { opacity: 0; }
+            52% { opacity: 0.5; }
+            54% { opacity: 0; }
+            70% { opacity: 0.1; }
+            80% { opacity: 0; }
+            97% { opacity: 0.3; }
+            99% { opacity: 0; }
+        }
+        
+        @keyframes textGlitch {
+            0%, 100% { transform: translateY(0); }
+            10% { transform: translateY(0); }
+            10.2% { transform: translateY(-3px); filter: blur(0.5px); }
+            10.4% { transform: translateY(0); filter: blur(0); }
+            30% { transform: translateY(0); opacity: 1; }
+            30.1% { transform: translateY(2px); opacity: 0.8; }
+            30.2% { transform: translateY(0); opacity: 1; }
+            45% { transform: translateY(0); }
+            45.1% { transform: translateY(-4px); filter: blur(1px); }
+            45.2% { transform: translateY(0); filter: blur(0); }
+            65% { transform: translateY(0); }
+            65.1% { transform: translateY(1px); opacity: 0.7; }
+            65.2% { transform: translateY(0); opacity: 1; }
+        }
+        
+        @keyframes horizontalDistortion {
+            0%, 100% { transform: skewX(0); }
+            20% { transform: skewX(0); }
+            20.1% { transform: skewX(2deg); }
+            20.2% { transform: skewX(0); }
+            40% { transform: skewX(0); }
+            40.1% { transform: skewX(-2deg); }
+            40.2% { transform: skewX(0); }
+            60% { transform: skewX(0); }
+            60.1% { transform: skewX(1deg); }
+            60.2% { transform: skewX(0); }
+            80% { transform: skewX(0); }
+            80.1% { transform: skewX(-1deg); }
+            80.2% { transform: skewX(0); }
+        }
+        
+        /* Card will occasionally glitch entirely */
+        .card {
+            animation: cardGlitch 10s infinite;
+        }
+        
+        @keyframes cardGlitch {
+            0%, 100% { transform: translateX(0); }
+            47% { transform: translateX(0); }
+            47.1% { transform: translateX(4px); }
+            47.2% { transform: translateX(-2px); }
+            47.3% { transform: translateX(0); }
+            82% { transform: translateX(0); }
+            82.1% { transform: translateX(-5px); }
+            82.15% { transform: translateX(3px); }
+            82.2% { transform: translateX(0); }
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="card-border"></div>
+        <div class="card-content">
+            <div class="monitor-background">
+                <div class="grid"></div>
+                <div class="scanlines"></div>
+                <div class="scan-line"></div>
+                <div class="glow"></div>
+                <div class="noise"></div>
+                <div class="flicker"></div>
+                <div class="horizontal-distortion"></div>
+                
+                <div class="title-box">
+                    <div class="title english-text">
+                        <span style="--i:1">M</span><span style="--i:2">A</span><span style="--i:3">R</span><span style="--i:4">T</span><span style="--i:5">I</span><span style="--i:6">A</span><span style="--i:7">N</span>  
+                        <span style="--i:6">A</span><span style="--i:7">S</span><span style="--i:8">S</span><span style="--i:9">A</span><span style="--i:10">U</span><span style="--i:11">L</span><span style="--i:12">T</span> 
+                        <span style="--i:13">L</span><span style="--i:14">E</span><span style="--i:15">G</span><span style="--i:16">I</span><span style="--i:17">O</span><span style="--i:18">N</span><span style="--i:19"></span>
+                    </div>
+                    <div class="title german-text">
+                        <span style="--i:1">S</span><span style="--i:2">C</span><span style="--i:3">H</span><span style="--i:4">W</span><span style="--i:5">E</span><span style="--i:6">R</span><span style="--i:7">E</span> 
+                        <span style="--i:8">S</span><span style="--i:9">T</span><span style="--i:10">U</span><span style="--i:11">R</span><span style="--i:12">M</span><span style="--i:13">T</span><span style="--i:14">R</span>
+                        <span style="--i:15">U</span><span style="--i:16">P</span><span style="--i:17">P</span><span style="--i:18">E</span><span style="--i:19">N</span>
+                    </div>
+                </div>
+                
+                <div class="image-frame">
+                    <video autoplay loop muted playsinline class="card-image">
+                        <source src="md_00.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="image-overlay"></div>
+                    <div class="image-scanlines"></div>
+                </div>
+                
+                <div class="text-box">
+                    <div class="text-content">
+                        <div class="english-text">
+                            MARS DOMINION Elite combat units<br>
+                            EQUIP: AR-87 Gravitic Combat Rifle, exoskeleton battle armor<br>
+                            <div class="stats">
+                                FORCE: 7 // 
+                                PSYCHE: 2<br>
+                                VECTOR: 0 // 
+                                SYNC: 3</br>
+                                
+                            </div>
+							Height: 7'2 | SEX: Male</br>
+							</br>
+                            Specialized in frontal assaults and breaking enemy lines.
+                        </div>
+                        <div class="german-text">
+                            MARS DOMINION Elitekampfeinheiten<br>
+                            AUSRÜSTUNG: AR-87 Gravitationsgewehr, Exoskelett-Kampfrüstung<br>
+                            <div class="stats">
+                                KRAFT: 7 // 
+                                PSYCHE: 2<br>
+                                VEKTOR: 0 // 
+                                SYNC: 3</br>
+                            </div>
+							Höhe: 2,18m | GESCHLECHT: Männlich</br>
+							</br>
+                            Spezialisiert auf Frontalangriffe und Durchbrechen feindlicher Linien.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Counter to track consecutive flickers
+        let flickerCount = 0;
+        
+        // Function to toggle between English and German text
+        function toggleLanguage() {
+            const englishElements = document.querySelectorAll('.english-text');
+            const germanElements = document.querySelectorAll('.german-text');
+            
+            // Show German text (hide English)
+            englishElements.forEach(el => el.style.display = 'none');
+            germanElements.forEach(el => el.style.display = 'block');
+            
+            // Random duration for German text between 100ms and 500ms (0.1-0.5 seconds)
+            const germanDuration = Math.random() * 400 + 100;
+            
+            // After the random duration, switch back to English
+            setTimeout(() => {
+                englishElements.forEach(el => el.style.display = 'block');
+                germanElements.forEach(el => el.style.display = 'none');
+                
+                // Decide whether to immediately flicker again
+                decideNextFlicker();
+            }, germanDuration);
+        }
+        
+        // Function to decide whether to immediately flicker again or schedule next flicker
+        function decideNextFlicker() {
+            flickerCount++;
+            
+            // For 1st consecutive flicker: 50% chance to immediately flicker again
+            if (flickerCount === 1 && Math.random() < 0.5) {
+                // Short delay (75-150ms) before immediate flicker
+                const quickDelay = Math.random() * 75 + 75;
+                setTimeout(toggleLanguage, quickDelay);
+                return;
+            }
+            
+            // For 2nd consecutive flicker: 25% chance to immediately flicker again
+            if (flickerCount === 2 && Math.random() < 0.25) {
+                // Short delay (50-100ms) before immediate flicker
+                const quickDelay = Math.random() * 50 + 50;
+                setTimeout(toggleLanguage, quickDelay);
+                return;
+            }
+            
+            // Reset flicker count and schedule next regular flicker
+            flickerCount = 0;
+            scheduleNextFlicker();
+        }
+        
+        // Function to schedule the next language flicker
+        function scheduleNextFlicker() {
+            // Calculate a random delay between 1.5-3 seconds
+            const nextFlickerDelay = Math.random() * 1500 + 1500;
+            
+            setTimeout(toggleLanguage, nextFlickerDelay);
+        }
+        
+        // Start the language flicker effect when page loads
+        function startLanguageFlicker() {
+            // Initial delay before first flicker (random between 1-2 seconds)
+            const initialDelay = Math.random() * 1000 + 1000;
+            setTimeout(toggleLanguage, initialDelay);
+        }
+        
+        // Start the language flicker effect when page loads
+        window.addEventListener('load', startLanguageFlicker);
+    </script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+What Makes a Good Card
+Clear Purpose
+A good card has a distinct role in the game. It should be immediately apparent what the card is designed to do - whether it's a straightforward combat unit, a utility piece, or a specialized combo enabler. Players should understand its purpose after reading it.
+Strategic Depth
+Good cards offer meaningful decisions. They might:
+
+Present interesting tradeoffs (power vs. cost)
+Offer tactical flexibility (multiple ways to use it)
+Create strategic considerations (when to play it, what to combine it with)
+Force priority decisions (what to target, when to commit resources)
+
+Faction Identity
+Cards should reflect their faction's themes, strengths, and weaknesses. For Mars Dominion, this means genetic enhancement, environmental adaptation, and physical superiority. The card should feel like it belongs in its faction through mechanics and flavor.
+Varied Power Levels
+Not every card needs to be a game-changer:
+
+Workhorses: Reliable, consistent performers that form the backbone of strategies
+Utility Cards: Provide specific functions that address particular situations
+Specialists: Excel in specific circumstances but may be less useful elsewhere
+Bombs: High-impact cards that can swing the game but come with appropriate costs
+
+Balanced Cost-to-Effect Ratio
+A card's cost should reflect its power level, but "good" doesn't always mean "efficient":
+
+Some cards are deliberately inefficient but offer unique effects
+Others are extremely efficient but narrow in application
+The most flexible cards often demand a premium in cost
+
+Synergy Potential
+Good cards become better in combination with others. They might:
+
+Benefit from specific support pieces
+Enable other cards to perform better
+Form part of an intentional strategic arc
+
+Memorable Character
+Cards should have personality through mechanics, art, and flavor text. They should be recognizable and create moments players remember, whether through dramatic game swings or consistent reliable performance.
+Clear Text and Intuitive Design
+Good cards have concise, unambiguous text that communicates exactly what they do without confusion. Complex effects should be worded as clearly as possible.
+Different Types of Good Cards
+
+Foundation Cards: Reliable, cost-effective units that provide consistent value
+Utility Specialists: Solve specific problems or counter particular strategies
+Force Multipliers: Enhance other cards rather than providing direct value
+Tempo Plays: Create immediate board impact to shift momentum
+Finishers: Close out games when conditions are right
+Engines: Generate increasing advantage over time
+Tech Cards: Narrow applications but extremely powerful in the right situation
+Flexibility Tools: Provide options and adaptability
+
+The best card designs don't try to do everything - they excel in their intended role while fitting into the broader game ecosystem. A card can be "good" by performing a simple function reliably, just as another card can be "good" by enabling dramatic, game-defining moments.

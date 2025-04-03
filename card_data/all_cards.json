@@ -1,0 +1,795 @@
+{
+  "Descendants": [
+    {
+      "Name": "Blitzjager",
+      "image name": "descendant_template_art.png",
+      "Translation": "Strike Hunter",
+      "Cost": "3m",
+      "Sex": "M",
+      "Race": "Marsdominium",
+      "Envirospec": "",
+      "Force": "2",
+      "Psyche": "1",
+      "Vector": "0",
+      "Sync": "2",
+      "Height": "203cm",
+      "Sign": "Drakora",
+      "ACTION:": "",
+      "Trait": "+1 FORCE in low-g environments."
+    },
+    {
+      "Name": "Blitzjager",
+      "image name": "blitzjager.png",
+      "Translation": "Strike Hunter",
+      "Cost": "3m",
+      "Sex": "M",
+      "Race": "Marsdominium",
+      "Envirospec": "low-g, no-g, breathable, vacuum",
+      "Force": "2",
+      "Psyche": "1",
+      "Vector": "0",
+      "Sync": "2",
+      "Height": "203cm",
+      "Sign": "Drakora",
+      "ACTION:": "",
+      "Trait": "Occupier (I may remain on an enemy holding after an attack if there are no defenders. While I'm there, that holding does not untap and loses all abilities.)\n+1 FORCE in low-g environments."
+    },
+    {
+      "Name": "Versteckter Soldat",
+      "image name": "verstekt_soldat.png",
+      "Translation": "Hidden Soldier",
+      "Cost": "3m",
+      "Sex": "",
+      "Race": "Marsdominium",
+      "Envirospec": "low-g, no-g, breathable, vacuum",
+      "Force": "2",
+      "Psyche": "1",
+      "Vector": "2",
+      "Sync": "2",
+      "Height": "",
+      "Sign": "Drakora",
+      "ACTION:": "",
+      "Trait": "Stealth (I'm unblockable except by descendants with greater or equal VECTOR)."
+    },
+    {
+      "Name": "Gravitrooper",
+      "image name": "gravitrooper.png",
+      "Translation": "Gravity Trooper",
+      "Cost": "3m",
+      "Sex": "M",
+      "Race": "Marsdominium",
+      "Envirospec": "low-g, no-g, breathable, vacuum",
+      "Force": "2",
+      "Psyche": "1",
+      "Vector": "0",
+      "Sync": "2",
+      "Height": "201cm",
+      "Sign": "Zenturi",
+      "ACTION:": "",
+      "Trait": "+1 FORCE low-g and no-g environments."
+    },
+    {
+      "Name": "Artillerietrooper",
+      "image name": "artillery_trooper.png",
+      "Translation": "Artillery",
+      "Cost": "4m",
+      "Sex": "",
+      "Race": "Marsdominium",
+      "Envirospec": "low-g, breathable",
+      "Force": "2",
+      "Psyche": "1",
+      "Vector": "2",
+      "Sync": "3",
+      "Height": "",
+      "Sign": "Zenturi",
+      "ACTION:": "",
+      "Trait": "Slow,\nWhen I attack, deal 1 FORCE/SYNC damage to any target at my battlefield."
+    },
+    {
+      "Name": "Geistpaher",
+      "image name": "geistpaher.png",
+      "Translation": "Mind Scout",
+      "Cost": "3m",
+      "Sex": "F",
+      "Race": "Marsdominium",
+      "Envirospec": "low-g, breathable",
+      "Force": "2",
+      "Psyche": "3",
+      "Vector": "0",
+      "Sync": "1",
+      "Height": "201cm",
+      "Sign": "Illuviel",
+      "ACTION:": "",
+      "Trait": "Nervous System Domination (I may make PSYCHE attacks. Find the difference between my PSYCHE and my target's below:\n0: Target doesn't attack this combat\n1: Target is killed.\n2: I choose how the target attacks this combat\n3: I gain control of the target until the end of your next turn.\n4: I gain permanent control of the target."
+    },
+    {
+      "Name": "Datenbrecher",
+      "image name": "datenbrecher.png",
+      "Translation": "Data Breaker",
+      "Cost": "2m",
+      "Sex": "M",
+      "Race": "Marsdominium",
+      "Envirospec": "low-g, breathable",
+      "Force": "1",
+      "Psyche": "1",
+      "Vector": "3",
+      "Sync": "1",
+      "Height": "198cm",
+      "Sign": "Zenturi",
+      "ACTION:": "",
+      "Trait": "Your other descendants get +1 VECTOR/SYNC."
+    },
+    {
+      "Name": "Gravitengenior",
+      "image name": "gravitengenior.png",
+      "Translation": "Gravity Engineer",
+      "Cost": "3m",
+      "Sex": "F",
+      "Race": "Marsdominium",
+      "Envirospec": "low-g, no-g, breathable, vacuum",
+      "Force": "2",
+      "Psyche": "1",
+      "Vector": "2",
+      "Sync": "1",
+      "Height": "203cm",
+      "Sign": "Tyluun",
+      "ACTION:": "",
+      "Trait": "When I attack, change my battlefield's gravity."
+    },
+    {
+      "Name": "Marsfeldherr",
+      "image name": "marsfeldherr.png",
+      "Translation": "Mars Commander",
+      "Cost": "3m",
+      "Sex": "M",
+      "Race": "Marsdominium",
+      "Envirospec": "low-g, no-g, breathable, vacuum",
+      "Force": "3",
+      "Psyche": "3",
+      "Vector": "0",
+      "Sync": "2",
+      "Height": "218cm",
+      "Sign": "Nemeon",
+      "ACTION:": "",
+      "Trait": "Occcupier (I may remain on an enemy holding after an attack if there are no defenders. While I'm there, that holding does not untap and loses all abilities.)\nWhen I attack, your other descendants get +1 FORCE and +1 SYNC."
+    },
+    {
+      "Name": "Marsdominus",
+      "image name": "marsdominus.png",
+      "Translation": "Mars Dominator",
+      "Cost": "5m",
+      "Sex": "M",
+      "Race": "Marsdominium",
+      "Envirospec": "low-g, no-g, breathable",
+      "Force": "4",
+      "Psyche": "2",
+      "Vector": "0",
+      "Sync": "1",
+      "Height": "226cm",
+      "Sign": "Illuviel",
+      "ACTION:": "",
+      "Trait": "Slow, Prevent all sources of 1 damage,\nOccupier (I may remain on an enemy holding after an attack if there are no defenders. While I'm there, that holding does not untap and loses all abilities.)"
+    },
+    {
+      "Name": "Kommandant Wolfgang",
+      "image name": "kommandant_wolfgang.png",
+      "Translation": "Commander Wolfgang",
+      "Cost": "5m",
+      "Sex": "M",
+      "Race": "Marsdominium",
+      "Envirospec": "low-g, no-g, breathable, vacuum",
+      "Force": "3",
+      "Psyche": "4",
+      "Vector": "1",
+      "Sync": "3",
+      "Height": "215cm",
+      "Sign": "Illuviel",
+      "ACTION:": "",
+      "Trait": "Conqueror (I can occupy an enemy territory with population. If I occupy a holding at the start of your turn, gain control of it.)\nWhen you gain control of a populated holding I occupied, you may sacrifice the population to gain that much materia."
+    },
+    {
+      "Name": "Kommandant Reinhart",
+      "image name": "kommandant_reinhart.png",
+      "Translation": "Commander Reinhart",
+      "Cost": "3m",
+      "Sex": "F",
+      "Race": "Marsdominium",
+      "Envirospec": "low-g, breathable",
+      "Force": "1",
+      "Psyche": "3",
+      "Vector": "2",
+      "Sync": "1",
+      "Height": "215cm",
+      "Sign": "Illuviel",
+      "ACTION:": "",
+      "Trait": "Tap, sacrifice a population: Create a Lurking Horror with \"Force 2, Psyche 1, Vector 0, Sync 3. Tap: Move to target vessel or holding and attack. No more than one unit may defend.\" Activate this ability only if I'm at a non-martian holding."
+    },
+    {
+      "Name": "Frau Doktor Volkova",
+      "image name": "frau_dr_volkova.png",
+      "Translation": "Dr Volkova",
+      "Cost": "2m",
+      "Sex": "F",
+      "Race": "Marsdominium",
+      "Envirospec": "low-g, breathable",
+      "Force": "1",
+      "Psyche": "2",
+      "Vector": "1",
+      "Sync": "2",
+      "Height": "215cm",
+      "Sign": "Illuviel",
+      "ACTION:": "",
+      "Trait": "Conqueror (I can occupy an enemy territory with population. If I occupy a holding at the start of your turn, gain control of it.)\nWhen you gain control of a holding with souls I occupied, sacrifice those souls. Each holding controlled by the player who controlled the holding loses X population, where X is the number of souls sacrificed."
+    }
+  ],
+  "Vessels": [
+    {
+      "Name": "Firebreather",
+      "image name": "firebreather.png",
+      "Cost": "4",
+      "Crew": "Pilot, Gunner, Garrison",
+      "Garrison": "1",
+      "Size": "1km",
+      "MAP": "Command, Weapons, Garrison",
+      "Sign": "Drakora",
+      "Force": "4",
+      "Psyche": "N/A",
+      "Vector": "2",
+      "Sync": "3",
+      "Effect": "Pilot.SYNC -> SYNC, Gunnner.FORCE -> FORCE,\nAttack again at SYNC 1."
+    },
+    {
+      "Name": "Palace of Heaven",
+      "image name": "palace_of_heaven.png",
+      "Cost": "4",
+      "Crew": "Pilot, Garrison",
+      "Garrison": "0",
+      "Size": "3km",
+      "MAP": "Hab-Ring, Command",
+      "Sign": "Illuviel",
+      "Force": "2",
+      "Psyche": "N/A",
+      "Vector": "3",
+      "Sync": "2",
+      "Effect": "At the end of your turn, draw two cards."
+    },
+    {
+      "Name": "Luftkampfer",
+      "image name": "luftkampfer.png",
+      "Cost": "2",
+      "Crew": "Pilot",
+      "Garrison": "0",
+      "Size": "15m",
+      "MAP": "Cockpit",
+      "Sign": "",
+      "Force": "2",
+      "Psyche": "N/A",
+      "Vector": "2",
+      "Sync": "4",
+      "Effect": "Pilot.SYNC -> SYNC"
+    },
+    {
+      "Name": "Red Ascension Array",
+      "image name": "red_ascension_array.png",
+      "Cost": "10",
+      "Crew": "4 (CLASSIFIED)",
+      "Garrison": "2",
+      "Size": "7km",
+      "MAP": "CLASSIFIED",
+      "Sign": "Normal",
+      "Force": "10",
+      "Psyche": "N/A",
+      "Vector": "4",
+      "Sync": "1",
+      "Effect": "Req. Souls: 4\nMass Destruction (This vessel can target holdings. When it deals damage to a holding, destroy it and all descendants, works, and population there.)"
+    },
+    {
+      "Name": "Tsiolkovsky's Bane",
+      "image name": "tsiolkovskys_bane.png",
+      "Cost": "5",
+      "Crew": "Pilot, Gunner, Garrison",
+      "Garrison": "0",
+      "Size": "1km",
+      "MAP": "Command, Weapons, Garrison",
+      "Sign": "Normal",
+      "Force": "4",
+      "Psyche": "N/A",
+      "Vector": "2",
+      "Sync": "4",
+      "Effect": "Slaver (if this ship would extinguish a soul, migrate that soul to a holding of your choice instead)."
+    },
+    {
+      "Name": "ECM Stealth Ship",
+      "image name": "ecm_stealth_ship.png",
+      "Cost": "3",
+      "Crew": "Pilot, Communications",
+      "Garrison": "0",
+      "Size": "150m",
+      "MAP": "",
+      "Sign": "Normal",
+      "Force": "2",
+      "Psyche": "N/A",
+      "Vector": "3",
+      "Sync": "3",
+      "Effect": "Stealth,\nWhen an opponent chooses a target, you may tap stealth ship to change the target (this includes attacks in combat)."
+    }
+  ],
+  "Fates": [
+    {
+      "Name": "Hunter-killer Missile",
+      "image name": "hunter_killer_missile.png",
+      "Cost": "3",
+      "Effect": "Deal two damage to one target"
+    },
+    {
+      "Name": "Collect Tribute",
+      "image name": "collect_tribute.png",
+      "Cost": "4",
+      "Effect": "Draw three cards."
+    },
+    {
+      "Name": "Beseech the Great Ones",
+      "image name": "beseech_the_great_ones.png",
+      "Cost": "4",
+      "Effect": "Return a vessel or descendant from the past to play."
+    },
+    {
+      "Name": "Accident",
+      "image name": "accident.png",
+      "Cost": "1",
+      "Effect": "Deal 1 damage to any target."
+    },
+    {
+      "Name": "Signal Jamming",
+      "image name": "signal_jamming.png",
+      "Cost": "3",
+      "Effect": "Deny target fate."
+    },
+    {
+      "Name": "Terror",
+      "image name": "terror.png",
+      "Cost": "3",
+      "Effect": "Return a descendant to its owner's hand."
+    },
+    {
+      "Name": "Panic",
+      "image name": "panic.png",
+      "Cost": "3",
+      "Effect": "The next time target enemy descendant or vessel is dealt damage this turn, it is destroyed."
+    },
+    {
+      "Name": "Expedition",
+      "image name": "expedition.png",
+      "Cost": "2",
+      "Effect": "Shuffle the System Deck and reveal four holdings, then Explore."
+    },
+    {
+      "Name": "Gain Ground",
+      "image name": "gain_ground.png",
+      "Cost": "2",
+      "Effect": "Gain control of target holding you occupy."
+    },
+    {
+      "Name": "Armageddon",
+      "image name": "armageddon.png",
+      "Cost": "6",
+      "Effect": "Destroy all descendants."
+    },
+    {
+      "Name": "Bioweapon",
+      "image name": "bioweapon.png",
+      "Cost": "5",
+      "Effect": "All holdings lose three souls."
+    },
+    {
+      "Name": "Pillaging",
+      "image name": "pillaging.png",
+      "Cost": "3",
+      "Effect": "Draw a card for every soul your descendants extinguished in combat this turn."
+    },
+    {
+      "Name": "Outmaneuver",
+      "image name": "outmaneuver.png",
+      "Cost": "2",
+      "Effect": "Target descendant or vessel gets +1 FORCE or +1 SYNC."
+    },
+    {
+      "Name": "Post-human Tenacity",
+      "image name": "posthuman_tenacity.png",
+      "Cost": "2",
+      "Effect": "Regenerate target descendant."
+    }
+  ],
+  "Works": [
+    {
+      "Name": "Materia Mine",
+      "image name": "materia_mine.png",
+      "Cost": "4",
+      "Effect": "Increase Materia production on this holding by 1 for every 3 souls."
+    },
+    {
+      "Name": "Data Nexus",
+      "image name": "data_nexus.png",
+      "Cost": "3",
+      "Effect": "Increase Data production on this holding by 1 for every 2 souls."
+    },
+    {
+      "Name": "Anima Condenser",
+      "image name": "anima_condenser.png",
+      "Cost": "3",
+      "Effect": "Increase Anima production on this holding by 1 for every 2 souls."
+    },
+    {
+      "Name": "Resource Amplifier",
+      "image name": "resource_amplifier.png",
+      "Cost": "3",
+      "Effect": "Choose an element and double this holding's production of it."
+    },
+    {
+      "Name": "Defense Grid",
+      "image name": "defense_grid.png",
+      "Cost": "3",
+      "Effect": "Your holdings get +1 garrison and your descendants defending them get +1 SYNC."
+    },
+    {
+      "Name": "Cloning Tower",
+      "image name": "cloning_tower.png",
+      "Cost": "4",
+      "Effect": "At the start of your turn, add 1m souls to this holding, then you may turn one of your descendants into a copy of another descendant you control."
+    },
+    {
+      "Name": "Hardened Bunker",
+      "image name": "hardened_bunker.png",
+      "Cost": "3",
+      "Effect": "This holding gets +6 garrison."
+    },
+    {
+      "Name": "Advanced R&D Center",
+      "image name": "advanced_r&d_center.png",
+      "Cost": "3",
+      "Effect": "At the start of your next turn, all descendants you control gain Phase Dispersion Rifles. They can attack an opponent's PSYCHE with FORCE."
+    },
+    {
+      "Name": "Teleportation Station",
+      "image name": "teleportation_station.png",
+      "Cost": "3",
+      "Effect": "At the beginning of each combat, you may move one of your descendants to the top of the SYNC array."
+    },
+    {
+      "Name": "Hyperspace Conduit",
+      "image name": "hyperspace_conduit.png",
+      "Cost": "2",
+      "Effect": "Once per turn, you may move a descendant or vessel between this holding and another you control at light speed."
+    },
+    {
+      "Name": "Reproduction World",
+      "image name": "reproduction_world.png",
+      "Cost": "2",
+      "Effect": "You may take an additional Populate action on each of your turns."
+    },
+    {
+      "Name": "Observatory",
+      "image name": "observatory.png",
+      "Cost": "3",
+      "Effect": "Draw a card at the start of your turn."
+    },
+    {
+      "Name": "Megafactory",
+      "image name": "megafactory.png",
+      "Cost": "3",
+      "Effect": "At the start of your turn, draw a card for every three souls on this holding."
+    },
+    {
+      "Name": "Generation Ship",
+      "image name": "generation_ship.png",
+      "Cost": "3",
+      "Effect": "Tap, sacrifice two souls: Explore."
+    },
+    {
+      "Name": "Human Recomposition Zone",
+      "image name": "recomposition_zone.png",
+      "Cost": "4",
+      "Effect": "Tap, sacrifice all the souls on this holding: draw that many cards.\nBuild this work only on a non-martian holding."
+    },
+    {
+      "Name": "Mobile Headquarters",
+      "image name": "mobile_headquarters.png",
+      "Cost": "3",
+      "Effect": "Tap: units that attack from or defend this holding this turn get +1 FORCE/SYNC.\n1m: Move the mobile HQ to a holding you control or occupy."
+    },
+    {
+      "Name": "Neue Berlin Institute of Genomics",
+      "image name": "institute_of_genomics.png",
+      "Cost": "5",
+      "Effect": "Tap, sacrifice a descendant: search your deck for a descendant and put them into play. They gain \"slow\". Activate this ability at pre-warp speed."
+    }
+  ],
+  "Holdings": [
+    {
+      "Name": "The Berlin Anomaly",
+      "image name": "the_berlin_anomaly.png",
+      "Body": "Earth",
+      "Environment": "low-g",
+      "Garrison": "0",
+      "Population": "8",
+      "Resource": "Materia",
+      "Effect": "When The Berlin Anomaly enters, each player chooses a card from outside the game and exiles them face down under The Berlin Anomoly. \nSacrifice one million souls: Take one of the exiled cards at random and put it into your hand.",
+      "": ""
+    },
+    {
+      "Name": "Sanctuary Zone Alpha",
+      "image name": "sanctuary_zone_alpha.png",
+      "Body": "Earth",
+      "Environment": "Earth-g",
+      "Garrison": "0",
+      "Population": "8",
+      "Resource": "Materia",
+      "Effect": "Take an additional populate action on each of your turns.",
+      "": ""
+    },
+    {
+      "Name": "CEC-Prime",
+      "image name": "cec_prime.png",
+      "Body": "Earth",
+      "Environment": "Earth-g",
+      "Garrison": "0",
+      "Population": "6",
+      "Resource": "Materia",
+      "Effect": "At the start of your turn, up to one unit stationed here permanently gains Mental Fortitude (they may defend against FORCE attacks with PSYCHE).",
+      "": ""
+    },
+    {
+      "Name": "Project BLACKLIGHT Facility",
+      "image name": "project_blacklight_facility.png",
+      "Body": "Earth",
+      "Environment": "Earth-g",
+      "Garrison": "1",
+      "Population": "6",
+      "Resource": "Data",
+      "Effect": "At the start of your turn, up to one unit stationed here becomes unblockable until end of turn.",
+      "": ""
+    },
+    {
+      "Name": "Free Earth Confederation Territory",
+      "image name": "free_earth_confederation_territory.png",
+      "Body": "Earth",
+      "Environment": "Earth-g",
+      "Garrison": "1",
+      "Population": "6",
+      "Resource": "Materia",
+      "Effect": "Take an additional Populate action on each of your turns.",
+      "": ""
+    },
+    {
+      "Name": "Kaufmann-Engel Manifestation Zone",
+      "image name": "kaufmann_engel_manifestation_zone.png",
+      "Body": "Earth",
+      "Environment": "Earth-g",
+      "Garrison": "0",
+      "Population": "6",
+      "Resource": "Data",
+      "Effect": "Descendants with 2 or more PSYCHE or VECTOR quartered here may weave Fates as if they were in any combat, and for 1 less.",
+      "": ""
+    },
+    {
+      "Name": "Himmelsburg Orbital Habitat",
+      "image name": "himmelsburg_orbital_habitat.png",
+      "Body": "Earth",
+      "Environment": "Vacuum",
+      "Garrison": "2",
+      "Population": "6",
+      "Resource": "Materia",
+      "Effect": "When a player takes the Explore action, you may pay tap an untapped vessel you control to contest it.",
+      "": ""
+    },
+    {
+      "Name": "Europa Deep Drilling Station",
+      "image name": "europa_deep_drilling_station.png",
+      "Body": "Jupiter",
+      "Environment": "Low-g",
+      "Garrison": "0",
+      "Population": "4",
+      "Resource": "Materia",
+      "Effect": "Exploring this holding or moving a unit here, including to attack, costs 1m.\nProduces one additional materia.",
+      "": ""
+    },
+    {
+      "Name": "The Kuiper Belt Array",
+      "image name": "the_kuiper_belt_array.png",
+      "Body": "Kuiper Belt",
+      "Environment": "Vacuum",
+      "Garrison": "0",
+      "Population": "6",
+      "Resource": "Data",
+      "Effect": "At the start of your turn, your descendants here gain +1 SYNC until end of turn.",
+      "": ""
+    },
+    {
+      "Name": "The Lazarite Planetoid",
+      "image name": "the_lazarite_planetoid.png",
+      "Body": "Kuiper Belt",
+      "Environment": "Vacuum",
+      "Garrison": "0",
+      "Population": "4",
+      "Resource": "Materia",
+      "Effect": "Your vessels and descendants deployed here can move and attack at lightspeed.",
+      "": ""
+    },
+    {
+      "Name": "Mondreich",
+      "image name": "mondreich.png",
+      "Body": "Luna",
+      "Environment": "Low-g",
+      "Garrison": "1",
+      "Population": "6",
+      "Resource": "Data",
+      "Effect": "Descendants here get +1 SYNC when they attack or defend Earth.",
+      "": ""
+    },
+    {
+      "Name": "OLYMPUS Lunar Facility",
+      "image name": "olympus_lunar_facility.png",
+      "Body": "Luna",
+      "Environment": "Low-g",
+      "Garrison": "4",
+      "Population": "1",
+      "Resource": "Materia",
+      "Effect": "Capped at 1m souls.",
+      "": ""
+    },
+    {
+      "Name": "Hydrogen Refueling Station Alpha",
+      "image name": "refueling_station_alpha.png",
+      "Body": "Luna",
+      "Environment": "Low-g",
+      "Garrison": "0",
+      "Population": "4",
+      "Resource": "Materia",
+      "Effect": "Costs 1m to explore. This holding produces one additional materia. Any damage dealt to a work on this holding is enough to destroy it.",
+      "": ""
+    },
+    {
+      "Name": "Neue Berlin",
+      "image name": "neue_berlin.png",
+      "Body": "Mars",
+      "Environment": "Low-g",
+      "Garrison": "0",
+      "Population": "8",
+      "Resource": "Materia",
+      "Effect": "When I hit 10 souls for the first time, search for a 3 or less cost descendant and station it here.",
+      "": ""
+    },
+    {
+      "Name": "Phobos Command",
+      "image name": "phobos_command.png",
+      "Body": "Mars",
+      "Environment": "Low-g",
+      "Garrison": "1",
+      "Population": "6",
+      "Resource": "Materia",
+      "Effect": "Units quartered here get +1 FORCE when attacking or defending a Martian holding.",
+      "": ""
+    },
+    {
+      "Name": "Red Legion Training Complex",
+      "image name": "red_legion_training_complex.png",
+      "Body": "Mars",
+      "Environment": "Low-g",
+      "Garrison": "1",
+      "Population": "4",
+      "Resource": "Materia",
+      "Effect": "Tap: Add +2 Garrison until end of combat.",
+      "": ""
+    },
+    {
+      "Name": "Valles Marineris Deep Sanctuary",
+      "image name": "marineris_deep_sanctuary.png",
+      "Body": "Mars",
+      "Environment": "Low-g",
+      "Garrison": "0",
+      "Population": "6",
+      "Resource": "Materia",
+      "Effect": "When this holding is attacked, you may sacrifice 1 million souls to activate 'Downward Protocol' (prevent all damage to this holding this combat, its maximum souls becomes two).",
+      "": ""
+    },
+    {
+      "Name": "Olympus Mons Disruption Zone",
+      "image name": "olympus_mons_disruption_zone.png",
+      "Body": "Mars",
+      "Environment": "Low-g",
+      "Garrison": "0",
+      "Population": "6",
+      "Resource": "Materia",
+      "Effect": "The electromagnetic disruption from the Red Ascension Array's destruction shields your units from detection. Units stationed here cannot be targeted by enemy Fates unless the controller pays 2 additional resources. Vessels launched from this holding enter combat with Stealth until their first attack.",
+      "": ""
+    },
+    {
+      "Name": "Ares Fabrication Complex",
+      "image name": "ares_fabrication_complex.png",
+      "Body": "Mars",
+      "Environment": "Low-g",
+      "Garrison": "0",
+      "Population": "4",
+      "Resource": "Materia",
+      "Effect": "Costs 1 to explore. This holding adds one additional materia. At the start of your turn, extinguish one soul here.",
+      "": ""
+    },
+    {
+      "Name": "Mercury Solar Arrays",
+      "image name": "mercury_solar_arrays.png",
+      "Body": "Mercury",
+      "Environment": "Vacuum",
+      "Garrison": "0",
+      "Population": "6",
+      "Resource": "Materia",
+      "Effect": "Costs 1 to explore. This holding is capped at one million souls.\nProduces two materia.",
+      "": ""
+    },
+    {
+      "Name": "New Plymouth",
+      "image name": "new_plymouth.png",
+      "Body": "Titan",
+      "Environment": "Vacuum",
+      "Garrison": "0",
+      "Population": "6",
+      "Resource": "Data",
+      "Effect": "You may pay 2 and discard a Fate card to gain control of an opponent's Fate card. You may choose new targets for it.",
+      "": ""
+    },
+    {
+      "Name": "Secret Base",
+      "image name": "secret_base.png",
+      "Body": "Tsiokovsky Belt",
+      "Environment": "Vacuum",
+      "Garrison": "0",
+      "Population": "4",
+      "Resource": "Data",
+      "Effect": "Descendants attacking from this holding get +1 SYNC and +1 FORCE.",
+      "": ""
+    },
+    {
+      "Name": "Thule Collective Meditation Hub",
+      "image name": "thule_collective_meditation_hub.png",
+      "Body": "Tsiolkovsky Belt",
+      "Environment": "Earth-g",
+      "Garrison": "0",
+      "Population": "6",
+      "Resource": "Materia",
+      "Effect": "At the start of your turn, choose a unit stationed here. Their PSYCHE increases by 1 permanently. Then, if their PSYCHE is 5, create two copies of them with quantum-entangled PSYCHE attributes (if one's PSYCHE is reduced to zero, all's are.)",
+      "": ""
+    },
+    {
+      "Name": "Ceres Diplomatic Station",
+      "image name": "ceres_diplomatic_station.png",
+      "Body": "Tsiolkovsky Belt",
+      "Environment": "Earth-g",
+      "Garrison": "0",
+      "Population": "8",
+      "Resource": "Materia",
+      "Effect": "With the controller's choice, any descendant may travel here at lightspeed.",
+      "": ""
+    },
+    {
+      "Name": "Crimson Hollow",
+      "image name": "crimson_hollow.png",
+      "Body": "Tsiolkovsky Belt",
+      "Environment": "Vacuum",
+      "Garrison": "0",
+      "Population": "0",
+      "Resource": "none",
+      "Effect": "Costs 8m to explore. \n\nWhen a descendant first enters this holding, create Tsiolkovsky's Bane and gain control of it.",
+      "": "“Once hidden in the outer debris of a collapsed moon, Crimson Hollow was the secret fortress of Admiral Varkas Korr, the most feared pirate of the Lost Cycle. Said to be carved from the husk of a slain celestial beast, the asteroid holds the wreckage of hundreds of raided ships—and, buried deep within, the intact bridge of Korr’s mythic vessel, Tsiolkovsky's Bane, a heavily-modified Firebreather.”"
+    },
+    {
+      "Name": "The Venus Quarantine Zone",
+      "image name": "the_venus_quarantine_zone.png",
+      "Body": "Venus",
+      "Environment": "Earth-g",
+      "Garrison": "1",
+      "Population": "4",
+      "Resource": "Data",
+      "Effect": "At the start of your turn, up to one unit stationed here gains the Venusian attribute (1a: switch places with another Venusian).",
+      "": ""
+    }
+  ]
+}

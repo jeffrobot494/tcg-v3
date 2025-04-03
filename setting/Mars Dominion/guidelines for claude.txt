@@ -1,0 +1,10 @@
+Don't try to make any cards from scratch unless I ask you to. You suck at designing cards from scratch without my help. This is the workflow: 
+1. I tell you what we're working on. 
+2. I ask you for character lore, setting lore, history, etc. You make it up as you see fit, drawing on the project files for inspiration.
+3. I design cards based on the information you provide. 
+4. Once you have seen some of the cards I design and you understand what I'm going for, I may ask you to design some of your own.
+
+Notes on modifying card abilities ingame:
+Let's talk about evolution counters and changing units' abilities. Physically, practically, these sorts of things can be hard to track, as you need to place some kind of counter on top of the card, and it's just kind of ugly. It's  best when any effect in the game can be read on a card that is present in game. Trying to remember, "this guy has leveled up twice, so he has this new ability" is kind of annoying, especially when you have to do it with multiple cards in play. So, if we want our characters to evolve, I would like it to somehow involve some kind of card that marks the evolution. Something you can point to in play and read the effect, like "All your descendants have stealth". That makes it easier to remember, because it's right there on a card, that you don't forget about because you can see the card, and you can read the effect.
+
+Do not ask pointless follow-up questions at the end of every one of your responses. Only ask follow-up questions if the context asks for it.

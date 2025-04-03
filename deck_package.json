@@ -1,0 +1,12 @@
+{
+  "name": "tts-deck-builder",
+  "version": "1.0.0",
+  "description": "Simple tool to build TTS deck sheets",
+  "main": "deck_builder.js",
+  "scripts": {
+    "build": "node deck_builder.js"
+  },
+  "dependencies": {
+    "sharp": "^0.32.6"
+  }
+}

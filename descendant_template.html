@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>War for the Stars - Descendant Card Template</title>
+    <script>
+    // Function removed (was simulateBootSequence)
+    
+    // Function removed (was startTerminalEffects)
+    
+    // Function to load the card data when the page loads
+    window.addEventListener('DOMContentLoaded', async function() {
+        try {
+            // Fetch the JSON data
+            const response = await fetch('../card_data/all_cards.json');
+            const data = await response.json();
+            
+            // Get the first descendant card
+            const firstDescendant = data.Descendants[0];
+            
+            // Populate the template with the data
+            document.getElementById('cardName').textContent = firstDescendant.Name || '';
+            document.getElementById('cardTranslation').textContent = firstDescendant.Translation || '';
+            
+            // Set card image if available
+            const imgPath = firstDescendant["image name"] ? `../card_art/${firstDescendant["image name"]}` : '';
+            if (imgPath) {
+                document.getElementById('cardImage').src = imgPath;
+                document.getElementById('cardImage').alt = firstDescendant.Name || '';
+            }
+            
+            // Set stat values
+            document.getElementById('statForce').textContent = firstDescendant.Force || '0';
+            document.getElementById('statPsyche').textContent = firstDescendant.Psyche || '0';
+            document.getElementById('statVector').textContent = firstDescendant.Vector || '0';
+            document.getElementById('statSync').textContent = firstDescendant.Sync || '0';
+            
+            // Set description fields
+            document.getElementById('cardRace').textContent = firstDescendant.Race || '';
+            document.getElementById('cardHeight').textContent = firstDescendant.Height || '';
+            document.getElementById('cardSex').textContent = firstDescendant.Sex || '';
+            document.getElementById('cardSign').textContent = firstDescendant.Sign || '';
+            
+            // Set action and trait texts
+            document.getElementById('cardAction').textContent = firstDescendant["ACTION:"] || '';
+            document.getElementById('cardTrait').textContent = firstDescendant.Trait || '';
+            
+            // Set flavor text
+            document.getElementById('cardFlavor').textContent = firstDescendant.Flavor || '';
+            
+            // Set cost as a data attribute on the title element
+            const titleElement = document.getElementById('cardName');
+            if (titleElement) {
+                titleElement.setAttribute('data-cost', firstDescendant.Cost || '');
+            }
+            
+            // Handle sex indicator
+            const sexIndicator = document.querySelector('.sex-indicator');
+            if (firstDescendant.Sex === 'M') {
+                sexIndicator.classList.add('male');
+            } else if (firstDescendant.Sex === 'F') {
+                sexIndicator.classList.add('female');
+            }
+            
+            // Show/hide containers based on data
+            if (firstDescendant["ACTION:"]) {
+                document.getElementById('actionContainer').style.display = 'block';
+            } else {
+                document.getElementById('actionContainer').style.display = 'none';
+            }
+            
+            if (firstDescendant.Trait) {
+                document.getElementById('traitContainer').style.display = 'block';
+            } else {
+                document.getElementById('traitContainer').style.display = 'none';
+            }
+            
+            // Update title size based on length (already got titleElement above)
+            if (titleElement) {
+                const titleLength = titleElement.textContent.length;
+                
+                let fontSize = 18;
+                if (titleLength > 35) {
+                    fontSize = 14;
+                } else if (titleLength > 25) {
+                    fontSize = 16;
+                }
+                titleElement.style.fontSize = fontSize + 'px';
+            }
+            
+            // Immediately show the card content
+            const cardContent = document.querySelector('.card-content');
+            cardContent.style.opacity = '1';
+            
+            console.log('Card data loaded successfully!');
+        } catch (error) {
+            console.error('Error loading card data:', error);
+        }
+    });
+    
+    // Set stat bars after loading data
+    document.addEventListener('DOMContentLoaded', function() {
+        // Set stat bars based on values after a small delay to ensure data is loaded
+        setTimeout(() => {
+            const setStatBar = (statId, barId, maxVal = 5) => {
+                const statValue = parseInt(document.getElementById(statId).textContent) || 0;
+                const barElem = document.getElementById(barId);
+                const width = Math.min(statValue, maxVal) * 10; // 10px per point, max 5 points
+                barElem.style.width = width + 'px';
+            };
+            
+            // Set all stat bars
+            setStatBar('statForce', 'forceBar');
+            setStatBar('statPsyche', 'psycheBar');
+            setStatBar('statVector', 'vectorBar');
+            setStatBar('statSync', 'syncBar');
+        }, 500); // Small delay to ensure data is loaded
+    });
+    </script>
+    <style>
+        body {
+            background: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: "Courier New", monospace;
+        }
+        
+        .card {
+            width: 300px;
+            height: 420px;
+            position: relative;
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(0, 150, 50, 0.3);
+            overflow: hidden;
+            background-color: #042;
+        }
+        
+        /* Boot screen removed */
+        
+        /* Card content wrapper to ensure content appears above border */
+        .card-content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 20;
+            /* Ensure content is properly contained */
+            overflow: hidden;
+            border-radius: 12px;
+            background-color: #031;
+        }
+        
+        /* Modified card border to be part of the console design */
+        .card-border {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #031;
+            border: 2px solid #2a2;
+            opacity: 0.9;
+            z-index: 5;
+            pointer-events: none;
+            border-radius: 12px;
+            box-shadow: inset 0 0 20px rgba(0, 100, 0, 0.4);
+        }
+        
+        /* Unified monitor background that covers the entire card */
+        .monitor-background {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0,20,10,0.9) 0%, rgba(4,20,20,0.8) 30%, rgba(4,20,20,0.8) 70%, rgba(0,20,10,0.9) 100%);
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            z-index: 10;
+            box-shadow: 
+                inset 0 0 15px rgba(0, 150, 50, 0.3),
+                inset 0 0 30px rgba(0, 50, 0, 0.5);
+            border: 1px solid rgba(0, 150, 50, 0.5);
+        }
+        
+        /* Terminal cursor removed */
+        
+        /* Scan line removed */
+        
+        .scanlines {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                to bottom,
+                transparent 0%,
+                rgba(0, 0, 0, 0.2) 50%,
+                transparent 51%,
+                rgba(0, 0, 0, 0.2) 100%
+            );
+            background-size: 100% 8px; /* Lower resolution scanlines */
+            z-index: 2;
+        }
+        
+        .glow {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            box-shadow: inset 0 0 60px rgba(0, 100, 50, 0.3);
+            z-index: 1;
+        }
+        
+        /* Console header with prompt style */
+        .title-box {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            height: 25px;
+            display: flex;
+            align-items: center;
+            z-index: 15;
+            border-bottom: 1px solid rgba(0, 150, 50, 0.3);
+            padding-bottom: 5px;
+        }
+        
+        .title {
+            color: #3f3;
+            font-size: 16px;
+            font-weight: bold;
+            text-align: left;
+            width: 100%;
+            text-shadow: 0 0 5px rgba(50, 150, 50, 0.6);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-family: "Courier New", monospace;
+            position: relative;
+            z-index: 16;
+            opacity: 0.95;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        
+        /* Display cost before title */
+        .title::before {
+            content: attr(data-cost);
+            color: #4f4;
+            font-size: 14px;
+            font-weight: bold;
+            text-shadow: 0 0 5px rgba(50, 150, 50, 0.8);
+            margin-right: 10px;
+            background: rgba(0, 30, 0, 0.6);
+            padding: 2px 6px;
+            border-radius: 4px;
+            border: 1px solid rgba(0, 100, 0, 0.5);
+        }
+        
+        /* Terminal line added to top right */
+        .terminal-line {
+            position: absolute;
+            top: 12px;
+            right: 90px;
+            font-size: 8px;
+            color: #3f3;
+            font-family: "Courier New", monospace;
+            opacity: 0.7;
+        }
+        
+        /* Console-style image viewport */
+        .image-frame {
+            position: absolute;
+            top: 45px;
+            left: 10px;
+            right: 10px;
+            height: 180px;
+            border: 1px solid #2a2;
+            border-radius: 5px;
+            overflow: hidden;
+            z-index: 10;
+            box-shadow: inset 0 0 8px rgba(0, 80, 0, 0.3);
+            background: #000;
+        }
+        
+        /* Image frame status indicator */
+        .image-status {
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            font-size: 7px;
+            color: #3f3;
+            background: rgba(0, 20, 0, 0.6);
+            padding: 2px 4px;
+            border-radius: 2px;
+            z-index: 12;
+            text-shadow: 0 0 2px rgba(0, 150, 50, 0.7);
+        }
+        
+        .card-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.9) contrast(1.1) sepia(0.1) hue-rotate(20deg);
+            opacity: 0.9;
+            background-color: #000;
+        }
+        
+        /* Terminal-style scanlines over image */
+        .image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                to bottom,
+                rgba(0, 0, 0, 0.1) 0px,
+                rgba(0, 0, 0, 0.1) 1px,
+                transparent 1px,
+                transparent 2px
+            );
+            box-shadow: inset 0 0 20px rgba(0, 150, 50, 0.2);
+            z-index: 11;
+            pointer-events: none;
+        }
+        
+        /* Console-style text area */
+        .text-box {
+            position: absolute;
+            top: 235px;
+            left: 10px;
+            right: 10px;
+            bottom: 10px;
+            border-top: 1px solid #2a2;
+            background: rgba(0, 15, 0, 0.2);
+            padding: 10px;
+            box-sizing: border-box;
+            z-index: 10;
+            overflow-y: auto;
+        }
+        
+        /* Terminal status line */
+        .terminal-status {
+            position: absolute;
+            top: 235px;
+            left: 15px;
+            right: 15px;
+            height: 15px;
+            font-size: 7px;
+            color: #2a2;
+            display: flex;
+            justify-content: space-between;
+            z-index: 11;
+        }
+        
+        /* Terminal output style overlay */
+        .text-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: repeating-linear-gradient(
+                to bottom,
+                rgba(0, 0, 0, 0.05) 0px,
+                rgba(0, 0, 0, 0.05) 1px,
+                transparent 1px,
+                transparent 2px
+            );
+            pointer-events: none;
+            z-index: 2;
+            opacity: 0.7;
+        }
+        
+        .text-content {
+            color: #3f3;
+            font-size: 10px;
+            line-height: 1.3;
+            text-shadow: 0 0 5px rgba(50, 150, 50, 0.4);
+            position: relative;
+            z-index: 3;
+            font-family: 'Courier New', monospace;
+            opacity: 0.95;
+        }
+        
+        /* Console command prefix for sections */
+        .text-content > div {
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 10px;
+        }
+        
+        .text-content > div::before {
+            content: ">";
+            color: #4a4;
+            font-size: 10px;
+            opacity: 0.7;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        
+        .stats {
+            margin: 8px 0;
+            font-size: 9px;
+            color: #4f4;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-shadow: 0 0 5px rgba(50, 150, 50, 0.6);
+            position: relative;
+            z-index: 3;
+            line-height: 1.3;
+        }
+        
+        .grid {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                linear-gradient(rgba(0, 100, 50, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 100, 50, 0.05) 1px, transparent 1px);
+            background-size: 30px 30px; /* Larger grid size for older look */
+            z-index: 1;
+        }
+        
+        /* Flicker effect removed */
+        
+        /* Add some noise texture */
+        .noise {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNSR0IArs4c6QAABBlJREFUaEPtmcuPHEUQh7+sZ3Zrr/Fj1+CQJSYkshHiEBCICAkhgTgAEhxBQuIvRYIDEnCAgxEiEiBeEhICWbE2fqy9687O43dVx1RNVXVXVXfP+IASLbmnu2e6v/giIiO6Wghd1WqRGhCvpV3XcAy2gJuAu4CPAO3X76vAEnBdz432f3KNHaQFuA14FXgB2AW8DTwHfA58DDwJvAK8AjwPLAL/VQHTVphR4H7gfeA54JCCHAHWAL8Gzx1gA9gDXAOsZpjeEu4Hfik7rl0woZX2AT8Cu4FvgVvkJYXQ39MpRTl11d+i38UZudcO/w34HHii+AatgonB6O9/By4EP34l+4jb/6xLVTaDGMd30YqxBPwCfGUBmoUxGJ2p37nrVXMWHgaeAb4BfjOb0SwYg9H5+B34rprZi0etQ1PvJHCHdWQzYAzmdLCwFw+dbKB35U1g1jqwWTDrwIFCU0nGD2JbYS6q/m+d+qsC5DmwCdN2ahW1ljtHLdNEE+ZCoX67YApgtHqc64JGxpQBc5UG03Zt1m3arGs6n0m4t0q/WkNcvUWYc5pxumCKMCHzLG5TqDM1xq1xJswX1kBNhKs1CzMrm9S1AvtSr6uZrg84q+Hkht+BL0sG1jzMjEb8LlXgXMTwFi2RdWUFOAA8AzxdUvK2APOPWl4r3GjB8XuM5RXMPcCNZcWdrYAZA2aAnFq23h0dO4FD2u0GPGI/2wkwl+QKM39d1FLT7BbgesOkJ8wEaA9wZCfCSNP4FvhWYV4sOz+5zzUt4BTwXvDo0u/HMHqRTwBPRVbA5zXDdDRKs9LnFM5pcRtAOvlHpNm5+tSZQxKPl4G7dNWzrE4fHSBZG4AxOZcHWlLrbLaxcEBaZpXQF0rNX4E/rSG686SbOcuASS5HLiw1J0NtU2IpzV0VnrfwSkUEJjMUa8l0F5gHXGg+qDGh6KmPk5YyTQFLOh6a3tDIZGEG/CfKgXlkPWVtVXUZjwC7ij8vBRO0JYvDuClj4Zx52FJmFXgO+KiQe1UxVp6VTFrMTDarxUCq67wdZl43KzFpOiItKX6L9ZJtgFPO1jnNBq1g+8eqzWUNyM1K29+mGfQE8Jg7yZgHwgZMk6I2nGaVXdQnfvPUBaZ2mNguGhjtUEtdMdKCMWk7lT9VAoW4QDZa8GnG/KLd+UGhUW8QU+GjWbWbp9gqtjebN5kcVJNELU7sRrPB8bxWqsvAzEZqG80ztbrJEyfMoTgB1QqCJ1pbZa2RUspbPGDcmZALG0oqeM0i/Z2ZU2a8RhjnFvKb8LDMaCFdm6XGW0qhwMoFowHlgYVGqTrLwmA8WKS80rYX6dtplr2v1eRsZXcwPpNLKYHGaqz/lBPJNSBei15rdZtIacavOQa+Rq8t1WIzd9Ryrw+A/g80FUQi/GHNcAAAAABJRU5ErkJggg==');
+            opacity: 0.05;
+            z-index: 3;
+            pointer-events: none;
+        }
+        
+        /* Horizontal distortion removed */
+        
+        /* Image scanline effect */
+        .image-scanlines {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                to bottom,
+                rgba(0, 0, 0, 0.2) 0%,
+                rgba(0, 0, 0, 0) 50%,
+                rgba(0, 0, 0, 0.2) 100%
+            );
+            background-size: 100% 4px;
+            z-index: 3;
+            pointer-events: none;
+        }
+        
+        /* German text flicker styles */
+        .english-text {
+            display: block;
+        }
+        
+        .german-text {
+            display: none;
+        }
+        
+        /* Card type as running process indicator */
+        .card-type {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 8px;
+            color: #3f3;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            z-index: 15;
+            text-shadow: 0 0 3px rgba(50, 150, 50, 0.6);
+            padding: 2px 5px;
+            background: rgba(0, 50, 0, 0.3);
+            border-radius: 3px;
+            border: 1px solid rgba(0, 100, 0, 0.3);
+        }
+        
+        /* System info indicator */
+        .system-info {
+            position: absolute;
+            top: 35px;
+            right: 10px;
+            font-size: 6px;
+            color: #3f3;
+            z-index: 15;
+            opacity: 0.6;
+            text-align: right;
+        }
+        
+        /* Cost display styling moved to title::before */
+        
+        /* Faction emblem */
+        .faction-emblem {
+            position: absolute;
+            bottom: 10px;
+            right: 15px;
+            width: 20px;
+            height: 20px;
+            z-index: 15;
+            opacity: 0.8;
+        }
+
+        /* Descendant-specific styling */
+        /* Force/Psyche/Vector/Sync stats display */
+        .descendant-stats {
+            margin-bottom: 8px;
+            font-size: 9px;
+            color: #4f4;
+            font-weight: bold;
+            text-shadow: 0 0 5px rgba(50, 150, 50, 0.6);
+            pointer-events: none; /* So it doesn't interfere with other elements */
+            line-height: 1.2;
+        }
+
+        .descendant-stats .stat {
+            margin: 1px 0;
+            position: relative;
+        }
+
+        /* Added terminal-style progress bars for stats */
+        .stat-bar {
+            display: inline-block;
+            height: 5px;
+            background: linear-gradient(to right, #3f3, #3f3);
+            margin-left: 5px;
+            position: relative;
+            top: 0px;
+            border-radius: 1px;
+            box-shadow: 0 0 3px rgba(50, 150, 50, 0.4);
+        }
+
+        /* Sign and Height display */
+        .descendant-details {
+            margin-top: 5px;
+            font-size: 8px;
+            color: #3f3;
+            text-shadow: 0 0 5px rgba(50, 150, 50, 0.4);
+            font-style: italic;
+        }
+
+        /* Sex indicator dot */
+        .sex-indicator {
+            position: absolute;
+            top: 245px;
+            right: 20px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            z-index: 11;
+        }
+        
+        .sex-indicator.male {
+            background-color: #4a4;
+            box-shadow: 0 0 5px rgba(50, 200, 50, 0.7);
+        }
+        
+        .sex-indicator.female {
+            background-color: #a44;
+            box-shadow: 0 0 5px rgba(200, 50, 50, 0.7);
+        }
+        
+        /* Bottom status bar */
+        .status-bar {
+            position: absolute;
+            bottom: 5px;
+            left: 10px;
+            right: 10px;
+            height: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 6px;
+            color: #3a3;
+            z-index: 16;
+        }
+        
+        .status-indicator {
+            display: inline-block;
+            width: 4px;
+            height: 4px;
+            background-color: #3f3;
+            border-radius: 50%;
+            margin-right: 3px;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="card-border"></div>
+        <div class="card-content">
+            <div class="monitor-background">
+                <div class="grid"></div>
+                <div class="scanlines"></div>
+                <div class="glow"></div>
+                <div class="noise"></div>
+                
+                <!-- Card type as process -->
+                <div class="card-type">DESCENDANT</div>
+                
+                <!-- Cost display integrated with title -->
+                
+                <!-- Terminal information line moved below title -->
+                <div class="terminal-line" style="position: absolute; top: 38px; left: 12px; font-size: 8px; color: #3f3; opacity: 0.7;">MARS-ID://35629-1</div>
+                
+                <!-- System info -->
+                <div class="system-info">
+                    <div>MARS-NET SECURE</div>
+                    <div>KERNEL v4.8.5</div>
+                </div>
+                
+                <div class="title-box">
+                    <div id="cardName" class="title english-text"></div>
+                    <div id="cardTranslation" class="title german-text"></div>
+                </div>
+                
+                <div class="image-frame">
+                    <div class="image-status">VISUAL_FEED::ACTIVE</div>
+                    <img id="cardImage" src="" alt="" class="card-image">
+                    <div class="image-overlay"></div>
+                    <div class="image-scanlines"></div>
+                </div>
+                
+                <!-- Sex indicator -->
+                <div class="sex-indicator"></div>
+                
+                <!-- Terminal data status -->
+                <div class="terminal-status">
+                    <span>// Mars Dominion Personnel File #8526-A</span>
+                    <span>Clearance: Alpha //</span>
+                </div>
+                
+                <div class="text-box">
+                    <div class="text-content">
+                        <div class="english-text">
+                            <!-- Descendant stats with visual bars -->
+                            <div class="descendant-stats">
+                                <div class="stat">FORCE: <span id="statForce">0</span><span class="stat-bar" id="forceBar"></span></div>
+                                <div class="stat">PSYCHE: <span id="statPsyche">0</span><span class="stat-bar" id="psycheBar"></span></div>
+                                <div class="stat">VECTOR: <span id="statVector">0</span><span class="stat-bar" id="vectorBar"></span></div>
+                                <div class="stat">SYNC: <span id="statSync">0</span><span class="stat-bar" id="syncBar"></span></div>
+                            </div>
+                            
+                            <!-- Race with console formatting -->
+                            <div class="race">CLASSIFICATION: <span id="cardRace"></span> <span id="cardSex"></span></div>
+                            
+                            <!-- Action text if provided -->
+                            <div id="actionContainer">
+                                <strong>ACTION:</strong> <span id="cardAction"></span>
+                            </div>
+                            
+                            <!-- Trait text if provided -->
+                            <div id="traitContainer">
+                                <strong>TRAIT:</strong> <span id="cardTrait"></span>
+                            </div>
+                            
+                            <!-- Descendant details (Sign, Height) -->
+                            <div class="descendant-details">
+                                HEIGHT: <span id="cardHeight"></span> | SIGN: <span id="cardSign"></span>
+                            </div>
+                            
+                            <!-- Flavor text as terminal output -->
+                            <div class="flavor" id="cardFlavor">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Status bar at bottom -->
+                <div class="status-bar">
+                    <div><span class="status-indicator"></span>MARS-SECURE-CONN</div>
+                    <div>UNIT-STATUS: COMBAT READY</div>
+                </div>
+                
+                <!-- Faction emblem -->
+                <div class="faction-emblem">
+                    <!-- Icon would go here in a real implementation -->
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Set stat bars immediately when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set stat bars based on stat values
+            const setStatBar = (statId, barId, maxVal = 5) => {
+                const statValue = parseInt(document.getElementById(statId).textContent) || 0;
+                const barElem = document.getElementById(barId);
+                const width = Math.min(statValue, maxVal) * 10; // 10px per point, max 5 points
+                barElem.style.width = width + 'px';
+            };
+            
+            // Set all stat bars
+            setStatBar('statForce', 'forceBar');
+            setStatBar('statPsyche', 'psycheBar');
+            setStatBar('statVector', 'vectorBar');
+            setStatBar('statSync', 'syncBar');
+        });
+    </script>
+</body>
+</html>
