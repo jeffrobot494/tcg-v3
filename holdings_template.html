@@ -102,7 +102,6 @@
             border-radius: 12px;
             box-shadow: 0 0 15px rgba(0, 150, 50, 0.3);
             overflow: hidden;
-            background-color: #042;
         }
         
         /* Card content wrapper to ensure content appears above border */
@@ -116,7 +115,7 @@
             /* Ensure content is properly contained */
             overflow: hidden;
             border-radius: 12px;
-            background-color: #031;
+            background-color: #014a19; /* Previous color was #031; Subtle center gradient hue */
         }
         
         /* Modified card border to be part of the console design */
@@ -126,7 +125,6 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: #031;
             border: 2px solid #2a2;
             opacity: 0.9;
             z-index: 5;
@@ -199,10 +197,18 @@
             overflow: hidden;
             border-radius: 10px;
             z-index: 10;
+			
+            box-shadow: 
+                inset 0 0 15px rgba(1, 74, 25, 0.3),
+                inset 0 0 30px rgba(1, 74, 25, 0.5);
+            border: 1px solid rgba(1, 74, 25, 0.5);
+			
+			/* Previous effects for neon green
             box-shadow: 
                 inset 0 0 15px rgba(0, 150, 50, 0.3),
                 inset 0 0 30px rgba(0, 50, 0, 0.5);
             border: 1px solid rgba(0, 150, 50, 0.5);
+			*/
         }
         
         .scanlines {

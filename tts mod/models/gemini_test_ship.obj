@@ -1,0 +1,89 @@
+# Simple Spaceship OBJ File
+# Author: Bard (Generated Example)
+#
+# Vertices: 15
+# Faces: 20 (Triangles)
+
+# Object Definition
+o Simple_Spaceship
+
+# --- Vertices ---
+# Format: v x y z
+
+# Fuselage Points
+v 0.0  0.0  2.0   # 1: Nose Tip (Pointy front)
+v 0.0  0.5 -1.0   # 2: Top Back Center
+v 0.0 -0.5 -1.0   # 3: Bottom Back Center
+v -0.5 0.0 -1.0   # 4: Left Back Center (Wing Root Area)
+v 0.5  0.0 -1.0   # 5: Right Back Center (Wing Root Area)
+
+# Wing Tips
+v -1.5 0.0 -0.5   # 6: Left Wing Tip
+v 1.5  0.0 -0.5   # 7: Right Wing Tip
+
+# Engine Back Face Points (Slightly behind fuselage back plane)
+v -0.2 0.2 -1.2   # 8: Engine Top Left Back
+v 0.2  0.2 -1.2   # 9: Engine Top Right Back
+v -0.2 -0.2 -1.2  # 10: Engine Bottom Left Back
+v 0.2 -0.2 -1.2   # 11: Engine Bottom Right Back
+
+# Engine Front Face Points (Aligned with fuselage back plane at z=-1)
+# These define the "hole" the engine connects to.
+v -0.2 0.2 -1.0   # 12: Engine Top Left Front
+v 0.2  0.2 -1.0   # 13: Engine Top Right Front
+v -0.2 -0.2 -1.0  # 14: Engine Bottom Left Front
+v 0.2 -0.2 -1.0   # 15: Engine Bottom Right Front
+
+# --- Faces ---
+# Format: f v1 v2 v3 (Using vertex indices defined above)
+
+# Fuselage Main Body (Pyramid shape)
+f 1 2 5   # Top Right Face
+f 1 4 2   # Top Left Face
+f 1 5 3   # Bottom Right Face
+f 1 3 4   # Bottom Left Face
+
+# Fuselage Back Panels (Around the engine mount)
+f 2 13 5  # Top Right Back Panel
+f 2 12 13 # Top Center Back Panel
+f 2 4 12  # Top Left Back Panel
+f 4 14 12 # Left Side Back Panel
+f 4 3 14  # Bottom Left Back Panel
+f 3 15 14 # Bottom Center Back Panel
+f 3 5 15  # Bottom Right Back Panel
+f 5 13 15 # Right Side Back Panel
+
+# Wings (Connecting tips to fuselage back points)
+f 2 4 6   # Left Wing Top Surface
+f 3 6 4   # Left Wing Bottom Surface
+f 2 7 5   # Right Wing Top Surface
+f 3 5 7   # Right Wing Bottom Surface
+
+# Engine Block
+# Back Face (split into 2 triangles)
+f 8 9 11
+f 8 11 10
+# Engine Sides (connecting front points 12-15 to back points 8-11)
+f 12 8 9  # Top Side Face 1
+f 12 9 13 # Top Side Face 2
+f 13 9 11 # Right Side Face 1
+f 13 11 15# Right Side Face 2
+f 15 11 10# Bottom Side Face 1
+f 15 10 14# Bottom Side Face 2
+f 14 10 8 # Left Side Face 1
+f 14 8 12 # Left Side Face 2
+
+# End of file
+
+
+How to use this:
+
+Copy the entire text block above, starting from # Simple Spaceship OBJ File down to # End of file.
+
+Paste it into a plain text editor (like Notepad on Windows, TextEdit on Mac - make sure it's in plain text mode, not RTF).
+
+Save the file with the name spaceship.obj (or any name you like, but ensure the extension is .obj).
+
+You can now import this spaceship.obj file into most 3D modeling or game development software (like Blender, Unity, Unreal Engine, MeshLab, etc.).
+
+This model is very basic, but it provides a starting point that fits the description of "small" and "simple". You can modify the vertex coordinates or add more faces/vertices in 3D software to enhance it.
