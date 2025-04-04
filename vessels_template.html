@@ -137,7 +137,7 @@
             height: 420px;
             position: relative;
             border-radius: 12px;
-            box-shadow: 0 0 20px rgba(255, 0, 0, 0.5); /* Increased outer glow */
+            box-shadow: 0 0 15px rgba(255, 0, 0, 0.3); /* Red glow using the same values as fate */
             overflow: hidden;
             background-color: #111; /* Darker background like fate template */
         }
@@ -153,37 +153,37 @@
             /* Ensure content is properly contained */
             overflow: hidden;
             border-radius: 12px;
-            background-color: #111; /* Darker background like fate template */
+            background-color: #111; /* Same as fate template */
         }
         
-        /* Modified card border to be part of the console design */
+        /* Modified card border to be part of the console design - exactly like fate */
         .card-border {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            border: 2px solid #a22; /* Keeping red theme */
+            border: 2px solid #f33; /* Bright red border similar to fate's yellow */
             opacity: 0.9;
             z-index: 5;
             pointer-events: none;
             border-radius: 12px;
-            box-shadow: inset 0 0 25px rgba(255, 0, 0, 0.4); /* Increased inner glow */
+            box-shadow: inset 0 0 20px rgba(255, 0, 0, 0.3); /* Red glow similar to fate's yellow */
         }
         
         /* Unified monitor background that covers the entire card */
         .monitor-background {
             width: 100%;
             height: 100%;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.9) 0%, rgba(10,10,10,0.8) 30%, rgba(10,10,10,0.8) 70%, rgba(0,0,0,0.9) 100%); /* Black gradient like fate template */
+            background: linear-gradient(to bottom, rgba(0,0,0,0.9) 0%, rgba(10,10,10,0.8) 30%, rgba(10,10,10,0.8) 70%, rgba(0,0,0,0.9) 100%); /* Black gradient like fate */
             position: relative;
             overflow: hidden;
             border-radius: 10px;
             z-index: 10;
             box-shadow: 
-                inset 0 0 15px rgba(150, 0, 0, 0.3),
-                inset 0 0 30px rgba(50, 0, 0, 0.5);
-            border: 1px solid rgba(150, 0, 0, 0.5);
+                inset 0 0 15px rgba(255, 0, 0, 0.2), /* Red inner glow similar to fate's yellow */
+                inset 0 0 30px rgba(255, 0, 0, 0.1); 
+            border: 1px solid rgba(255, 0, 0, 0.5); /* Red inner border similar to fate's yellow */
         }
         
         .scanlines {
@@ -209,7 +209,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            box-shadow: inset 0 0 60px rgba(255, 0, 0, 0.3); /* Enhanced inner glow with brighter red */
+            box-shadow: inset 0 0 60px rgba(255, 0, 0, 0.2); /* Red glow similar to fate's yellow */
             z-index: 1;
         }
         
@@ -223,17 +223,17 @@
             display: flex;
             align-items: center;
             z-index: 15;
-            border-bottom: 1px solid rgba(150, 0, 0, 0.3);
+            border-bottom: 1px solid rgba(255, 0, 0, 0.5); /* Red border similar to fate's yellow */
             padding-bottom: 5px;
         }
         
         .title {
-            color: #f33;
+            color: #f33; /* Bright red text similar to fate's yellow */
             font-size: 16px;
             font-weight: bold;
             text-align: left;
             width: 100%;
-            text-shadow: 0 0 5px rgba(150, 50, 50, 0.8); /* Increased glow */
+            text-shadow: 0 0 5px rgba(255, 0, 0, 0.6); /* Red glow similar to fate's yellow */
             letter-spacing: 1px;
             text-transform: uppercase;
             font-family: "Courier New", monospace;
@@ -248,15 +248,15 @@
         /* Display cost before title */
         .title::before {
             content: attr(data-cost);
-            color: #f44;
+            color: #f33; /* Bright red similar to fate's yellow */
             font-size: 14px;
             font-weight: bold;
-            text-shadow: 0 0 5px rgba(150, 50, 50, 0.8);
+            text-shadow: 0 0 5px rgba(255, 0, 0, 0.8); /* Red glow similar to fate's yellow */
             margin-right: 10px;
-            background: rgba(30, 0, 0, 0.6);
+            background: rgba(50, 0, 0, 0.6); /* Dark red similar to fate's dark yellow */
             padding: 2px 6px;
             border-radius: 4px;
-            border: 1px solid rgba(100, 0, 0, 0.5);
+            border: 1px solid rgba(255, 0, 0, 0.5); /* Red border similar to fate's yellow */
         }
         
         /* Terminal line added to top right */
@@ -265,7 +265,7 @@
             top: 12px;
             right: 90px;
             font-size: 8px;
-            color: #f33;
+            color: #f33; /* Red text similar to fate's yellow */
             font-family: "Courier New", monospace;
             opacity: 0.7;
         }
@@ -277,11 +277,11 @@
             left: 10px;
             right: 10px;
             height: 180px;
-            border: 1px solid #a22;
+            border: 1px solid #f33; /* Red border similar to fate's yellow */
             border-radius: 5px;
             overflow: hidden;
             z-index: 10;
-            box-shadow: inset 0 0 8px rgba(80, 0, 0, 0.3);
+            box-shadow: inset 0 0 8px rgba(255, 0, 0, 0.3); /* Red glow similar to fate's yellow */
             background: #000;
         }
         
@@ -291,20 +291,20 @@
             top: 3px;
             left: 3px;
             font-size: 7px;
-            color: #f33;
-            background: rgba(20, 0, 0, 0.6);
+            color: #f33; /* Red text similar to fate's yellow */
+            background: rgba(50, 0, 0, 0.6); /* Dark red similar to fate's dark yellow */
             padding: 2px 4px;
             border-radius: 2px;
             z-index: 12;
-            text-shadow: 0 0 2px rgba(150, 50, 50, 0.7);
+            text-shadow: 0 0 2px rgba(255, 0, 0, 0.7); /* Red glow similar to fate's yellow */
         }
         
         .card-image {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            filter: none; /* Removed color filter as in fate template */
-            opacity: 1; /* Full opacity as in fate template */
+            filter: none; /* No filter exactly like fate */
+            opacity: 1; /* Full opacity exactly like fate */
             background-color: #000;
         }
         
@@ -322,7 +322,7 @@
                 transparent 1px,
                 transparent 2px
             );
-            box-shadow: inset 0 0 20px rgba(150, 0, 0, 0.2);
+            box-shadow: inset 0 0 20px rgba(255, 0, 0, 0.2); /* Red glow similar to fate's yellow */
             z-index: 11;
             pointer-events: none;
         }
@@ -334,8 +334,8 @@
             left: 10px;
             right: 10px;
             bottom: 10px;
-            border-top: 1px solid #a22;
-            background: rgba(15, 0, 0, 0.2);
+            border-top: 1px solid #f33; /* Red border similar to fate's yellow */
+            background: rgba(30, 0, 0, 0.2); /* Dark red tint similar to fate's yellow tint */
             padding: 10px;
             box-sizing: border-box;
             z-index: 10;
@@ -350,7 +350,7 @@
             right: 15px;
             height: 15px;
             font-size: 7px;
-            color: #a22;
+            color: #f33; /* Red text similar to fate's yellow */
             display: flex;
             justify-content: space-between;
             z-index: 11;
@@ -377,10 +377,10 @@
         }
         
         .text-content {
-            color: #f33;
+            color: #f33; /* Red text similar to fate's yellow */
             font-size: 10px;
             line-height: 1.3;
-            text-shadow: 0 0 5px rgba(255, 50, 50, 0.6); /* Enhanced text glow */
+            text-shadow: 0 0 5px rgba(255, 0, 0, 0.4); /* Red glow similar to fate's yellow */
             position: relative;
             z-index: 3;
             font-family: 'Courier New', monospace;
@@ -396,7 +396,7 @@
         
         .text-content > div::before {
             content: ">";
-            color: #a44;
+            color: #f33; /* Red similar to fate's yellow */
             font-size: 10px;
             opacity: 0.7;
             position: absolute;
@@ -411,8 +411,8 @@
             width: 100%;
             height: 100%;
             background: 
-                linear-gradient(rgba(100, 0, 0, 0.05) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(100, 0, 0, 0.05) 1px, transparent 1px);
+                linear-gradient(rgba(255, 0, 0, 0.05) 1px, transparent 1px), /* Red grid similar to fate's yellow */
+                linear-gradient(90deg, rgba(255, 0, 0, 0.05) 1px, transparent 1px); /* Red grid similar to fate's yellow */
             background-size: 30px 30px; /* Larger grid size for older look */
             z-index: 1;
         }
@@ -463,16 +463,16 @@
             top: 10px;
             right: 10px;
             font-size: 8px;
-            color: #3f3;
+            color: #f33; /* Red text similar to fate's yellow */
             font-weight: bold;
             text-transform: uppercase;
             letter-spacing: 1px;
             z-index: 15;
-            text-shadow: 0 0 3px rgba(50, 150, 50, 0.6);
+            text-shadow: 0 0 3px rgba(255, 0, 0, 0.6); /* Red glow similar to fate's yellow */
             padding: 2px 5px;
-            background: rgba(0, 50, 0, 0.3);
+            background: rgba(50, 0, 0, 0.3); /* Dark red similar to fate's dark yellow */
             border-radius: 3px;
-            border: 1px solid rgba(0, 100, 0, 0.3);
+            border: 1px solid rgba(255, 0, 0, 0.3); /* Red border similar to fate's yellow */
         }
         
         /* System info indicator */
@@ -481,7 +481,7 @@
             top: 35px;
             right: 10px;
             font-size: 6px;
-            color: #3f3;
+            color: #f33; /* Red text similar to fate's yellow */
             z-index: 15;
             opacity: 0.6;
             text-align: right;
@@ -505,7 +505,7 @@
             font-size: 9px;
             color: #f44;
             font-weight: bold;
-            text-shadow: 0 0 5px rgba(150, 50, 50, 0.6);
+            text-shadow: 0 0 5px rgba(255, 0, 0, 0.6);
             pointer-events: none;
             line-height: 1.2;
         }
@@ -524,7 +524,7 @@
             position: relative;
             top: 0px;
             border-radius: 1px;
-            box-shadow: 0 0 3px rgba(150, 50, 50, 0.4);
+            box-shadow: 0 0 3px rgba(255, 0, 0, 0.4);
         }
 
         /* Vessel details (Race, Size) */
@@ -532,11 +532,11 @@
             margin-top: 5px;
             font-size: 8px;
             color: #f33;
-            text-shadow: 0 0 5px rgba(150, 50, 50, 0.4);
+            text-shadow: 0 0 5px rgba(255, 0, 0, 0.4);
             font-style: italic;
         }
 
-        /* Sex indicator dot for Vessels (mimicking Descendants) */
+        /* Sex indicator dot for Vessels */
         .sex-indicator {
             position: absolute;
             top: 245px;
@@ -548,13 +548,13 @@
         }
         
         .sex-indicator.male {
-            background-color: #a44;
-            box-shadow: 0 0 5px rgba(200, 50, 50, 0.7);
+            background-color: #f33;
+            box-shadow: 0 0 5px rgba(255, 0, 0, 0.7);
         }
         
         .sex-indicator.female {
-            background-color: #a44;
-            box-shadow: 0 0 5px rgba(200, 50, 50, 0.7);
+            background-color: #f33;
+            box-shadow: 0 0 5px rgba(255, 0, 0, 0.7);
         }
         
         /* Bottom status bar */
@@ -568,7 +568,7 @@
             justify-content: space-between;
             align-items: center;
             font-size: 6px;
-            color: #a33;
+            color: #f33; /* Red text similar to fate's yellow */
             z-index: 16;
         }
         
@@ -576,9 +576,20 @@
             display: inline-block;
             width: 4px;
             height: 4px;
-            background-color: #f33;
+            background-color: #f33; /* Red indicator similar to fate's yellow */
             border-radius: 50%;
             margin-right: 3px;
+        }
+
+        /* Effect text styling similar to fate's effect styling */
+        .effect-container {
+            margin-top: 10px;
+            margin-bottom: 15px;
+            font-size: 11px;
+            color: #f33;
+            font-weight: bold;
+            line-height: 1.4;
+            text-shadow: 0 0 5px rgba(255, 0, 0, 0.6);
         }
     </style>
 </head>
@@ -602,7 +613,6 @@
                 <div class="system-info">
                     <div>VESSEL DATABASE</div>
                     <div>FLEET v2.7.3</div>
-                    <div style="color: #f33;">COMBAT READY</div>
                 </div>
                 
                 <div class="title-box">
@@ -640,6 +650,7 @@
                             <!-- Crew and garrison with console formatting -->
                             <div class="crew">CREW: <span id="cardCrew"></span></div>
                             <div class="garrison">GARRISON: <span id="cardGarrison"></span></div>
+                            
                             <!-- Layout text if provided -->
                             <div id="layoutContainer">
                                 <strong>LAYOUT:</strong> <span id="cardLayout"></span>
