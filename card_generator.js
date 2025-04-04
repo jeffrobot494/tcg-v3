@@ -178,7 +178,7 @@ async function generateCards(cardTypes) {
   const browser = await puppeteer.launch({ headless: true });
   const page = await browser.newPage();
   
-  // Set viewport to card dimensions
+  // Initial viewport dimensions (will update per card type)
   await page.setViewport({
     width: 300,
     height: 420,
@@ -200,6 +200,23 @@ async function generateCards(cardTypes) {
     const outputDir = TEMPLATES[cardType].outputDir;
     
     console.log(`\nProcessing ${cards.length} ${cardType} cards...`);
+    
+    // Set viewport dimensions based on card type (landscape for Holdings)
+    if (cardType === 'Holdings') {
+      await page.setViewport({
+        width: 420,
+        height: 300,
+        deviceScaleFactor: 2 // For higher resolution
+      });
+      console.log(`Using landscape orientation (420x300) for ${cardType} cards`);
+    } else {
+      await page.setViewport({
+        width: 300,
+        height: 420,
+        deviceScaleFactor: 2 // For higher resolution
+      });
+      console.log(`Using portrait orientation (300x420) for ${cardType} cards`);
+    }
     
     // Create output directory if it doesn't exist
     if (!fs.existsSync(outputDir)) {

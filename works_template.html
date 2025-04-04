@@ -74,9 +74,9 @@
             height: 420px;
             position: relative;
             border-radius: 12px;
-            box-shadow: 0 0 15px rgba(150, 0, 150, 0.3);
+            box-shadow: 0 0 20px rgba(255, 0, 255, 0.5); /* Increased outer glow */
             overflow: hidden;
-            background-color: #404;
+            background-color: #111; /* Darker background like fate template */
         }
         
         /* Card content wrapper to ensure content appears above border */
@@ -90,7 +90,7 @@
             /* Ensure content is properly contained */
             overflow: hidden;
             border-radius: 12px;
-            background-color: #303;
+            background-color: #111; /* Darker background like fate template */
         }
         
         /* Modified card border to be part of the console design */
@@ -100,20 +100,19 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: #303;
-            border: 2px solid #a2a;
+            border: 2px solid #a2a; /* Keeping purple theme */
             opacity: 0.9;
             z-index: 5;
             pointer-events: none;
             border-radius: 12px;
-            box-shadow: inset 0 0 20px rgba(100, 0, 100, 0.4);
+            box-shadow: inset 0 0 25px rgba(255, 0, 255, 0.4); /* Increased inner glow */
         }
         
         /* Unified monitor background that covers the entire card */
         .monitor-background {
             width: 100%;
             height: 100%;
-            background: linear-gradient(to bottom, rgba(30,0,30,0.9) 0%, rgba(20,4,20,0.8) 30%, rgba(20,4,20,0.8) 70%, rgba(30,0,30,0.9) 100%);
+            background: linear-gradient(to bottom, rgba(0,0,0,0.9) 0%, rgba(10,10,10,0.8) 30%, rgba(10,10,10,0.8) 70%, rgba(0,0,0,0.9) 100%); /* Black gradient like fate template */
             position: relative;
             overflow: hidden;
             border-radius: 10px;
@@ -147,7 +146,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            box-shadow: inset 0 0 60px rgba(100, 0, 100, 0.3);
+            box-shadow: inset 0 0 60px rgba(255, 0, 255, 0.3); /* Enhanced inner glow with brighter purple */
             z-index: 1;
         }
         
@@ -171,7 +170,7 @@
             font-weight: bold;
             text-align: left;
             width: 100%;
-            text-shadow: 0 0 5px rgba(150, 50, 150, 0.6);
+            text-shadow: 0 0 5px rgba(150, 50, 150, 0.8); /* Increased glow */
             letter-spacing: 1px;
             text-transform: uppercase;
             font-family: "Courier New", monospace;
@@ -241,8 +240,8 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            filter: brightness(0.9) contrast(1.1) sepia(0.1) hue-rotate(260deg);
-            opacity: 0.9;
+            filter: none; /* Removed color filter as in fate template */
+            opacity: 1; /* Full opacity as in fate template */
             background-color: #000;
         }
         
@@ -318,7 +317,7 @@
             color: #f3f;
             font-size: 10px;
             line-height: 1.3;
-            text-shadow: 0 0 5px rgba(150, 50, 150, 0.4);
+            text-shadow: 0 0 5px rgba(255, 50, 255, 0.6); /* Enhanced text glow */
             position: relative;
             z-index: 3;
             font-family: 'Courier New', monospace;
