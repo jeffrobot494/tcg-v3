@@ -32,7 +32,7 @@
       "Height": "203cm",
       "Sign": "Drakora",
       "ACTION:": "",
-      "Trait": "After I move for the first time each turn, I may make a second move at -1 FORCE/SYNC.\n+1 FORCE in low-g environments."
+      "Trait": "After I move for the first time each turn, I may make a second move at -1 FORCE/SYNC."
     },
     {
       "Name": "Versteckter Soldat",
@@ -49,7 +49,7 @@
       "Height": "",
       "Sign": "Drakora",
       "ACTION:": "",
-      "Trait": "Stealth (I'm unblockable except by descendants with greater or equal VECTOR)."
+      "Trait": "Stealth (I'm unblockable except by descendants with greater VECTOR)."
     },
     {
       "Name": "Gravitrooper",
@@ -100,7 +100,7 @@
       "Height": "201cm",
       "Sign": "Illuviel",
       "ACTION:": "",
-      "Trait": "Nervous System Domination (I may make PSYCHE attacks. Find the difference between my PSYCHE and my target's below:\n0: Target doesn't attack this combat\n1: Target is killed.\n2: I choose how the target attacks this combat\n3: I gain control of the target until the end of your next turn.\n4: I gain permanent control of the target."
+      "Trait": "Nervous System Domination (I may make PSYCHE attacks. Find the difference between my PSYCHE and my target's below:\n1: Target doesn't attack this combat\n2: I choose how the target attacks this combat\n3: I gain control of the target until the end of your next turn."
     },
     {
       "Name": "Datenbrecher",
@@ -151,7 +151,7 @@
       "Height": "218cm",
       "Sign": "Nemeon",
       "ACTION:": "",
-      "Trait": "Occcupier (I may remain on an enemy holding after an attack if there are no defenders. While I'm there, that holding does not untap and loses all abilities.)\nWhen I attack, your other descendants get +1 FORCE and +1 SYNC."
+      "Trait": "When I attack, your other descendants get +1 FORCE and +1 SYNC."
     },
     {
       "Name": "Marsdominus",
@@ -168,7 +168,7 @@
       "Height": "226cm",
       "Sign": "Illuviel",
       "ACTION:": "",
-      "Trait": "Slow, Prevent all sources of 1 damage,\nOccupier (I may remain on an enemy holding after an attack if there are no defenders. While I'm there, that holding does not untap and loses all abilities.)"
+      "Trait": "Slow, Prevent all sources of 1 damage. Protector (enemy units must attack this unit in combat.)"
     },
     {
       "Name": "Kommandant Wolfgang",
@@ -185,13 +185,13 @@
       "Height": "215cm",
       "Sign": "Illuviel",
       "ACTION:": "",
-      "Trait": "When I gain control of a holding, you  may sacrifice all souls there to gain that much materia plus one."
+      "Trait": "When I gain control of a holding, you  may sacrifice all souls there to gain that much materia plus two."
     },
     {
-      "Name": "Kommandant Reinhart",
+      "Name": "Frau Doktor Elisa Reinhart",
       "image name": "kommandant_reinhart.png",
       "Translation": "Commander Reinhart",
-      "Cost": "5",
+      "Cost": "4",
       "Sex": "F",
       "Race": "Marsdominium",
       "Envirospec": "low-g, breathable",
@@ -202,7 +202,7 @@
       "Height": "215cm",
       "Sign": "Illuviel",
       "ACTION:": "",
-      "Trait": "Tap, sacrifice three population: Create a Lurking Horror with \"Force 2, Psyche 1, Vector 0, Sync 3. Tap: Move to target vessel or holding and attack. No more than one unit may defend.\" Activate this ability only if I'm at a non-martian holding."
+      "Trait": "Tap, sacrifice three population: Create a Lurking Horror descendant with \"Force 2, Psyche 1, Vector 0, Sync 2\", and \"may not be blocked by more than one descendant.\" Activate this ability only if I'm at a non-martian holding."
     },
     {
       "Name": "Frau Doktor Volkova",
@@ -236,7 +236,7 @@
       "Psyche": "N/A",
       "Vector": "2",
       "Sync": "3",
-      "Effect": "Orbital, \nBombard X (Damage to population is 1/2 FORCE, rounded up). \nRange: 2, \nCrew 3: +1 VECTOR/SYNC or +1 FORCE. \nFriendly descendants on the surface get +1 FORCE/SYNC. \nVessel (vessels cannot claim holdings)"
+      "Effect": "Orbital, \nBombard X (Damage to population is 1/2 FORCE, rounded up). \nRange: 2, \nCrew 3: +1 VECTOR/SYNC or +1 FORCE. \nFriendly descendants on the surface get +1 FORCE/SYNC. \nVessel (vessels cannot claim holdings or attack populations.)"
     },
     {
       "Name": "Palace of Heaven",
@@ -256,7 +256,7 @@
     {
       "Name": "Luftkampfer",
       "image name": "luftkampfer.png",
-      "Cost": "2",
+      "Cost": "3",
       "Crew": "Pilot",
       "Garrison": "0",
       "Size": "15m",
@@ -265,8 +265,8 @@
       "Force": "2",
       "Psyche": "N/A",
       "Vector": "2",
-      "Sync": "4",
-      "Effect": "Range: 2 (This ship may move twice, but attack once.)\nCrew 1: +1 Force.\nVessel (vessels cannot claim holdings)"
+      "Sync": "3",
+      "Effect": "Range: 2 (This ship may move twice, but attack once.)\nCrew 1: +1 Force or +1 SYNC.\nVessel (vessels cannot claim holdings or attack populations.)"
     },
     {
       "Name": "Red Ascension Array",
@@ -311,7 +311,7 @@
       "Psyche": "N/A",
       "Vector": "3",
       "Sync": "3",
-      "Effect": "Orbital\nRange: 2\nStealth,\nCrew 1: +1 targets for Hijack Coordinates.\nHijack Coordinates: Change the target of target descendant's ability or attack (it can't attack itself). \nVessel (vessels cannot claim holdings)"
+      "Effect": "Orbital\nRange: 2\nStealth,\nCrew 1: +1 targets for Hijack Coordinates.\nHijack Coordinates: Change the target of target descendant's ability or attack (it can't attack itself). \nVessel (vessels cannot claim holdings or attack populations.)"
     }
   ],
   "Fates": [
@@ -348,8 +348,8 @@
     {
       "Name": "Terror",
       "image name": "terror.png",
-      "Cost": "3",
-      "Effect": "Return a descendant to its owner's hand."
+      "Cost": "1",
+      "Effect": "Target descendant gains slow."
     },
     {
       "Name": "Panic",
@@ -361,13 +361,13 @@
       "Name": "Expedition",
       "image name": "expedition.png",
       "Cost": "2",
-      "Effect": "Shuffle the System Deck and reveal four holdings, then Explore."
+      "Effect": "Move a descendant you control to an uncontrolled holding."
     },
     {
       "Name": "Gain Ground",
       "image name": "gain_ground.png",
       "Cost": "2",
-      "Effect": "Gain control of target holding you occupy."
+      "Effect": "Target descendant can move again this round."
     },
     {
       "Name": "Armageddon",
@@ -404,8 +404,8 @@
     {
       "Name": "Materia Mine",
       "image name": "materia_mine.png",
-      "Cost": "4",
-      "Effect": "Increase Materia production on this holding by 1 for every 3 souls."
+      "Cost": "3",
+      "Effect": "Add one materia for every 3 souls on this holding."
     },
     {
       "Name": "Data Nexus",
@@ -434,8 +434,8 @@
     {
       "Name": "Cloning Tower",
       "image name": "cloning_tower.png",
-      "Cost": "4",
-      "Effect": "At the start of your turn, add 1m souls to this holding, then you may turn one of your descendants into a copy of another descendant you control."
+      "Cost": "2",
+      "Effect": "At the start of the round, choose a descendant at this holding and turn it into a copy of another descendant you control."
     },
     {
       "Name": "Hardened Bunker",
@@ -453,37 +453,37 @@
       "Name": "Teleportation Station",
       "image name": "teleportation_station.png",
       "Cost": "3",
-      "Effect": "At the beginning of each combat, you may move one of your descendants to the top of the SYNC array."
+      "Effect": "Tap: Move a descendant at this holding to an adjacent one."
     },
     {
       "Name": "Hyperspace Conduit",
       "image name": "hyperspace_conduit.png",
       "Cost": "2",
-      "Effect": "Once per turn, you may move a descendant or vessel between this holding and another you control at light speed."
+      "Effect": "Tap: Target vessel you control at this holding has 3 range until end of round."
     },
     {
       "Name": "Reproduction World",
       "image name": "reproduction_world.png",
       "Cost": "2",
-      "Effect": "You may take an additional Populate action on each of your turns."
+      "Effect": "When you may populate this holding an additional time each round."
     },
     {
       "Name": "Observatory",
       "image name": "observatory.png",
       "Cost": "3",
-      "Effect": "Draw a card at the start of your turn."
+      "Effect": "Draw a card at the start of the round."
     },
     {
       "Name": "Megafactory",
       "image name": "megafactory.png",
       "Cost": "3",
-      "Effect": "At the start of your turn, draw a card for every three souls on this holding."
+      "Effect": "Tap: Draw a card for every three souls on this holding."
     },
     {
-      "Name": "Generation Ship",
+      "Name": "Colony Ship",
       "image name": "generation_ship.png",
       "Cost": "3",
-      "Effect": "Tap, sacrifice two souls: Explore."
+      "Effect": "Tap: Add one soul to an uncontrolled holding and gain control of it, then move this work there."
     },
     {
       "Name": "Human Recomposition Zone",
@@ -495,13 +495,13 @@
       "Name": "Mobile Headquarters",
       "image name": "mobile_headquarters.png",
       "Cost": "3",
-      "Effect": "Tap: units that attack from or defend this holding this turn get +1 FORCE/SYNC.\n1m: Move the mobile HQ to a holding you control or occupy."
+      "Effect": "Tap: units that attack from or defend this holding this turn get +1 FORCE/SYNC.\n2m: Move the mobile HQ to a holding you control."
     },
     {
       "Name": "Neue Berlin Institute of Genomics",
       "image name": "institute_of_genomics.png",
-      "Cost": "5",
-      "Effect": "Tap, sacrifice a descendant: search your deck for a descendant and put them into play. They gain \"slow\". Activate this ability at pre-warp speed."
+      "Cost": "3",
+      "Effect": "Tap, sacrifice a descendant: search your deck for a descendant and put them into play. They gain \"slow\"."
     }
   ],
   "Holdings": [
@@ -511,7 +511,7 @@
       "Body": "Earth",
       "Environment": "low-g",
       "Garrison": "0",
-      "Population": "8",
+      "Population": "6",
       "Resource": "Materia",
       "Effect": "Units deployed here lose slow.",
       "": ""
@@ -522,9 +522,9 @@
       "Body": "Earth",
       "Environment": "Earth-g",
       "Garrison": "0",
-      "Population": "8",
+      "Population": "6",
       "Resource": "Materia",
-      "Effect": "You may take an additional populate action on each of your turns.",
+      "Effect": "You may populate this holding an additional time each round.",
       "": ""
     },
     {
@@ -533,9 +533,9 @@
       "Body": "Earth",
       "Environment": "Earth-g",
       "Garrison": "0",
-      "Population": "6",
+      "Population": "5",
       "Resource": "Materia",
-      "Effect": "Tap, Sac 2 souls: Draw a card. Activate this ability only if there are three or more souls on this holding.",
+      "Effect": "Tap, sacrifice two souls: Draw a card.",
       "": ""
     },
     {
@@ -546,7 +546,7 @@
       "Garrison": "1",
       "Population": "6",
       "Resource": "Data",
-      "Effect": "At the start of your turn, up to one unit stationed here becomes unblockable until end of turn.",
+      "Effect": "At the start of the round, up to one unit stationed here becomes unblockable until end of round.",
       "": ""
     },
     {
@@ -557,7 +557,7 @@
       "Garrison": "1",
       "Population": "6",
       "Resource": "Materia",
-      "Effect": "Take an additional Populate action on each of your turns.",
+      "Effect": "When you populate this holding, populate each adjacent holding.",
       "": ""
     },
     {
@@ -568,7 +568,7 @@
       "Garrison": "0",
       "Population": "6",
       "Resource": "Data",
-      "Effect": "Descendants attacking an Earth holding get +1 FORCE.",
+      "Effect": "Descendants can't move here unless their controller pays 1 for each descendant.",
       "": ""
     },
     {
@@ -577,9 +577,9 @@
       "Body": "Earth",
       "Environment": "Vacuum",
       "Garrison": "2",
-      "Population": "6",
+      "Population": "3",
       "Resource": "Materia",
-      "Effect": "Units attacking a Vacuum holding get +1 FORCE.",
+      "Effect": "Units attacking from or defending this location get +1 FORCE.",
       "": ""
     },
     {
@@ -590,7 +590,7 @@
       "Garrison": "0",
       "Population": "4",
       "Resource": "Materia",
-      "Effect": "When you move to this holding, you make a free move to an adjacent holding with -1 SYNC.",
+      "Effect": "When you move to this holding, you may make a free move to an adjacent holding with -1 SYNC.",
       "": ""
     },
     {
@@ -601,7 +601,7 @@
       "Garrison": "0",
       "Population": "6",
       "Resource": "Data",
-      "Effect": "At the start of your turn, your descendants here gain +1 SYNC until end of turn.",
+      "Effect": "At the start of the round, you may play a Fate card from the past. If you do, exile it as it resolves.",
       "": ""
     },
     {
@@ -623,7 +623,7 @@
       "Garrison": "1",
       "Population": "6",
       "Resource": "Data",
-      "Effect": "Descendants here get +1 SYNC when they attack or defend Earth.",
+      "Effect": "At the start of the round, choose a descendant here and give it a +1 counter to any attribute.",
       "": ""
     },
     {
@@ -632,7 +632,7 @@
       "Body": "Luna",
       "Environment": "Low-g",
       "Garrison": "4",
-      "Population": "1",
+      "Population": "2",
       "Resource": "Materia",
       "Effect": "When one of your descendants attacks from this holding, your descendants on adjacent holdings may join the attack.",
       "": ""
@@ -645,7 +645,7 @@
       "Garrison": "0",
       "Population": "4",
       "Resource": "Materia",
-      "Effect": "Units defending here get +1 FORCE.",
+      "Effect": "When a vessel moves here, you may refresh its move action(s).",
       "": ""
     },
     {
@@ -654,9 +654,9 @@
       "Body": "Mars",
       "Environment": "Low-g",
       "Garrison": "0",
-      "Population": "8",
+      "Population": "6",
       "Resource": "Materia",
-      "Effect": "Units attacking a Vacuum holding get +1 FORCE.",
+      "Effect": "Tap: Draw a card if this holding has eight or more souls.",
       "": ""
     },
     {
@@ -667,7 +667,7 @@
       "Garrison": "1",
       "Population": "6",
       "Resource": "Materia",
-      "Effect": "Units quartered here get +1 FORCE when attacking or defending a Martian holding.",
+      "Effect": "Units here get +1 FORCE when attacking or defending a Martian holding.",
       "": ""
     },
     {
@@ -687,9 +687,9 @@
       "Body": "Mars",
       "Environment": "Low-g",
       "Garrison": "0",
-      "Population": "6",
+      "Population": "5",
       "Resource": "Materia",
-      "Effect": "Descendants here can move to any other Martian holding.",
+      "Effect": "Tap: Move target descendant here to another Martian holding.",
       "": ""
     },
     {
@@ -700,7 +700,7 @@
       "Garrison": "0",
       "Population": "6",
       "Resource": "Materia",
-      "Effect": "The electromagnetic disruption from the Red Ascension Array's destruction shields your units from detection. Units stationed here cannot be targeted by enemy Fates unless the controller pays 2 additional resources. Vessels launched from this holding enter combat with Stealth until their first attack.",
+      "Effect": "Fates cannot be targeted here unless their controller pays an additional 2m. Vessels attacking from here gain Stealth until end of turn.",
       "": ""
     },
     {
@@ -711,7 +711,7 @@
       "Garrison": "0",
       "Population": "4",
       "Resource": "Materia",
-      "Effect": "Works cost 1 less here.",
+      "Effect": "Works and Descendants cost 1 less to deploy here.",
       "": ""
     },
     {
@@ -720,7 +720,7 @@
       "Body": "Mercury",
       "Environment": "Vacuum",
       "Garrison": "0",
-      "Population": "6",
+      "Population": "4",
       "Resource": "Materia",
       "Effect": "Each population here adds two materia.",
       "": ""
@@ -731,7 +731,7 @@
       "Body": "Titan",
       "Environment": "Vacuum",
       "Garrison": "0",
-      "Population": "6",
+      "Population": "4",
       "Resource": "Data",
       "Effect": "You may pay 2 and discard a Fate card to gain control of an opponent's Fate card. You may choose new targets for it.",
       "": ""
@@ -744,7 +744,7 @@
       "Garrison": "0",
       "Population": "4",
       "Resource": "Data",
-      "Effect": "Descendants attacking from here have Stealth.",
+      "Effect": "Units that leave this holding gain Stealth until the end of the round.",
       "": ""
     },
     {
@@ -755,7 +755,7 @@
       "Garrison": "0",
       "Population": "4",
       "Resource": "Materia",
-      "Effect": "When a descendant starts it's turn here, it gains +PSYCHE equal to population.",
+      "Effect": "Units that attack from here get +1 PSYCHE and gain Nervous Center Domination until end of combat.",
       "": ""
     },
     {
@@ -764,9 +764,9 @@
       "Body": "Tsiolkovsky Belt",
       "Environment": "Earth-g",
       "Garrison": "0",
-      "Population": "8",
+      "Population": "5",
       "Resource": "Materia",
-      "Effect": "With the controller's choice, any descendant may travel here at lightspeed.",
+      "Effect": "Tap (subwarp): Move a descendant you control to this holding.",
       "": ""
     },
     {
@@ -788,7 +788,7 @@
       "Garrison": "1",
       "Population": "4",
       "Resource": "Data",
-      "Effect": "When a unit enters this holding, it gains \"Venusian, gain +1 SYNC for each other unit in combat with Venusian.\"",
+      "Effect": "When a descendant enters this holding, it gains \"Venusian.\" Your opponent's maximum hand size is reduced by one for each Venusian descendant you control.",
       "": ""
     }
   ]

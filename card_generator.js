@@ -174,8 +174,12 @@ async function generateCards(cardTypes) {
   console.log('Starting card generation...');
   console.log(`Card types to generate: ${cardTypes.join(', ')}`);
   
-  // Launch browser
-  const browser = await puppeteer.launch({ headless: true });
+  // Launch browser with executable path option for WSL
+  const browser = await puppeteer.launch({ 
+    headless: true,
+    executablePath: process.env.CHROME_PATH || undefined,
+    args: ['--no-sandbox', '--disable-setuid-sandbox']
+  });
   const page = await browser.newPage();
   
   // Initial viewport dimensions (will update per card type)
