@@ -1,0 +1,172 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Orbitron', sans-serif;
+    line-height: 1.6;
+    color: #fff;
+    background-color: #000;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Navigation Bar */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 20px 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff;
+    text-decoration: none;
+    text-shadow: 0 0 10px #0af, 0 0 20px #0af;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li {
+    margin-left: 30px;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    text-shadow: 0 0 5px #0af;
+}
+
+.nav-links a:hover {
+    color: #0af;
+}
+
+/* Section Styles */
+section {
+    padding: 100px 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
+}
+
+section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+}
+
+.section-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 42px;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px #0af, 0 0 20px #0af;
+}
+
+.section-description {
+    font-size: 18px;
+    max-width: 800px;
+    margin: 0 auto 40px;
+}
+
+.placeholder-image {
+    width: 80%;
+    max-width: 800px;
+    height: auto;
+    margin: 0 auto;
+    border: 2px solid rgba(0, 170, 255, 0.5);
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 170, 255, 0.3);
+}
+
+/* Hero Animation Section */
+#hero-animation {
+    background-image: url('../imgs/section_backgrounds/three_factions.jpg');
+}
+
+/* Gameplay Mechanics Section */
+#gameplay-mechanics {
+    background-image: url('../imgs/section_backgrounds/defense_grid.png');
+}
+
+/* Factions Section */
+#factions {
+    background-image: url('../imgs/section_backgrounds/neue_berlin.png');
+}
+
+/* Call to Action Section */
+#call-to-action {
+    background-image: url('../imgs/section_backgrounds/armageddon.png');
+}
+
+/* Footer */
+footer {
+    background-color: #111;
+    padding: 40px 0;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.footer-links a {
+    color: #fff;
+    margin: 0 15px;
+    text-decoration: none;
+    font-size: 14px;
+    text-shadow: 0 0 5px #0af;
+}
+
+.footer-links a:hover {
+    color: #0af;
+}
+
+.copyright {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.5);
+}

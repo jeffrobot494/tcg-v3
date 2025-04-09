@@ -1,0 +1,1435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>War for the Stars - Deckbuilder</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Phosphor Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lucide-static@0.321.0/font/lucide.css">
+    <style>
+        /* Custom styling for deckbuilder */
+        body {
+            padding: 0;
+            margin: 0;
+            overflow-x: hidden;
+            font-family: 'Orbitron', sans-serif;
+            background-color: #0a0a0a;
+            color: white;
+        }
+
+        /* Card styling */
+        .card {
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid rgba(0, 170, 255, 0.2);
+            background-color: rgba(0, 0, 0, 0.7);
+            cursor: pointer;
+            transform: scale(1.02); /* Make all cards slightly larger by default */
+        }
+
+        .card:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 170, 255, 0.4);
+        }
+
+        .card img {
+            width: 100%;
+            height: auto;
+            transition: transform 0.3s;
+        }
+        
+        .card:hover img {
+            transform: scale(1.03);
+        }
+        
+        /* Larger Holdings cards */
+        .holdings-view {
+            max-width: none;
+            box-shadow: 0 0 15px rgba(0, 255, 170, 0.3);
+            border: 2px solid rgba(0, 255, 170, 0.5);
+            transform: scale(1.05);
+        }
+        
+        .holdings-view img {
+            max-height: none;
+        }
+        
+        .holdings-view:hover {
+            transform: translateY(-5px) scale(1.08);
+            box-shadow: 0 8px 20px rgba(0, 255, 170, 0.4);
+        }
+        
+        .holdings-filter {
+            background-color: rgba(0, 255, 170, 0.2);
+            border: 1px solid rgba(0, 255, 170, 0.3);
+            color: rgba(0, 255, 220, 0.9);
+        }
+        
+        .holdings-filter:hover, .holdings-filter.active {
+            background-color: rgba(0, 255, 170, 0.4);
+            color: white;
+        }
+        
+        /* In-deck card styling */
+        .card.in-deck {
+            border: 1px solid rgba(0, 255, 200, 0.6);
+            box-shadow: 0 0 15px rgba(0, 255, 200, 0.3);
+        }
+        
+        .in-deck-glow {
+            border: 2px solid rgba(0, 255, 200, 0.4);
+            box-shadow: inset 0 0 20px rgba(0, 255, 200, 0.2);
+            z-index: 8;
+            pointer-events: none;
+        }
+        
+        .in-deck-indicator {
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            z-index: 10;
+        }
+
+        /* Type color tags */
+        .type-descendants {
+            background-color: rgba(255, 64, 64, 0.2);
+            color: #ff7070;
+            border: 1px solid #ff4040;
+        }
+
+        .type-vessels {
+            background-color: rgba(64, 64, 255, 0.2);
+            color: #7070ff;
+            border: 1px solid #4040ff;
+        }
+
+        .type-holdings {
+            background-color: rgba(64, 255, 64, 0.2);
+            color: #70ff70;
+            border: 1px solid #40ff40;
+        }
+
+        .type-works {
+            background-color: rgba(255, 255, 64, 0.2);
+            color: #ffff70;
+            border: 1px solid #ffff40;
+        }
+
+        .type-fates {
+            background-color: rgba(255, 128, 255, 0.2);
+            color: #ff70ff;
+            border: 1px solid #ff40ff;
+        }
+
+        /* Cost badge */
+        .cost-badge {
+            background-color: rgba(0, 0, 0, 0.7);
+            border: 1px solid rgba(0, 170, 255, 0.5);
+        }
+
+        /* Main navigation */
+        .main-nav {
+            background-color: rgba(0, 0, 0, 0.8);
+            border-bottom: 1px solid rgba(0, 170, 255, 0.3);
+        }
+
+        /* Button styling */
+        .btn-primary {
+            background-color: rgba(0, 100, 255, 0.7);
+            color: white;
+            border: 1px solid rgba(0, 170, 255, 0.5);
+            transition: all 0.2s;
+        }
+
+        .btn-primary:hover {
+            background-color: rgba(0, 140, 255, 0.8);
+        }
+
+        .btn-secondary {
+            background-color: rgba(40, 40, 40, 0.7);
+            color: white;
+            border: 1px solid rgba(100, 100, 100, 0.5);
+            transition: all 0.2s;
+        }
+
+        .btn-secondary:hover {
+            background-color: rgba(60, 60, 60, 0.8);
+        }
+
+        /* Filter buttons */
+        .filter-btn {
+            background-color: rgba(40, 40, 40, 0.7);
+            transition: all 0.2s;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background-color: rgba(0, 140, 255, 0.8);
+            color: white;
+        }
+
+        /* Search input */
+        .search-input {
+            background-color: rgba(20, 20, 20, 0.8);
+            border: 1px solid rgba(100, 100, 100, 0.5);
+            color: white;
+        }
+
+        .search-input:focus {
+            border-color: rgba(0, 170, 255, 0.5);
+            outline: none;
+        }
+
+        /* Add/Remove buttons */
+        .card-add-btn {
+            background-color: rgba(0, 0, 0, 0.7);
+            color: rgba(0, 170, 255, 0.8);
+            transition: all 0.2s;
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(0, 170, 255, 0.3);
+        }
+
+        .card-add-btn:hover {
+            background-color: rgba(0, 0, 0, 0.9);
+            color: white;
+            box-shadow: 0 0 12px rgba(0, 170, 255, 0.5);
+            border-color: rgba(0, 170, 255, 0.7);
+        }
+
+        .card-remove-btn {
+            background-color: rgba(255, 40, 40, 0.2);
+            color: rgba(255, 70, 70, 0.8);
+            transition: all 0.2s;
+        }
+
+        .card-remove-btn:hover {
+            background-color: rgba(255, 40, 40, 0.4);
+            color: white;
+        }
+
+        /* Scrollbars */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #0a0a0a;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: rgba(0, 170, 255, 0.3);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(0, 170, 255, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="main-nav fixed top-0 left-0 w-full z-50 py-4">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold text-white" style="text-shadow: 0 0 10px #0af, 0 0 20px #0af;">WAR FOR THE STARS</a>
+            <ul class="flex items-center space-x-8">
+                <li><a href="index.html" class="text-white hover:text-blue-400 transition">Home</a></li>
+                <li><a href="deckbuilder.html" class="text-blue-400 border-b-2 border-blue-400 pb-1">Deckbuilder</a></li>
+                <li><a href="#" class="text-white hover:text-blue-400 transition">Rules</a></li>
+                <li><a href="#" class="text-white hover:text-blue-400 transition">Community</a></li>
+                <li><a href="#" class="text-white hover:text-blue-400 transition">Roadmap</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Deckbuilder UI -->
+    <div class="flex flex-col mt-20 min-h-screen">
+        <div class="p-4">
+            <h1 class="text-2xl font-bold mb-4">Deck Builder</h1>
+            
+            <!-- Search and filter section -->
+            <div class="p-4 rounded-lg bg-black bg-opacity-50 shadow mb-4 border border-blue-900">
+                <div class="flex items-center mb-4">
+                    <div class="relative flex-1">
+                        <input
+                            id="search-input"
+                            type="text"
+                            placeholder="Search cards (e.g. 't:Descendants c>3')"
+                            class="search-input w-full pl-10 pr-4 py-2 rounded-lg"
+                        />
+                        <div class="absolute hidden" id="search-hint" style="top: 100%; left: 0; width: 100%; z-index: 10;">
+                            <div class="bg-black bg-opacity-80 border border-blue-800 rounded-lg shadow-lg p-2 mt-1 text-xs text-gray-300">
+                                <div class="font-semibold mb-1">Search syntax examples:</div>
+                                <div><span class="bg-blue-900 bg-opacity-30 px-1 font-mono">t:Descendants</span> - cards of type Descendants</div>
+                                <div><span class="bg-blue-900 bg-opacity-30 px-1 font-mono">c=3</span> - cards with cost exactly 3</div>
+                                <div><span class="bg-blue-900 bg-opacity-30 px-1 font-mono">c>3</span> - cards with cost greater than 3</div>
+                                <div><span class="bg-blue-900 bg-opacity-30 px-1 font-mono">name:Force</span> - cards with "Force" in name</div>
+                            </div>
+                        </div>
+                        <span class="lucide lucide-search absolute left-3 top-2.5 text-gray-400"></span>
+                        <button id="clear-search" class="absolute right-3 top-2.5 text-gray-400 hover:text-gray-200 hidden">
+                            <span class="lucide lucide-x"></span>
+                        </button>
+                    </div>
+                    <div class="ml-2">
+                        <select id="sort-select" class="search-input rounded-lg py-2 px-4">
+                            <option value="name-asc">Sort: Name (A-Z)</option>
+                            <option value="name-desc">Sort: Name (Z-A)</option>
+                            <option value="cost-asc">Sort: Cost (Low-High)</option>
+                            <option value="cost-desc">Sort: Cost (High-Low)</option>
+                            <option value="type">Sort: Type</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <!-- Quick filters -->
+                <div class="flex flex-wrap gap-2" id="filter-buttons">
+                    <button class="filter-btn px-3 py-1 rounded-full text-sm font-medium active" data-filter="All">
+                        All
+                    </button>
+                    <button class="filter-btn px-3 py-1 rounded-full text-sm font-medium" data-filter="Descendants">
+                        Descendants
+                    </button>
+                    <button class="filter-btn px-3 py-1 rounded-full text-sm font-medium" data-filter="Vessels">
+                        Vessels
+                    </button>
+                    <button class="filter-btn holdings-filter px-3 py-1 rounded-full text-sm font-medium" data-filter="Holdings">
+                        Holdings
+                    </button>
+                    <button class="filter-btn px-3 py-1 rounded-full text-sm font-medium" data-filter="Works">
+                        Works
+                    </button>
+                    <button class="filter-btn px-3 py-1 rounded-full text-sm font-medium" data-filter="Fates">
+                        Fates
+                    </button>
+                    <button class="filter-btn px-3 py-1 rounded-full text-sm font-medium flex items-center" id="advanced-filters">
+                        <span class="lucide lucide-filter mr-1"></span>
+                        More Filters
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Main content area with the 70/30 split for larger cards -->
+        <div class="flex flex-1 overflow-hidden">
+            <!-- Card grid section - 70% width -->
+            <div class="w-[70%] p-0 overflow-auto" id="card-collection">
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 p-3">
+                    <!-- Cards will be populated here by JavaScript -->
+                </div>
+            </div>
+            
+            <!-- Deck panel - 30% width -->
+            <div class="w-[30%] bg-black bg-opacity-60 shadow-lg p-4 overflow-auto border-l border-blue-900">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-xl font-bold">Your Deck</h2>
+                    <span id="deck-count" class="bg-blue-900 bg-opacity-30 text-blue-200 px-2 py-1 rounded text-sm">
+                        0 / 60 Cards
+                    </span>
+                </div>
+                
+                <!-- Deck actions -->
+                <div class="flex flex-wrap gap-2 mb-4">
+                    <button id="share-deck" class="btn-primary flex items-center px-3 py-1.5 rounded text-sm">
+                        <span class="lucide lucide-copy mr-1"></span>
+                        Share Link
+                    </button>
+                    <button class="btn-secondary flex items-center px-3 py-1.5 rounded text-sm">
+                        <span class="lucide lucide-save mr-1"></span>
+                        Save Text
+                    </button>
+                    <button id="download-deck" class="btn-secondary flex items-center px-3 py-1.5 rounded text-sm">
+                        <span class="lucide lucide-download mr-1"></span>
+                        Download
+                    </button>
+                    <button class="btn-secondary flex items-center px-3 py-1.5 rounded text-sm">
+                        <span class="lucide lucide-upload mr-1"></span>
+                        Import
+                    </button>
+                </div>
+                
+                <!-- Deck statistics -->
+                <div class="mb-4 border border-blue-900 rounded-lg overflow-hidden">
+                    <button id="stats-toggle" class="w-full flex justify-between items-center p-3 bg-blue-900 bg-opacity-20">
+                        <div class="flex items-center">
+                            <span class="lucide lucide-info mr-2 text-gray-300"></span>
+                            <span class="font-medium">Deck Statistics</span>
+                        </div>
+                        <span class="lucide lucide-chevron-down"></span>
+                    </button>
+                    
+                    <div id="stats-content" class="p-3 hidden">
+                        <div class="flex justify-between mb-2">
+                            <span class="text-gray-300">Total Cards:</span>
+                            <span id="stat-total" class="font-medium">0</span>
+                        </div>
+                        <div class="flex justify-between mb-2">
+                            <span class="text-gray-300">Average Cost:</span>
+                            <span id="stat-avg-cost" class="font-medium">0</span>
+                        </div>
+                        <div class="mt-3">
+                            <span class="text-gray-300 block mb-2">Card Types:</span>
+                            <div id="type-breakdown">
+                                <!-- Type breakdown will be populated here -->
+                                <div class="text-center text-gray-400 py-2">
+                                    No cards in deck
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Deck contents -->
+                <div id="deck-contents" class="space-y-2">
+                    <!-- Deck cards will be populated here -->
+                    <div class="text-center text-gray-400 py-8">
+                        Your deck is empty. Add cards from the collection.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Card data (loaded from JSON)
+        let allCards = [];
+        let deckCards = [];
+        
+        // DOM Elements
+        const cardCollection = document.getElementById('card-collection');
+        const deckContents = document.getElementById('deck-contents');
+        const searchInput = document.getElementById('search-input');
+        const searchHint = document.getElementById('search-hint');
+        const clearSearch = document.getElementById('clear-search');
+        const sortSelect = document.getElementById('sort-select');
+        const filterButtons = document.querySelectorAll('[data-filter]');
+        const statsToggle = document.getElementById('stats-toggle');
+        const statsContent = document.getElementById('stats-content');
+        const deckCount = document.getElementById('deck-count');
+        const statTotal = document.getElementById('stat-total');
+        const statAvgCost = document.getElementById('stat-avg-cost');
+        const typeBreakdown = document.getElementById('type-breakdown');
+        
+        // Current state
+        let activeFilter = "All";
+        let searchQuery = "";
+        let statsOpen = false;
+        let sortOption = "name-asc";
+
+        // Card type colors and icons
+        const typeIcons = {
+            Descendants: "👤",
+            Vessels: "🚀",
+            Holdings: "🏙️",
+            Works: "🏗️",
+            Fates: "⚡"
+        };
+        
+        // Helper function to get type color class for deck list items
+        function getTypeColorClass(type) {
+            switch(type) {
+                case 'Descendants':
+                    return 'border border-green-700 bg-green-900 bg-opacity-20';
+                case 'Vessels':
+                    return 'border border-red-700 bg-red-900 bg-opacity-20';
+                case 'Holdings':
+                    return 'border border-orange-600 bg-orange-900 bg-opacity-20';
+                case 'Works':
+                    return 'border border-purple-700 bg-purple-900 bg-opacity-20';
+                case 'Fates':
+                    return 'border border-yellow-600 bg-yellow-800 bg-opacity-20';
+                default:
+                    return 'border border-gray-700 bg-gray-900 bg-opacity-20';
+            }
+        }
+        
+        // Load card data
+        async function loadCardData() {
+            try {
+                const response = await fetch('card_data/all_cards.json');
+                const data = await response.json();
+                
+                // Process card data into a unified format
+                for (const [type, cards] of Object.entries(data)) {
+                    cards.forEach(card => {
+                        allCards.push({
+                            id: card.Name.replace(/[^a-zA-Z0-9]/g, '') + (Math.random().toString(36).substring(2, 6)),
+                            name: card.Name,
+                            type: type,
+                            cost: card.Cost ? card.Cost.replace(/[^0-9]/g, '') : "0",
+                            image: card["image name"] || "",
+                            effect: card.Effect || "",
+                            race: card.Race || "",
+                            body: card.Body || "",
+                            environment: card.Environment || "",
+                            force: card.Force || "",
+                            psyche: card.Psyche || "",
+                            vector: card.Vector || "",
+                            sync: card.Sync || "",
+                            trait: card.Trait || "",
+                            resource: card.Resource || ""
+                        });
+                    });
+                }
+                
+                // Initial render
+                renderCardCollection();
+                
+                console.log(`Loaded ${allCards.length} cards from JSON`);
+            } catch (error) {
+                console.error('Error loading card data:', error);
+                cardCollection.innerHTML = '<div class="text-center text-red-500 p-8">Error loading card data</div>';
+            }
+        }
+        
+        // Render card collection based on current filters
+        function renderCardCollection() {
+            // Apply filters
+            const filteredCards = filterCards();
+            
+            // Sort cards
+            sortCards(filteredCards);
+            
+            // Clear existing cards
+            cardCollection.innerHTML = "";
+            
+            // Create card grid - with different column count for Holdings
+            const gridContainer = document.createElement('div');
+            
+            // Different column counts based on card type
+            if (activeFilter === "Holdings") {
+                // Holdings: 3 columns max for largest cards
+                gridContainer.className = 'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 p-4';
+            } else {
+                // All other cards: 4 columns max for larger cards
+                gridContainer.className = 'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 p-3';
+            }
+            
+            // Add cards to grid
+            filteredCards.forEach(card => {
+                const cardElement = createCardElement(card);
+                gridContainer.appendChild(cardElement);
+            });
+            
+            // If no cards match filters
+            if (filteredCards.length === 0) {
+                const noResults = document.createElement('div');
+                noResults.className = 'text-center text-gray-400 py-8 col-span-full';
+                noResults.textContent = 'No cards match your search criteria';
+                gridContainer.appendChild(noResults);
+            }
+            
+            // Add grid to collection
+            cardCollection.appendChild(gridContainer);
+        }
+        
+        // Create a card element
+        function createCardElement(card) {
+            const cardContainer = document.createElement('div');
+            cardContainer.className = 'card rounded-lg overflow-hidden';
+            cardContainer.dataset.id = card.id;
+            
+            // Get image path from generated_cards directory
+            const imagePath = getCardImagePath(card);
+            
+            // Check if card is in deck to add visual indicator
+            const inDeck = deckCards.some(c => c.id === card.id);
+            const cardCount = inDeck ? deckCards.find(c => c.id === card.id)?.count || 1 : 0;
+            
+            // Add in-deck class to card container if card is in deck
+            if (inDeck) {
+                cardContainer.classList.add('in-deck');
+            }
+            
+            // Add holdings-view class for larger holdings cards
+            if (card.type === "Holdings") {
+                cardContainer.classList.add('holdings-view');
+            }
+            
+            // Card markup - shows full card image with optional indicator and glow if in deck
+            cardContainer.innerHTML = `
+                <div class="card-image relative">
+                    <img src="${imagePath}" alt="${card.name}" class="w-full h-auto">
+                    ${inDeck ? `
+                    <div class="absolute inset-0 in-deck-glow"></div>
+                    <div class="in-deck-indicator absolute top-2 right-2 bg-blue-500 bg-opacity-80 text-white text-xs font-bold px-1 py-0.5 rounded-md">
+                        ${cardCount}×
+                    </div>` : ''}
+                </div>
+            `;
+            
+            // Add left-click to add card
+            cardContainer.addEventListener('click', () => {
+                addCardToDeck(card);
+            });
+            
+            // Add right-click to remove card
+            cardContainer.addEventListener('contextmenu', (e) => {
+                e.preventDefault(); // Prevent context menu
+                removeCardFromDeck(card.id);
+            });
+            
+            return cardContainer;
+        }
+        
+        // Get card image path from generated_cards directory
+        function getCardImagePath(card) {
+            // Determine subfolder based on card type
+            let subfolder = "";
+            switch(card.type) {
+                case "Descendants":
+                    subfolder = "Descendants";
+                    break;
+                case "Vessels":
+                    subfolder = "Vessels";
+                    break;
+                case "Holdings":
+                    subfolder = "Holdings";
+                    break;
+                case "Works":
+                    subfolder = "Works";
+                    break;
+                case "Fates":
+                    subfolder = "Fates";
+                    break;
+                default:
+                    subfolder = "";
+            }
+            
+            // Format the card name for the filename
+            const formattedName = card.name.replace(/[\s'-]/g, '_');
+            
+            // Return path to generated card image
+            return `generated_cards/${subfolder}/${formattedName}.png`;
+        }
+        
+        // Add card to deck
+        function addCardToDeck(card) {
+            // Check if card is already in deck
+            const existingCardIndex = deckCards.findIndex(c => c.id === card.id);
+            
+            if (existingCardIndex !== -1) {
+                // Increment count if card already exists
+                deckCards[existingCardIndex].count = (deckCards[existingCardIndex].count || 1) + 1;
+            } else {
+                // Add new card to deck
+                deckCards.push({...card, count: 1});
+            }
+            
+            // Update deck UI
+            renderDeck();
+            updateDeckStats();
+            
+            // Re-render card collection to update indicators
+            renderCardCollection();
+        }
+        
+        // Remove card from deck
+        function removeCardFromDeck(cardId) {
+            const cardIndex = deckCards.findIndex(c => c.id === cardId);
+            
+            if (cardIndex !== -1) {
+                // Decrement count
+                if (deckCards[cardIndex].count > 1) {
+                    deckCards[cardIndex].count -= 1;
+                } else {
+                    // Remove card if count reaches 0
+                    deckCards.splice(cardIndex, 1);
+                }
+                
+                // Update deck UI
+                renderDeck();
+                updateDeckStats();
+                
+                // Re-render card collection to update indicators
+                renderCardCollection();
+            }
+        }
+        
+        // Render the deck contents
+        function renderDeck() {
+            // Clear existing deck contents
+            deckContents.innerHTML = "";
+            
+            // If deck is empty, show placeholder
+            if (deckCards.length === 0) {
+                const emptyDeck = document.createElement('div');
+                emptyDeck.className = 'text-center text-gray-400 py-8';
+                emptyDeck.textContent = 'Your deck is empty. Add cards from the collection.';
+                deckContents.appendChild(emptyDeck);
+                return;
+            }
+            
+            // Sort deck cards by type then name
+            const sortedDeck = [...deckCards].sort((a, b) => {
+                if (a.type !== b.type) return a.type.localeCompare(b.type);
+                return a.name.localeCompare(b.name);
+            });
+            
+            // Create deck card elements
+            sortedDeck.forEach(card => {
+                // Determine border color based on card type
+                const typeColorClass = getTypeColorClass(card.type);
+                
+                const cardElement = document.createElement('div');
+                cardElement.className = `flex justify-between items-center p-2 ${typeColorClass} rounded hover:bg-opacity-30 transition`;
+                cardElement.dataset.id = card.id;
+                
+                // Get card image path for thumbnail
+                const imagePath = getCardImagePath(card);
+                
+                cardElement.innerHTML = `
+                    <div class="flex items-center">
+                        <img src="${imagePath}" alt="${card.name}" class="w-10 h-14 object-cover mr-2 rounded" />
+                        <div>
+                            <div class="flex items-center">
+                                <span class="font-medium text-sm">${card.name}</span>
+                            </div>
+                            <div class="flex items-center text-sm text-gray-400">
+                                <span class="type-${card.type.toLowerCase()} text-xs px-1.5 py-0 rounded-full mr-2">
+                                    ${typeIcons[card.type]} ${card.type}
+                                </span>
+                                <span>${card.cost} ⭐</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="text-lg font-bold mx-2">${card.count}×</span>
+                    </div>
+                `;
+                
+                // Add click event to add another copy
+                cardElement.addEventListener('click', () => {
+                    addCardToDeck(card);
+                });
+                
+                // Add right-click event to remove copy
+                cardElement.addEventListener('contextmenu', (e) => {
+                    e.preventDefault();
+                    removeCardFromDeck(card.id);
+                });
+                
+                deckContents.appendChild(cardElement);
+            });
+        }
+        
+        // Update deck statistics
+        function updateDeckStats() {
+            const totalCards = deckCards.reduce((sum, card) => sum + card.count, 0);
+            
+            // Calculate average cost
+            let totalCost = 0;
+            deckCards.forEach(card => {
+                totalCost += parseInt(card.cost) * card.count;
+            });
+            
+            const avgCost = totalCards > 0 ? (totalCost / totalCards).toFixed(1) : "0.0";
+            
+            // Update stats display
+            deckCount.textContent = `${totalCards} / 60 Cards`;
+            statTotal.textContent = totalCards;
+            statAvgCost.textContent = avgCost;
+            
+            // Enable/disable buttons based on if deck has cards
+            const downloadButton = document.getElementById('download-deck');
+            if (downloadButton) {
+                downloadButton.disabled = totalCards === 0;
+                downloadButton.classList.toggle('opacity-50', totalCards === 0);
+                downloadButton.classList.toggle('cursor-not-allowed', totalCards === 0);
+            }
+            
+            const shareButton = document.getElementById('share-deck');
+            if (shareButton) {
+                shareButton.disabled = totalCards === 0;
+                shareButton.classList.toggle('opacity-50', totalCards === 0);
+                shareButton.classList.toggle('cursor-not-allowed', totalCards === 0);
+            }
+            
+            // Calculate type breakdown
+            const typeCount = {
+                Descendants: 0,
+                Vessels: 0,
+                Holdings: 0,
+                Works: 0,
+                Fates: 0
+            };
+            
+            deckCards.forEach(card => {
+                typeCount[card.type] += card.count;
+            });
+            
+            // Update type breakdown display
+            typeBreakdown.innerHTML = "";
+            
+            if (totalCards === 0) {
+                typeBreakdown.innerHTML = '<div class="text-center text-gray-400 py-2">No cards in deck</div>';
+                return;
+            }
+            
+            for (const [type, count] of Object.entries(typeCount)) {
+                if (count > 0) {
+                    const percentage = Math.round((count / totalCards) * 100);
+                    const typeElement = document.createElement('div');
+                    typeElement.className = 'flex justify-between items-center mb-1';
+                    typeElement.innerHTML = `
+                        <span class="type-${type.toLowerCase()} text-xs px-2 py-0.5 rounded-full">
+                            ${typeIcons[type]} ${type}
+                        </span>
+                        <span>${count} (${percentage}%)</span>
+                    `;
+                    typeBreakdown.appendChild(typeElement);
+                }
+            }
+        }
+        
+        // Filter cards based on search query and active filter
+        function filterCards() {
+            const searchFn = parseSearchQuery(searchQuery);
+            
+            return allCards.filter(card => {
+                const matchesSearch = searchFn(card);
+                
+                // If "All" filter is active, exclude Holdings
+                if (activeFilter === "All") {
+                    return matchesSearch && card.type !== "Holdings";
+                }
+                
+                // Otherwise use normal filter logic
+                const matchesFilter = activeFilter === "All" || card.type === activeFilter;
+                return matchesSearch && matchesFilter;
+            });
+        }
+        
+        // Parse advanced search query
+        function parseSearchQuery(query) {
+            // Return all cards if empty query
+            if (!query.trim()) return () => true;
+            
+            // Parse regular text search (no special syntax)
+            if (!query.includes(':') && !query.includes('>') && !query.includes('<') && !query.includes('=')) {
+                const lowerQuery = query.toLowerCase();
+                return (card) => card.name.toLowerCase().includes(lowerQuery) || 
+                                 card.type.toLowerCase().includes(lowerQuery);
+            }
+            
+            // Parse advanced query
+            const conditions = [];
+            
+            // Extract type filter: t:Type or type:Type
+            const typeMatch = query.match(/(?:^|\s)(t|type):(\w+)/i);
+            if (typeMatch) {
+                const typeValue = typeMatch[2].toLowerCase();
+                conditions.push(card => card.type.toLowerCase() === typeValue);
+            }
+            
+            // Extract cost comparisons: c>3, cost<5, c=3, etc.
+            const costMatches = query.matchAll(/(?:^|\s)(c|cost)(?:(>|<|>=|<=|=)(\d+))/gi);
+            for (const match of Array.from(costMatches)) {
+                const operator = match[2];
+                const value = parseInt(match[3], 10);
+                
+                switch(operator) {
+                    case '>':
+                        conditions.push(card => parseInt(card.cost) > value);
+                        break;
+                    case '<':
+                        conditions.push(card => parseInt(card.cost) < value);
+                        break;
+                    case '>=':
+                        conditions.push(card => parseInt(card.cost) >= value);
+                        break;
+                    case '<=':
+                        conditions.push(card => parseInt(card.cost) <= value);
+                        break;
+                    case '=':
+                        conditions.push(card => parseInt(card.cost) === value);
+                        break;
+                }
+            }
+            
+            // Extract name search
+            const nameMatch = query.match(/(?:^|\s)(n|name):(\w+)/i);
+            if (nameMatch) {
+                const nameValue = nameMatch[2].toLowerCase();
+                conditions.push(card => card.name.toLowerCase().includes(nameValue));
+            }
+            
+            // If no special conditions were found, do a regular text search
+            if (conditions.length === 0) {
+                const lowerQuery = query.toLowerCase();
+                return (card) => card.name.toLowerCase().includes(lowerQuery) || 
+                               card.type.toLowerCase().includes(lowerQuery);
+            }
+            
+            // Debug conditions
+            console.log("Search conditions:", conditions);
+            
+            // Return a function that checks all conditions
+            return (card) => conditions.every(condition => condition(card));
+        }
+        
+        // Sort cards based on current sort option
+        function sortCards(cards) {
+            switch (sortOption) {
+                case 'name-asc':
+                    cards.sort((a, b) => a.name.localeCompare(b.name));
+                    break;
+                case 'name-desc':
+                    cards.sort((a, b) => b.name.localeCompare(a.name));
+                    break;
+                case 'cost-asc':
+                    cards.sort((a, b) => parseInt(a.cost) - parseInt(b.cost));
+                    break;
+                case 'cost-desc':
+                    cards.sort((a, b) => parseInt(b.cost) - parseInt(a.cost));
+                    break;
+                case 'type':
+                    cards.sort((a, b) => a.type.localeCompare(b.type));
+                    break;
+                default:
+                    cards.sort((a, b) => a.name.localeCompare(b.name));
+            }
+        }
+        
+        // Create and download deck image for Tabletop Simulator
+        async function downloadDeckImage() {
+            // Show loading indicator
+            const downloadBtn = document.getElementById('download-deck');
+            const originalText = downloadBtn.innerHTML;
+            downloadBtn.innerHTML = '<span class="lucide lucide-loader animate-spin mr-1"></span> Generating...';
+            downloadBtn.disabled = true;
+            
+            try {
+                // Prepare canvas for 10x7 grid of cards
+                const canvas = document.createElement('canvas');
+                const ctx = canvas.getContext('2d');
+                
+                // Set dimensions for the grid (standard card ratio is approximately 2.5:3.5)
+                const cardWidth = 300;
+                const cardHeight = 420;
+                const gridCols = 10;
+                const gridRows = 7;
+                
+                // Set canvas size
+                canvas.width = cardWidth * gridCols;
+                canvas.height = cardHeight * gridRows;
+                
+                // Fill canvas with white background
+                ctx.fillStyle = 'white';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                
+                // Prepare expanded deck array (with duplicates for cards with count > 1)
+                const expandedDeck = [];
+                deckCards.forEach(card => {
+                    for (let i = 0; i < card.count; i++) {
+                        expandedDeck.push(card);
+                    }
+                });
+                
+                // Sort expanded deck by type then name to keep cards organized
+                expandedDeck.sort((a, b) => {
+                    if (a.type !== b.type) return a.type.localeCompare(b.type);
+                    return a.name.localeCompare(b.name);
+                });
+                
+                // Track number of loaded images for completion check
+                let loadedImages = 0;
+                const totalCards = Math.min(expandedDeck.length, gridCols * gridRows);
+                
+                // Function to finalize and download the image
+                const finalizeImage = () => {
+                    // Convert canvas to PNG data URL
+                    const dataUrl = canvas.toDataURL('image/png');
+                    
+                    // Create download link
+                    const downloadLink = document.createElement('a');
+                    downloadLink.href = dataUrl;
+                    downloadLink.download = `deck-${expandedDeck.length}-cards.png`;
+                    
+                    // Trigger download
+                    document.body.appendChild(downloadLink);
+                    downloadLink.click();
+                    document.body.removeChild(downloadLink);
+                    
+                    // Reset button
+                    downloadBtn.innerHTML = originalText;
+                    downloadBtn.disabled = false;
+                };
+                
+                // If deck is empty, just download white canvas
+                if (expandedDeck.length === 0) {
+                    finalizeImage();
+                    return;
+                }
+                
+                // Load and place card images on the canvas
+                for (let i = 0; i < Math.min(expandedDeck.length, gridCols * gridRows); i++) {
+                    const card = expandedDeck[i];
+                    const row = Math.floor(i / gridCols);
+                    const col = i % gridCols;
+                    const x = col * cardWidth;
+                    const y = row * cardHeight;
+                    
+                    const img = new Image();
+                    img.crossOrigin = 'Anonymous';
+                    img.onload = () => {
+                        // Check if card is a Holding - if so, rotate it 90 degrees clockwise
+                        if (card.type === "Holdings") {
+                            // Save the current context state
+                            ctx.save();
+                            
+                            // Move to the center of where the card should be
+                            ctx.translate(x + cardWidth/2, y + cardHeight/2);
+                            
+                            // Rotate 90 degrees clockwise (in radians)
+                            ctx.rotate(Math.PI / 2);
+                            
+                            // Draw the rotated image (adjusted since rotation changes width/height dimensions)
+                            ctx.drawImage(img, -cardHeight/2, -cardWidth/2, cardHeight, cardWidth);
+                            
+                            // Restore the context to its original state
+                            ctx.restore();
+                        } else {
+                            // Regular card - no rotation needed
+                            ctx.drawImage(img, x, y, cardWidth, cardHeight);
+                        }
+                        
+                        // Check if all images have loaded
+                        loadedImages++;
+                        if (loadedImages === totalCards) {
+                            finalizeImage();
+                        }
+                    };
+                    
+                    img.onerror = () => {
+                        // Draw a placeholder for failed images
+                        ctx.save();
+                        
+                        if (card.type === "Holdings") {
+                            // For Holdings, create a rotated placeholder
+                            ctx.translate(x + cardWidth/2, y + cardHeight/2);
+                            ctx.rotate(Math.PI / 2);
+                            
+                            // Draw rotated placeholder
+                            ctx.fillStyle = '#eee';
+                            ctx.fillRect(-cardHeight/2, -cardWidth/2, cardHeight, cardWidth);
+                            
+                            // Add text
+                            ctx.fillStyle = '#999';
+                            ctx.font = '16px Arial';
+                            ctx.textAlign = 'center';
+                            ctx.fillText(`Failed to load: ${card.name}`, 0, 0);
+                            ctx.fillText(`(Holding)`, 0, 20);
+                        } else {
+                            // Regular placeholder
+                            ctx.fillStyle = '#eee';
+                            ctx.fillRect(x, y, cardWidth, cardHeight);
+                            ctx.fillStyle = '#999';
+                            ctx.font = '16px Arial';
+                            ctx.textAlign = 'center';
+                            ctx.fillText(`Failed to load: ${card.name}`, x + cardWidth/2, y + cardHeight/2);
+                            ctx.fillText(`(${card.type})`, x + cardWidth/2, y + cardHeight/2 + 20);
+                        }
+                        
+                        ctx.restore();
+                        
+                        // Check if all images have loaded or failed
+                        loadedImages++;
+                        if (loadedImages === totalCards) {
+                            finalizeImage();
+                        }
+                    };
+                    
+                    // Set image source to load it
+                    img.src = getCardImagePath(card);
+                }
+            } catch (error) {
+                console.error('Error generating deck image:', error);
+                alert('Failed to generate deck image. Please try again.');
+                
+                // Reset button
+                downloadBtn.innerHTML = originalText;
+                downloadBtn.disabled = false;
+            }
+        }
+        
+        // Base62 encoding for compact URLs
+        const base62Chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+        
+        // Encode deck to a compact Base62 URL string
+        function encodeDeck() {
+            if (deckCards.length === 0) return "";
+            
+            // For extremely efficient encoding, we'll use a bit-packing approach
+            // Each card is identified by its index in the allCards array
+            
+            // Step 1: Create a sorted copy of the deck (by card index) for more efficient encoding
+            const cardEntries = [];
+            deckCards.forEach(card => {
+                const cardIndex = allCards.findIndex(c => c.name === card.name && c.type === card.type);
+                if (cardIndex !== -1) {
+                    cardEntries.push([cardIndex, card.count]);
+                }
+            });
+            
+            // Sort by cardIndex for better compression patterns
+            cardEntries.sort((a, b) => a[0] - b[0]);
+            
+            // Step 2: Calculate the bit length needed for card indices
+            const maxCardIndex = allCards.length - 1;
+            const bitsForCardIndex = Math.ceil(Math.log2(maxCardIndex + 1));
+            
+            // Step 3: Pack the cards into a bit stream
+            let bitStream = [];
+            
+            // Add the number of unique cards in the deck (6 bits - up to 63 unique cards)
+            const uniqueCardCount = cardEntries.length;
+            bitStream.push(...numberToBits(uniqueCardCount, 6));
+            
+            // Add the bits needed for the card index (5 bits - supports up to 31 bits per card index)
+            bitStream.push(...numberToBits(bitsForCardIndex, 5));
+            
+            // Add each card entry
+            for (const [cardIndex, count] of cardEntries) {
+                // Card index (variable bits based on calculation)
+                bitStream.push(...numberToBits(cardIndex, bitsForCardIndex));
+                
+                // Card count (4 bits - supports 1-16 copies)
+                // Encode count-1 to support 0-15, which maps to 1-16 copies
+                const encodedCount = Math.min(count - 1, 15);
+                bitStream.push(...numberToBits(encodedCount, 4));
+            }
+            
+            // Step 4: Convert bitStream to Base62
+            // Group bits into chunks of 6 (since 2^6 = 64, which is close to 62)
+            // Pad with zeros if needed
+            while (bitStream.length % 6 !== 0) {
+                bitStream.push(0);
+            }
+            
+            // Convert 6-bit chunks to Base62 characters
+            let encoded = "";
+            for (let i = 0; i < bitStream.length; i += 6) {
+                const chunk = bitStream.slice(i, i + 6);
+                const value = bitsToNumber(chunk);
+                
+                // Use value directly for 0-61, special case for 62 and 63
+                if (value < 62) {
+                    encoded += base62Chars[value];
+                } else {
+                    // In the rare case we get 62 or 63, encode as two characters
+                    // This keeps the encoding purely alphanumeric
+                    encoded += base62Chars[Math.floor(value / 62)] + base62Chars[value % 62];
+                }
+            }
+            
+            return encoded;
+        }
+        
+        // Decode a Base62 encoded deck string
+        function decodeDeck(encoded) {
+            if (!encoded) return [];
+            
+            try {
+                // Step 1: Convert Base62 string to bit stream
+                let bitStream = [];
+                
+                for (let i = 0; i < encoded.length; i++) {
+                    const char = encoded[i];
+                    const value = base62Chars.indexOf(char);
+                    
+                    // Invalid character check
+                    if (value === -1) continue;
+                    
+                    // Convert to 6 bits
+                    bitStream.push(...numberToBits(value, 6));
+                }
+                
+                // Step 2: Extract header information
+                // First 6 bits: unique card count
+                if (bitStream.length < 11) return []; // Minimum bits for header
+                
+                const uniqueCardCount = bitsToNumber(bitStream.slice(0, 6));
+                const bitsForCardIndex = bitsToNumber(bitStream.slice(6, 11));
+                
+                // Validate header values
+                if (uniqueCardCount === 0 || bitsForCardIndex === 0) return [];
+                
+                // Calculate bits per card
+                const bitsPerCard = bitsForCardIndex + 4; // index bits + 4 count bits
+                
+                // Step 3: Extract cards
+                const result = [];
+                let position = 11; // Start after header
+                
+                for (let i = 0; i < uniqueCardCount; i++) {
+                    // Make sure we have enough bits left
+                    if (position + bitsPerCard > bitStream.length) break;
+                    
+                    // Extract card index
+                    const cardIndex = bitsToNumber(bitStream.slice(position, position + bitsForCardIndex));
+                    position += bitsForCardIndex;
+                    
+                    // Extract card count
+                    const encodedCount = bitsToNumber(bitStream.slice(position, position + 4));
+                    position += 4;
+                    
+                    // Convert encoded count back to actual count (add 1)
+                    const count = encodedCount + 1;
+                    
+                    // Find card in allCards array
+                    if (cardIndex >= 0 && cardIndex < allCards.length) {
+                        const card = allCards[cardIndex];
+                        result.push({...card, count});
+                    }
+                }
+                
+                return result;
+            } catch (error) {
+                console.error('Error decoding deck', error);
+                return [];
+            }
+        }
+        
+        // Helper function: Convert number to array of bits
+        function numberToBits(num, length) {
+            const bits = [];
+            for (let i = 0; i < length; i++) {
+                // Extract bits from most significant to least
+                bits.push((num >> (length - i - 1)) & 1);
+            }
+            return bits;
+        }
+        
+        // Helper function: Convert array of bits to number
+        function bitsToNumber(bits) {
+            let num = 0;
+            for (let i = 0; i < bits.length; i++) {
+                num = (num << 1) | bits[i];
+            }
+            return num;
+        }
+        
+        // Share the current deck as a URL
+        function shareDeck() {
+            const encoded = encodeDeck();
+            if (!encoded) {
+                alert("Your deck is empty! Add some cards first.");
+                return;
+            }
+            
+            // Create the URL with the encoded deck
+            const url = new URL(window.location.href);
+            url.search = "?d=" + encoded;
+            const shareUrl = url.toString();
+            
+            // Copy to clipboard
+            navigator.clipboard.writeText(shareUrl)
+                .then(() => {
+                    const shareBtn = document.getElementById('share-deck');
+                    const originalHTML = shareBtn.innerHTML;
+                    
+                    // Visual feedback
+                    shareBtn.innerHTML = '<span class="lucide lucide-check mr-1"></span>Copied!';
+                    shareBtn.classList.add('bg-green-600');
+                    
+                    // Reset after 2 seconds
+                    setTimeout(() => {
+                        shareBtn.innerHTML = originalHTML;
+                        shareBtn.classList.remove('bg-green-600');
+                    }, 2000);
+                })
+                .catch(err => {
+                    console.error('Failed to copy: ', err);
+                    alert("Failed to copy the link. You can manually copy this URL:\n\n" + shareUrl);
+                });
+        }
+        
+        // Load a shared deck from URL parameters
+        function loadSharedDeck() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const encoded = urlParams.get('d');
+            
+            if (encoded) {
+                try {
+                    // Wait for the card data to be loaded
+                    const checkInterval = setInterval(() => {
+                        if (allCards.length > 0) {
+                            clearInterval(checkInterval);
+                            
+                            // Clear any existing deck
+                            deckCards = [];
+                            
+                            // Decode and load the shared deck
+                            const sharedDeck = decodeDeck(encoded);
+                            
+                            if (sharedDeck.length > 0) {
+                                deckCards = sharedDeck;
+                                
+                                // Update the UI
+                                renderDeck();
+                                updateDeckStats();
+                                renderCardCollection();
+                                
+                                // Show a notification
+                                showNotification("Shared deck loaded successfully!", "success");
+                            } else {
+                                showNotification("Could not load the shared deck.", "error");
+                            }
+                            
+                            // Remove the parameter from the URL to prevent reloading on refresh
+                            history.replaceState({}, document.title, window.location.pathname);
+                        }
+                    }, 100);
+                } catch (error) {
+                    console.error("Failed to load shared deck:", error);
+                    showNotification("Failed to load the shared deck.", "error");
+                }
+            }
+        }
+        
+        // Show notification
+        function showNotification(message, type = "info") {
+            // Create notification element
+            const notification = document.createElement('div');
+            notification.className = 'fixed top-24 right-4 p-4 rounded-lg shadow-lg z-50 transition-all duration-300 transform translate-x-full';
+            
+            // Set colors based on type
+            if (type === "success") {
+                notification.classList.add('bg-green-600', 'text-white');
+            } else if (type === "error") {
+                notification.classList.add('bg-red-600', 'text-white');
+            } else {
+                notification.classList.add('bg-blue-600', 'text-white');
+            }
+            
+            // Add message and close button
+            notification.innerHTML = `
+                <div class="flex items-center">
+                    <span class="flex-1">${message}</span>
+                    <button class="ml-4 text-white hover:text-gray-200">
+                        <span class="lucide lucide-x"></span>
+                    </button>
+                </div>
+            `;
+            
+            // Add to DOM
+            document.body.appendChild(notification);
+            
+            // Animate in
+            setTimeout(() => {
+                notification.classList.remove('translate-x-full');
+            }, 10);
+            
+            // Add close handler
+            notification.querySelector('button').addEventListener('click', () => {
+                notification.classList.add('translate-x-full');
+                setTimeout(() => {
+                    notification.remove();
+                }, 300);
+            });
+            
+            // Auto remove after 5 seconds
+            setTimeout(() => {
+                if (document.body.contains(notification)) {
+                    notification.classList.add('translate-x-full');
+                    setTimeout(() => {
+                        notification.remove();
+                    }, 300);
+                }
+            }, 5000);
+        }
+        
+        // Event listeners
+        document.addEventListener('DOMContentLoaded', () => {
+            // Load card data
+            loadCardData();
+            
+            // Check for shared deck in URL
+            loadSharedDeck();
+            
+            // Search input events
+            searchInput.addEventListener('input', e => {
+                searchQuery = e.target.value;
+                clearSearch.style.display = searchQuery ? 'block' : 'none';
+                
+                // Show search hint if typing and not using advanced syntax
+                searchHint.style.display = 
+                    (searchQuery && !searchQuery.includes(':') && !searchQuery.includes('>') && !searchQuery.includes('<') && !searchQuery.includes('='))
+                    ? 'block' : 'none';
+                
+                renderCardCollection();
+            });
+            
+            searchInput.addEventListener('focus', () => {
+                if (searchQuery && !searchQuery.includes(':') && !searchQuery.includes('>') && !searchQuery.includes('<') && !searchQuery.includes('=')) {
+                    searchHint.style.display = 'block';
+                }
+            });
+            
+            searchInput.addEventListener('blur', () => {
+                // Delay hiding to allow clicking on hint
+                setTimeout(() => {
+                    searchHint.style.display = 'none';
+                }, 200);
+            });
+            
+            // Clear search button
+            clearSearch.addEventListener('click', () => {
+                searchInput.value = '';
+                searchQuery = '';
+                clearSearch.style.display = 'none';
+                searchHint.style.display = 'none';
+                renderCardCollection();
+            });
+            
+            // Sort select
+            sortSelect.addEventListener('change', e => {
+                sortOption = e.target.value;
+                renderCardCollection();
+            });
+            
+            // Filter buttons
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Update active filter
+                    activeFilter = button.dataset.filter;
+                    
+                    // Update button states
+                    filterButtons.forEach(btn => {
+                        btn.classList.toggle('active', btn.dataset.filter === activeFilter);
+                    });
+                    
+                    renderCardCollection();
+                });
+            });
+            
+            // Stats toggle
+            statsToggle.addEventListener('click', () => {
+                statsOpen = !statsOpen;
+                statsContent.style.display = statsOpen ? 'block' : 'none';
+                statsToggle.querySelector('.lucide').classList.toggle('lucide-chevron-down', !statsOpen);
+                statsToggle.querySelector('.lucide').classList.toggle('lucide-chevron-up', statsOpen);
+            });
+            
+            // Download deck button
+            const downloadDeckBtn = document.getElementById('download-deck');
+            if (downloadDeckBtn) {
+                downloadDeckBtn.addEventListener('click', downloadDeckImage);
+                
+                // Initially disable if deck is empty
+                const totalCards = deckCards.reduce((sum, card) => sum + card.count, 0);
+                downloadDeckBtn.disabled = totalCards === 0;
+                downloadDeckBtn.classList.toggle('opacity-50', totalCards === 0);
+                downloadDeckBtn.classList.toggle('cursor-not-allowed', totalCards === 0);
+            }
+            
+            // Share deck button
+            const shareDeckBtn = document.getElementById('share-deck');
+            if (shareDeckBtn) {
+                shareDeckBtn.addEventListener('click', shareDeck);
+            }
+        });
+    </script>
+</body>
+</html>

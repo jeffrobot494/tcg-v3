@@ -1,0 +1,286 @@
+Name,Cost,Type,Attack,Armor,Health,Effects
+Rainbow Neon Field (OO),0,Field,,,,"When this card comes into play, all Neon is converted to Rainbow Neon as long as this card is on the field. Rainbow Neon counts as being all Colors at once."
+Neon Field (OO),0,Field,,,,You gain 1 free colorless Neon to spend during your turn.
+Violent Death Mist,0,Field,,,,All creatures in play are destroyed at the start of your next turn.
+Warping Illusionary Mist,0,Field,,,,"During a player's turn, after Refresh, they may choose to return any number of cards in their hand to the bottom of the deck. Draw that amount of cards then shuffle their deck. You may do this one card at a time, and you may send the card(s) you drew to the deck as well."
+Super Heated Flash Storm,0,Field,,,,"When this card comes into play, and as long as it stays in play, any creatures with no keywords gain Volatile."
+Divine Protection Field (OO),0,Field,,,,"While this card is in play, all damage that would have been dealt becomes 0 and nothing can be destroyed. Destroy this card after 1 round. In addition, any card with the Curse and Immortal keywords in play are destroyed regardless of effects or if the cost was paid. All cards are healed to max HP, in addition any Cursed cards are reverted to their normal max HP."
+Expanding Zone (OO),0,Field,,,,"While this card remains in play, both players increase their draw from 7 cards in hand, to 10 cards in hand."
+Blood Magic Circle (OO),0,Field,,,,"While this card is in play, whenever a player would cast a spell, they may instead spend Life to cast a spell, you cannot cast a spell you do not have the maximum, or correct colored Neon to cast."
+Neon Abundance Surge (OO),0,Field,,,,"While this card is in play, during your turn, the first card you play has no cost. You may still use Color Effects as if you had paid for them, as long as you have the correct Color, and maximum Neon to do so, you cannot use effects that you would have not been able to pay for. Cards with a higher cost than your current maximum Neon cannot be played using this effect."
+Blood Rage Frenzy (OO),0,Field,,,,"During your turn, after Refresh, but before you play any cards or cast any spells, All units you have in your control must attack. All units summoned gain Blitz and must attack the turn they are summoned or created, if they cannot, they are destroyed."
+Neutralization Zone (OO),0,Field,,,,"As long as this card is in play, all Keywords and Unit effects are negated, and their text removed."
+Otherworldly Door/// (OO),0,Field,,,,"Once this card enters play, both players will select a card from their opponent's hand, that card is played immediately regardless of cost. If the card cannot be played, return it to the owner's hand revealed, and pick a new card. Once both players have played a card, shuffle this card back into your deck."
+The Sever (OO),0,Field,,,,"At the start of your turn, you may remove a card from your hand from play, the next Creature you play has it’s cost reduced by that card’s amount, in addition they gain the effect, “Cannot attack directly the turn this card is summoned. Remove this card from play at the start of your next turn” if the Creature has Warp ignore the second part of this effect."
+Glass Castle,0,Field,,,,"Whenever a Creature is summoned to the field, create a Mirror Image Token with stats equal to the summoned Creature and no effects."
+Colorless,,,,,,
+Neon Crystal (OO),0 or 3 or 7,Event,,,,"Gain an extra colorless Neon for this turn if you paid 0.  Deal 10 damage to a creature if you paid 3, this damage ignores Armor. Deal 15 damage to all creatures if you paid 7, this damage ignores Armor."
+Otherworldly Chair /// (OO),0,Relic/Creature [Construct/Otherworldly],0,0,1,"When this card is drawn, immediately following your next available Refresh it must be played. When this card is played this card is destroyed and reshuffled into the deck, if this card is destroyed in this way, both players must pass this turn with no other action taken except for Refresh. If It is not Destroyed by its own effect, permanently destroy all text on this card."
+Void Gnat (OO),0,,,,,"When this card is destroyed, summon 2 1/0/1 Void Gnat Tokens."
+Exploding Ant Colony (NEW),0,Relic/Creature/Event,0,0,0,"Immortal, Blitz, Immune, Tactis Mortis. You may play this card at any time during your turn or your opponent's turn. For every unit destroyed on your opponent's side of the field while this card is in play, deal 1 damage to your opponent's Life. Shuffle this card back into your deck at the end of your next turn, if this card didn’t destroy a unit during the turn. If this card did not attack, take 5 damage to your health. ""We knew it was near... We did not believe the legends, I dared my brother to slice his finger... I blinked and before I knew it, I had become an only child."" -Indigenous Villager"
+5.  Respectable Deck Stacker /// (NEW),0,Relic/Event,,,,"At the start of the duel reveal to your opponent you are playing this card. When this card is drawn, play it immediately, the effects of this card cannot be negated. This card stays on the field and cannot be interacted with. Both you and your opponent pick any 7 cards from your deck and place them at the top of your deck in any order. While this card is in play, cards cannot be drawn in any other way except for Draw Phase, and both players' decks cannot be manipulated in ANY way, except for the effects of this card. Your opponent may shuffle their deck at any time before their Draw Phase, if they do, remove this card from play and reshuffle your deck."
+Royal Jelly (OO),1,Relic/Equipment,,,,"Target unit Heal’s to full maximum HP now, and at the start of every round. If the unit would be destroyed, remove this card instead and send it to the graveyard."
+Bonetooth Pendant (OO),1,Relic/Equipment,,,,"Target Unit gains Feed 6 +3/+0/+0. If the equipped Unit is destroyed by combat, you may choose to return this card to your hand or deck, if you return it to your deck, shuffle afterwards."
+High Caliber Ammo (OO),2,Event,,,,Can only be played if you control a creature with the Snipe keyword.  That creature may use Snipe again. Any Unit that would be sniped as a result of this card is destroyed.
+Surging Neon (OO),1,Relic/Event,,,,You can now go past the 10 Neon Maximum up to 15. After turn 15 you take 30 damage to your Life directly.
+Void Spider (OO),1,Creature [Void/Arachnid],2,0,2,"Warp, Poison 2, Opportunist"
+Ash Lord /// (OO),1,Relic/Creature [Void/Abomination],1,0,1,"Stealth, Cleave All. Whenever a Unit is Created, this Creature gains +2/0/+2. Once per turn, while this card is on the field, you may add one Creature that has been removed from play back into your deck, then shuffle it. If this card would be removed from play, shuffle it back into your deck."
+Menma's Ring,2,Relic/Equipment,,,,"Grant target Creature Reviveself. If the target is removed from the field, equip this card to a new target Creature. If there are no valid friendly targets on the field this card is destroyed. When the deck is reshuffled, this card is not reshuffled into the deck."
+Bee Jerky (OO),2,Event,,,,"Target Creature gains +4/+4/+4, Blitz, Momentum, and Persistence this round."
+Box of Junk,2,Equipment,,,,Whenever a Creature equipped with this card attacks Choose from the following effects. You can only choose each effect once. 1. Create a 2/2/2 Junk Token 2. Create a Neon Crystal in your hand 3. Draw 1 Card
+Elastic Banana… (OO),2,Event,,,,"Target 2 Unit, those two Units are forced into combat until one of them is Destroyed or 10 attacks for both combatants have resolved. The player that played this card decides which Unit gets to attack first."
+Neon Field Creator (OO),2,Event,,,,"Search your deck for a Field card and put it on the top of your deck. If there are none, reshuffle your field card(s) from your graveyard to your deck. If there are none this card does nothing."
+Exiles Cloak (OO),2,Equipment,,,,Target Creature gains Stealth and 0/+1/0
+Sentry Post (OO),2,Creature [Construct],0,0,1,"Immortal, Anchored. This card is permanently Exhausted, cannot block, cannot be granted effects or keywords, and cannot equip cards or deal damage in any way."
+Leon's Shield (OO),3,Relic/Equipment,,,,"The target gains (+0/+3/+5), Defender, Tolerance 3, and Anchored"
+Neon Gun (OO),3,Equipment,,,,Grant the target Unit (+4/+0/+0) and Snipe 3.
+Men to Mice (OO) 👍,3,Event,,,,"Target Creature your opponent controls of 7 or less cost, Transform the Creature into a 1/1/1 Mouse Token with no effects."
+Spiked Coconut Helmet /// (OO),3,Relic/Equipment,,,,Target Creature gains (+0/+4/+5) and gains Spikes 5
+Sudden Eviction /// (OO) 👍,3,Relic/Trap,,,,This card is played face down and treated as Stealthed. This card may be turned face up if an opposing Creature declares an attack. Stop the attack and Evict that card.
+Living Grass (OO),3,Event,,,,"When this card comes into play, all 1 Cost Creatures, and all Tokens become Suppressed and stay Suppressed until this card leaves the field. You may pay 1 Neon every turn during your turn to keep this card on the field. If any Tokens or Creatures on your opponent's side of the field are destroyed while this card is in play, copy their stats and create a ‘Living Grass’ Token on your side of the field equal to it’s stats. Tokens created from this card can ignore it’s effects."
+Training the Troops (OO) 👍,3,Event,,,,All friendly creatures gain +2/+1/+2.
+Void Hound,3,Creature [Void],3,2,3,"When this Creature is summoned, search for 1 card in your deck, put that card under void hound face up, you can play that card as if it was in your hand while it's under Void Hound. If Void Hound is removed from play, and there is a card under it, shuffle that card into your Deck."
+Void Swarm (OO) <3,3,Creature [Void/Insect],,,,"Feed(1). Any card that battles with this card is destroyed immediately regardless of keywords or effects if the ATK of the opposing creature is lower, if a creature is destroyed this way, it cannot be shuffled back into the deck. If this Creature destroys a Unit, summon another ‘Void Swarm’ from your deck, hand, or graveyard with the same ATK as this card."
+Ghoul (OO) 👍,3,Creature [Undead],4,0,3,"Whenever Ghoul attacks a Unit, summon any number of Ghoul’s from your hand or graveyard. Any card summoned with this Creature’s effect gain’s Blitz. You can only attack with any card named ‘Ghoul’ 3 times per turn."
+Bog Goblin,3,Creature [Humanoid/Groth],5,1,4,"Cripple 2 on attack. Whenever this card becomes Exhausted you may deal 1 damage to it to give it Stealth until the start of your next turn, even if there are no creatures on your side of the field. If this card declares an attack while it has Stealth, Heal 5 to this card, and gain Poison 5."
+Time Field Distortion Device (OO) 👍,3,Relic/Event,,,,"When this card is played, gain an extra spent maximum Neon of any color. This card returns to the deck when it would be sent to the graveyard."
+Lightbender’s Tassel,3 OR 1 Yellow,Equipment,,,,Target Creature can no longer be targeted by effects or spells.
+Feed the Beast (OO) 👍,4,Event,,,,"Destroy any number of Creatures on your side of the field as you wish, this happens all at once. Then target 1 Creature, that targeted creature gains ATK and HP Equal to the total stats of all the creatures destroyed this way."
+Crushing Sweep (OO) 👍,3,Event,,,,Deal 5 damage to all enemy cards. This damage ignores defense.
+Inspiring Hero! (OO) 👍,,Event,,,,"Target a friendly Creature to attach this card to. That creature loses all other keywords and gains the Rally 2 and becomes a Hero. If the Creature is already a Hero, this card has no cost."
+"Dimensional Fighter, Carl ///",4,Relic/Creature [Human/Hero/Warrior/Relic],8,0,6,"Warp. Whenever Dimensional Fighter, Carl is removed from the field or Warp’s he gains a permanent +4 to attack OR Health. If Dimensional Fighter, Carl is targeted by a enemy card effect, you may remove him from play, if you do so, summon him next turn. When your deck is shuffled, if Dimensional Fighter, Carl is in your graveyard, shuffle him back into the deck. “...After about 100 years, the powers just kind of happened... Been saving worlds ever since.”"
+Battlemaid,4,Creature [Humanoid/Neonite],4,3,4,"When Battlemaid enters the field deal 5 damage, ignoring armor, to any Creature and summon another Battlemaid from your hand if able."
+Cannon Shield (OO) 👍,5,Equipment.,,,,"Choose. Target gains (+1/+3/+6). OR. Target gains the Snipe (8), if the target picks this keyword and uses Snipe both the equipped Creature and this card are destroyed."
+Leon's Sword (OO) 👍,5,Relic/Equipment,,,,"The target gains (+6/+0/+2), Pierce."
+Mythril Armor (OO) 😎,5,Equipment,,,,"Grant Target Creature (+0/+3/+5) Stalwart, Defender, then double the armor of the target Creature"
+The Infinity Book,5,Relic/Equipment,,,,"Targeted creature is resummoned with all of its Color effects activated. This can be done every turn, and this card stays equipped."
+Ramagos’s Blessing,5,Relic/Equipment,,,,"Gain Immune, Immortal, Anchored, and Stalwart."
+Red Cage (OO),,Equipment/Trap,,,,"This card is played face down and treated as Stealthed. This card may be turned face up when an enemy creature targets the controlling player's Life as a target. Stop the attack, This card then attaches itself to the attacking card, that card is Suppressed and becomes Suppressed at the start of every turn. The creature with this card attached gains Bleed 1, every turn and takes damage from Bleed every time Bleed is given to the target, even if not Exhausted. If the creature dies while this card is equipped, return it to the original owner's field and flip it face down."
+Light Projectile Cannon,5,Event,,,,"Destroy one friendly creature, Deal damage to an enemy Target Creature for the total value of the destroyed Creature’s attack ATK, if the Target Creature is destroyed, all excess damage is dealt to the opposing player's Life"
+Juggernaut Golem (OO),5,Creature [Construct],,,,
+Death Sprite,5,Creature [Void/Avian],5,0,5,"Flying, Momentum, Shattering Blows, Reviveself Infinite."
+The Revolver (OO),6,Relic/Equipment,,,,"Target Creature gains +10/0/0. Choose +5/0/0, Snipe 6 OR Snipe 6, may target 6 different target’s per single use of Snipe, if this effect is chosen, you may only target a player’s Life once per turn."
+Creb,6,Creature [Crab],12,7,15,
+The Winds of Change (NEW),6 OR 3 Violet,Event,,,,Shuffle your hand back into the deck and Draw 7 cards OR All enemy Creatures are Winded OR Swap control of one of your Creatures with one of your opponents Creatures.
+Ash Burrower,6,Creature [Void/Beast],12,4,10,"Warp, Momentum. This Creature cannot be Suppressed and cannot attack directly. When this card is on the enemy field if an enemy Creature takes damage, Ash Burrower attacks them. If any Creature has 1HP while Ash Burrower is on the field, destroy them instantly."
+Grand Curse of the Elder Hag,7,Relic/Event,,,,"This card may only be played if you have a Hag type Creature on the field, this card stays on the field. Your opponent may no longer shuffle their deck unless you say so. At the start of your turn every turn, have your opponent reveal 1 card in their hand permanently, you may then pick any card in their hand and send it to the bottom of their deck. Every time this card is played it gains a new effect. If you control no Hag type Creatures, or if you shuffle your deck, you may return this card into your deck and then shuffle again. 2nd play: Summon up to 3 ‘Hag’ from anywhere in your deck, hand, or graveyard 3rd play: Curse all Creature your opponent summons for the rest of the duel. 4th play: Your opponent's life becomes 1."
+Carapace Armor (OO) 👍,7,Equipment,,,,"The Target Creature gains 0/+7/+10, Tolerance 10, Spikes 10, Taunt. If the equipped Creature of this card is destroyed, this card stays on the field as a 0/0/1 and may be attached to a new Creature for free during your turn."
+Revenant's Soul Sword (OO) 😎,7,Relic/Equipment,,,,"Target Creature gains +14/0/0, Blitz, Feed 4, Peirce. Whenever the Creature equipped with this card Targets a Unit in anyway, destroy all text on that Unit. If the Equipped Creature destroys a Unit, Heal 5, and remove the Unit from play. If the Unit was a Token, gain +5/0/0."
+Timber!,5 (OO) 👍,Trap,,,,This card is played face down and treated as Stealthed. This card may be turned face up when an enemy Creature is destroyed. Every enemy card of lower cost than the destroyed Creature are destroyed. All enemy created Units are destroyed and deal 1 damage to the opponents Life per created Unit destroyed.
+Storm Tempest Jar,7,Event,,,,Evict all cards on the enemy's field. You may also choose to Evict any cards on your side of the field.
+Irzerath /// (OO),7,Relic/Creature [Hero],,,,"Blitz, Corrosive(3), Stalwart, Defender. This card is unaffected by Neon Spell effects. And cannot be damaged or destroyed by any Color card effects. Whenever a Color Effect is activated, or a spell is used, you may grant this card 0/0/+4, OR Heal 4."
+Zex /// (OO) 👍,7,Relic/Creature [Human/Demon/Hero],13,4,10,"You may search your deck for any ‘Demon’ type card, and play it for free with 1 of it’s Color Effects. This card cannot be destroyed or removed from the field by anything except combat if there is a ‘Demon’ type card on the field except ‘Zex’. If this card would be removed from the field at the same time as the card it summoned with it’s effect, resummon this card and activate its effect again."
+Grey Reaper (OO) 👍,7,Creature [Void/Reaper],14,0,7,"Tactus Mortis. This Creature may gain Warp when summoned. Once per round, at any time, target the card with the lowest HP on the field and destroy it, except this card. If any friendly Creature, or the player would fall below 1 HP or Life, grant that card or player Immortal before it hits 0, until the start of the player who summoned this card’s next turn."
+Hall of Mirrors (OO),8,Trap,,,,"This card is played face down and treated as Stealthed. This card may be turned face up anytime during your opponent's turn. Summon 3 Mirror Tokens with Defender. Select 1 Unit on the field, the Mirror Tokens Created from this card gain that Unit’s stats and 1 of their keywords."
+Death’s Letter (OO),9,Relic/Equipment,,,,"Target creature gains Immortal, Tactus Mortis. If this card is removed from the field, destroy Units on the field and all cards in both players hands. You may remove from play one 7 cost or higher Creature from your graveyard to return this card to your hand."
+Overload Potion (OO),10,Relic/Event,,,,Set target Creature’s Stats to (99/99/99).
+Otherworldly Beast /// (OO),10,Relic/Creature [Otherworldly],,,,
+Void Dragon /// (OO),10,Relic/Creature [Void/Dragon],17,7,19,"This card ignores all keywords and is not affected by any card or Unit effects. If this card destroys another creature in battle, Excess damage is dealt to the opponent's Life. Whenever this card destroys another creature in battle, it gains +1/+1/+1. If the deck is reshuffled this card is destroyed."
+"Kai, The Colorless /// (REWORKED 3/12/25)",10,Relic/Creature [Neonite/Human/Mage/Hero],14,4,15,"Kai, The Colorless is not affected and cannot be damaged by any card or spell that has color effects on it, regardless of if the effects are activated; this includes Effects, Creatures, Events, Traps, and Spells. Kai, The Colorless gains 10 Spell Counters when he enters and at your refresh phase. Spell Counters are treated as Rainbow Neon but can only be used for spells, each spell only once per turn, and as many Neon Spells. Additionally all Neon your control is treated as Rainbow Neon. If Kai, The Colorless is destroyed, you may add a Neon Crystal to your hand from your deck, graveyard, or removed from play, if you don’t have one in your deck, you may add The Neon Crystal to your hand."
+"“...Oops…” - Kai, The Colorless.",,,,,,
+"Akeldama Dade, the Helpful Adventurer  /// (OO)",4,Relic/Creature [Hero/Demon/Adventurer],5,3,8,"Bubble, Rally 1, Reviveself, Heal 4 every turn. During your turn, you may reveal a card from your hand once per turn and reduce its cost by 1 permanently. When this card is destroyed, add ‘Akeldama Dade, the Twisted Lord’ from your deck or graveyard to your hand. If ‘Akeldama Dade, the Twisted Lord’ is in your hand when this card is destroyed, you may instead Evolve this card into ‘Akeldama Dade, the Twisted Lord’."
+"Akeldama Dade, the Twisted Lord /// (OO)",7,Relic/Creature [Demon],14,5,16,"Dread, Commander 4, Regenerator 5, Reviveself. You may destroy any number of Units on your side of the field during your turn and Create 1 6/6/6 Twisted Abomination Token on your side of the field for as many cards destroyed this way, this effect cannot be used on ‘Twisted Abomination’ Tokens on your side of the field. When this card is on the field, all Creatures you control gain the ‘Demon’ type."
+14 Cost,14,Creature [Hero/Paragon/Human],25,15,30,"Blitz, Rally 4, Immune. If this card was summoned from the effect of Leon, Champion of Menma, Destroy all equipment on this card and give it all the keywords on all equipment destroyed this way. This card is unaffected by opponent Neon Spells, and cannot be Exhausted. This card can only be removed from the field by being destroyed in combat. All creatures on your side of the field gain Blitz as long as Leon, Paragon of Hope is on the field."
+“...I am the hope that will fill the souls and hearts of the broken people!”,,,,,,
+Spike Pit,X,Trap,,,,This card is played face down and treated as Stealthed. You may turn face up when an enemy creature with X cost or lower attacks. Where X is the cost of the paid Neon for this card. The Creature is destroyed instantly before combat resolves. This card flips back face down after being activated.
+Hyena,X (OO),Creature [Beast],3,2,2,Create Hyena Tokens equal to the amount of neon you paid to summon this card -1.
+Slavers Chains (OO),X,Relic/Event,,,,"Reveal your opponents hand, take a card equal to or less than the Neon you spent playing this card, take control of that card and play it for free. Your opponent draws a card after this effect resolves."
+Rainbow,,,,,,
+Wolf,2,Creature [Beast],7,0,3,
+The Keeper,10,Relic/Creature [God],X,X,X,"The Keeper gains +2/+2/+2 for every different color used to summon him. If 10 different colors were used to summon The Keeper, gain an extra 3 maximum neon of each color."
+"If The Keeper is removed from the field or from play, neither player can cast spells for the rest of the duel and all color effects will no longer activate for the rest of the duel, in addiction, all cards on the field, and both players hands are sent to the graveyard, ignoring all other effects.",,,,,,
+"Coup de Grace: If The Keeper is played again after the totality of his effects have been activated once before in this duel, If you summoned him with 40 colored neon of all 10 colors, you win the duel regardless of other win conditions that happen in the same turn. This does not count as an effect.",,,,,,
+Prism,10 (OO),Relic/Structure,,,,"This card can only be played if you spent 1 of every colored neon to play it. Double your maximum neon, and gain 2 Neon every turn instead of one. Gain 1 of every Color Neon, this extra neon is exhausted."
+Black,,,,,,
+DestructO! The ObliteratOr! /// (OO) 👍,0,Creature [Demon],1,0,3,"Immortal, Immune. This card Removes itself from play at the start of the controller's next turn. Whenever your deck is shuffled except for the start of the duel, put this card at the top of your deck. “I am DestructO! The ObliteratOr!” - DestructO! The ObliteratOr!"
+Indigenous Cursed Doll,,Creature [Construct],1,1,5,
+Hag,2,Creature [Humanoid/Hag],4,1,2,When in combat grant foe Cripple 1.
+Fanatic Cultist,2,Creature [Human],5,0,4,
+Withering Zombie,3,Creature [Undead],,,,
+Life Absorbing Totem (OO),3,Creature [Construct/Abomination],0,4,6,"At any time, you may reveal this card in your hand to activate this effect. While Life Absorbing Totem is in hand, if a Creature of equal or more cost is Destroyed, Summon Life Absorbing Totem for free at any time with 1 of it's Black effects."
+Brute Shroomling,4,Creature [Shroom/Warrior],12,2,4,Momentum
+Proton Decay Crystal (OO),3 OR 1 Black,Structure,,,,"Anytime a Creature’s HP goes down, that becomes their new max HP. Players and Units cannot heal or increase their HP."
+Black Dagger Assassin,5,Creature [Neonite],10,1,5,"Stealth. If this Creature destroys another Creature in combat, remove it from play. While this Creature has Stealth it can target any Creature on the field for attack regardless of conditions."
+Decay Ogre (OO),6,Creature [Groth],16,5,21,This Creature can only be summoned if all the neon used to summon this Creature was Black.
+The Bag of Nothing,6,Event,,,,"When this card is played it stays on the field. Whenever a card would leave the field, instead put the card under this one and remove all it’s text. If this card is destroyed, all cards return to their graveyards and their text is restored. If this card was played using Black the User can choose which cards are affected by this card."
+Antimatter Explosion ///,7,Relic/Event,,,,"Destroy all text, and remove from play all cards that do not have a Black cost of any kind in both players hands and fields. Remove from play this card after it is played."
+Elder Hag (NEW)  ///,8,Relic/Creature [Humanoid/Hag],1,1,1,"If this card leaves the field for any reason, you may play ‘Grand Curse of the Elder Hag’ for free from hand or field immediately regardless of who’s turn it is. If this card was summoned while at least 3 ‘Hag’ type Creatures were in your control, you may Destroy them all and Evolve into ‘Moiba, The First Sister of the Covenant’ from your Hand, Deck, or Graveyard."
+Blessing of the Dark One (OO),8 OR 4 Black,Equipment,,,,Target Creature gains any one of the following keywords or effects. +10/+5/+10 Immortal Curse all cards this card battles with before combat. Dread Destroy this card and deal damage to your opponent equal to it’s HP.
+Devourer,8,Creature [Abomination],4,8,20,Defender
+"Moiba, The First Sister of the Covenant /// (NEW)",1 OR 10,Relic/Creature [Humanoid/Hag],,,,"If this card was Evolved from ‘Elder Hag’, it comes in at it’s 10 cost profile. Half your opponent's current life. If this card was summoned the same turn as ‘Grand Curse of the Elder Hag’ was played. Destroy as many cards as you wish from your hand, the field, or your opponents hand, and deal damage to your opponent's life equal to each card destroyed."
+Black Bolts of Devastation ///,X Black,Relic/Event,,,,"Target and destroy cards anywhere except the deck, and remove them from play until the cost of the cards destroyed equals the cost of this card. Black/Blue"
+Amoeba /// (OO),1,Relic/Creature/Equipment [Cell],0,0,1,
+2. Dark Phoenix Egg /// (OO),4,Relic/Creature [Elemental],2,2,4,"Once this card has been on the field for 4 rounds, Evolve it into Dark Phoenix, For every card this card destroys, reduce the rounds required to Evolve by 1."
+black/brown,,,,,,
+black/green,,,,,,
+Wraith (OO),4,,1,1,1,
+Tarantula (OO),5,,7,3,8,
+black/orange,,,,,,
+Pyromatic Shroomling (OO),1,Creature [Shroom],4,0,1,"Volatile, Growth"
+4 cost Update,4,Creature [Human/Mage],6,3,4,
+black/purple,,,,,,
+Black Bolter  (OO),7,Creature [Neonite],12,3,8,Flying
+black/red,,,,,,
+Rotting Blood (NEW),,Event,,,,"When this card is played, Inflict 1 Bleed on all enemy units, then any units you choose take damage that ignores armor equal to their Bleed stacks. You can pay 1 Red and 1 Black every turn to keep this card on the field and activate it's effects again at the start of your next turn. If you do not pay this cost, the card is destroyed."
+black violet,,,,,,
+black white,,,,,,
+Crow (OO),1,,1,1,3,"Flying. If there are 3 ‘Crow’ cards on your side of the field, Evolve them into ‘Murder of Crows’."
+Vulture (OO),3,Creature [Avion],1,4,4,
+Revenant,5,Creature [Humanoid/Undead],10,2,7,
+Murder of Crows /// (OO),6,,X,3,10,"Flying. The Attack of this card is equal to the number of cards in your graveyard +1. If this card was evolved from the effect of ‘Crow’, gain one of its color effects for free."
+black yellow,,,,,,
+Black/Blue/Purple,,,,,,
+Dark Phoenix  /// (OO),9,Relic/Creature [Elemental/Avion],23,3,13,"If this card is summoned with the effect of Dark Phoenix Egg, this card gains 2 effects of your choice regardless of cost. If this card is destroyed, destroy up to 3 cards that cost 7 or less."
+Black/Blue/Brown/Green/Orange/Purple/Red/Violet/White/Yellow/,,,,,,
+Blue,,,,,,
+Haunted Mirror,1,Creature [Construct],0,2,4,
+Ice Bear Cub,2,Creature [Beast],2,2,4,"If Ice Bear Cub manages to defeat a unit in battle, Evolve it into Ice Bear"
+Wall of Freezing Ice (OO) (Updated),4,Trap/Structure,,,,"This card is played face down and treated as Stealthed. This card may be turned face up whenever the controlling player chooses, but may intercept attacks. As long as this card is in play, all enemy Units are Brittle. If a second friendly ‘Wall of Freezing Ice’ is in play, all enemy Units gain (-2/0/0). If a third ‘Wall of Freezing Ice’ is in play, you cannot lose life."
+Snow Angel (OO),4,Creature [Construct],5,2,8,
+Ice Bear,5,Creature [Beast],7,4,9,"If Ice Bear manages to defeat 2 units in battle, Evolve it into Grizzly Ice Bear. If Ice Bear Evolved from Ice Bear Cub, it gains 2 of it’s color effects. If Ice Bear Cub is destroyed while you have Ice Bear in your hand, summon it for free, it remains Exhausted until your next turn."
+Cruel Ice Wave ///,,Relic/Event,,,,"All enemy Creatures with under 7 HP are destroyed. If the creature cannot be destroyed, Evict them."
+Grizzly Ice Bear ///,8,Relic/Creature [Beast/Relic/Legend],10,10,20,"If this card Evolved from Ice Bear Gain all of it’s keywords, and gain all 3 of Grizzly Ice Bear’s color effects."
+Tsunami (OO),,Event,,,,"All cards are removed from the field and sent to the graveyard regardless of keywords. Ignore anything that would prevent, negate, or delay this."
+Otherworldly Water /// (OO),X,Relic/Event,,,,"The Token summoned from Blue’s 1 cost spell becomes a X/X/X, where X is the price paid. The Tokens Created from the Blue 1 spell, have Blitz. blue/brown"
+Mudskipper,1,Creature [Fish],2,0,4,
+Spiky Clay Creature (OO),1,Creature [Construct],0,3,5,
+blue/green,,,,,,
+"Serena, Saint of the Waters of Life ///",1,Creature/Relic [Human],1,1,1,"Bubble. If this Creature does not have Bubble it gains Bubble at the start of your Refresh, When this card gains bonus Health, give that much bonus Health to all your units."
+blue/orange,,,,,,
+Boiling Elemental,1,Creature [Elemental],1,1,3,If there are 3 Boiling Elementals on the field at once Evolve them into Boiling Giant.
+Boiling Giant,5,Creature [Elemental],7,3,7,"If this card was summoned as a result of Evolution, it gains 1 of it's Color Effects for free. If this card activated it's Blue 2 effect, and was Destroyed while it was Volatile, before it's Destruction resolves, Evolve it into Boiling Geyser Titan"
+Boiling Geyser Titan ///,9,Creature [Relic/Elemental],20,5,12,"If this card was summoned through Evolution, gain both it's effects, in addition, this card can deal Volatile damage to players. If this Creature has Volatile, it targets all Creatures on the field, and both players when Volatile triggers. If you and your opponent would both lose as a result of this card dealing Volatile damage, the owner of this card wins."
+blue/purple,,,,,,
+blue/red,,,,,,
+Crimson Water Abomination (OO),,Creature [Elemental/Abomination],,,,Inflict Bleed 2 on all Units that battle with this Creature.
+blue/violet,,,,,,
+Jellyfish (OO),2,Creature [Aquatic],,,,
+blue/white,,,,,,
+blue/yellow,,,,,,
+Neonnite Warrior (OO),2,Creature [Neonite/Warrior],3,2,5,"Reveal the next top 5 cards in your deck, if any of those cards are 5 or less cost equipment cards, add them to your hand, then reshuffle the deck."
+Mirror Clone,"7 OR 1 Blue, 1 Yellow",Event,,,,"Target 1 Creature your opponent controls. Summon a ‘Mirror Clone’ Token of that creature on your side of the field. This Token is an exact copy of the Target Creature and includes any changes made while it was in play, but not equipment or other attached cards."
+Blue/White/Yellow,8,Relic/Creature [Human/Hero],14,10,20,"When this card is removed from the field during the opposing player's turn, during your next turn, you may summon any Creature from your hand for free, with all of it’s color effects, and equip that card with any equipment this card had equipped, that card is now treated as a ‘Hero’. If this card is equipped with ‘Menma’s Ring’, ‘Leon’s Sword’, and ‘Leon's Shield’. Evolve this card into Leon, Paragon of Hope"
+Thraxx /// (OO),2,Creature [Human/Mage],2,2,4,"When this card is summoned, you may play any 1 cost spell for free, this does not count towards your spells used per turn."
+Brown,,,,,,
+Jagamo,2,Creature [Beast],3,3,5,"You can only equip one card to this card, per turn. If this card is equipped with two or more equipment cards of any kind, Evolve it into Jagged Jagamo"
+Rise of the Moles,,Event,,,,"Summon 5, 0/0/1 Mole Tokens on either player's side of the field."
+Mole,3,Creature [Beast],6,1,6,If this card does not attack during your turn. Grant it +4/0/0.
+Jagged Jagamo (OO),6,Creature [Beast/Warrior],7,5,10,"If this card has an equipment attached to it, summon a Jagamo from your hand, deck, or graveyard once. If this card was summoned as a result of the Evolve keyword, gain both of its color effects."
+Star Armor /// (OO),10,Relic/Equipment,,,,"Grant Target Creature 1 keyword of your choice, the equipped creature gains that keyword and +5/+5/+5; at the start of your every turn, you may activate this effect again. The Creature equipped with this card may negate any 1 effect or spell during your opponent's turn, once."
+brown/green,,,,,,
+Steel Furred Bear,4,Creature [Beast],5,4,9,
+brown/orange,,,,,,
+Exploding Ant (OO),1,Creature [Insect],3,1,2,Defender. If there are 3 ‘Exploding Ant’ cards on the field in addition to ‘Exploding Ant Queen’ you may play ‘Exploding Ant Colony’ from anywhere.
+Exploding Ant Queen (NEW),7,Creature/Relic [Insect],10,6,18,"This card cannot be affected by card effects, spells, or damage as long as at least 1 ‘Exploding Ant’ is in play."
+brown/purple,,,,,,
+Ancient Golem (OO),6,Creature [Construct],11,6,14,"All attacks directed to the owner of this card, are directed to this card instead."
+brown/red,,,,,,
+Blood Worm (OO),2,Creature [Beast],3,0,3,This card gains +X/0/+X for every Unit that has at least 1 stack of Bleed.
+brown/violet,,,,,,
+brown/white,,,,,,
+brown/yellow,,,,,,
+"Raven, Hunter of the Swamp /// (OO)",6,Relic/Creature [Human/Hero],,,,"Mark 1, Stealth, Snipe 5. As long as this card remains Stealthed it cannot take damage If this card, Snipes any Marked target, that target is removed from the field and sent to the grave, Whenever a creature is Sniped, Raven, Hunter of the Swamp may Snipe it immediately afterwards. When this card destroys a Unit, you may Mark 1 any other Unit"
+“You could be a streak of light and I still wouldn’t miss…” -Raven,,,,,,
+Brown/orange - purple/red,,,,,,
+T-Rex //// (OO),12,,20,10,20,"Immune. If T-Rex is summoned with less than 2 color effects, pick one to activate for free."
+"Coup de Grace: If this card attacks your opponent while they control no other cards on the field, and you control no other cards on the field, you win the duel.",,,,,,
+Green,,,,,,
+Anomalous Poisons,,Event,,,,"Target 1 Creature if that Creature does not have Poison, give it Poison 5. If the Creature has Poison it gains the Tactus Mortis"
+Baby Troll (OO),3,Creature [Humanoid/Groth],3,3,3,This card may destroy a friendly Creature to gain +X/0/+X equal to the cost of the destroyed card.
+Monkey (OO),3,Creature [Beast],3,0,5,
+Mold Monster,4,Creature [Plant/Abomination],4,4,4,"Create a 1/1/1 Mold Token with Growth 1. Anytime you activate your Green 3 effect, Create another."
+Grand Wall of Trees,,Event,,,,"Summon 2 0/5/10 Tree Tokens. If the Tokens are destroyed while this card is in your Graveyard, put it on the top of your deck."
+green/orange,,,,,,
+green/purple,,,,,,
+Zap Toad,3,Creature [Beast],6,2,4,Feed 2.
+Venus Fly Trap  (OO),4,Creature [Plant],,,,Stealth.
+green/red,,,,,,
+Meadow Mulcher (OO),4,Creature [Plant/Abomination],9,0,6,
+green/violet,,,,,,
+green/white,,,,,,
+green/yellow,,,,,,
+Slaver /// (OO),9,Relic/Creature [Deity],14,6,21,"Stealth. When this card enters the field, Select up to 3 cards you control, those cards suffer all negative effects and damage in place of this card, distributed however you wish. You may target 1 Creature once per round excluding this card, and create a Token copy of it."
+Orange,,,,,,
+Tentacled Shroomling,2,Creature [Shroom/Abomination],4,1,4,Fear
+Wild Boar (OO),3,Creature [Beast],6,0,3,This card can attack any Unit regardless of conditions.
+Flames of Hell (OO),,Event,,,,"Deal 10 damage to a Creature. If that Creature is destroyed by the damage summon 3 Tokens with Volatile on your side of the field, these Tokens have X/0/1, where the X is determined by the destroyed creature’s ATK"
+Bombing Run,6,Event,,,,"Deal 10 damage to all enemy creatures, if Orange was used to play this card reduce it’s cost by 1, and increase it’s damage by 1 permanently. If every Bombing Run in your deck is in your graveyard, reshuffle them into your deck and draw that many cards."
+Supernova /// (OO),,Relic/Event,,,,"Target creature with the Volatile keyword. That creature is destroyed and all creatures and both players take damage equal to that creature’s ATK. This damage ignores defense. If both players lose as a result of this, the player that played this card wins."
+orange/purple,,,,,,
+orange/red,,,,,,
+Searing Blade (OO),4,Equipment,,,,"The Creature equipped with this card gains +5/0/0 and Volatile. When the Creature equipped with this card attacks it may deal damage equal to its attack to any source, half damage is dealt to players. Creatures that are Volatile that are destroyed by the equipped Creature cannot target your side of the field."
+Blood Demon /// (OO),,Creature [Demon],,,,"While this card is in play, every round you may inflict Bleed 2 on any creature. This card may attack anytime a unit gains Bleed. When this card declares an attack no other interactions or effects may occur before, during, or after as a result of combat except combat damage itself."
+orange/violet,,,,,,
+orange/white,,,,,,
+orange/yellow,,,,,,
+Orange/Purple/Violet,,Creature [Dragon/Hero],,,,Flying.
+Orange/Purple/White,,,,,,
+Jasper ///,7,Relic/Creature [Neonite/Adventurer],15,6,9,"Taunt, Bubble, Defender. When Jasper destroys a unit, Heal 4 to any target. Orange/White/Yellow"
+Phoenix /// (OO),,Relic/Creature [Legend/Avion],,,,This card is able to destroy itself at will during the controller's turn. If it is summoned with the effect of Phoenix Egg this card gains 2 effects of your choice regardless of cost. This card permanently keeps all keywords and effects attached to it. Purple
+Lightning Storm,0,Field,,,,"While this card is in play both players may use The Purple 1 spell for free every turn , this does not apply to the spell limit."
+Living Lightning,4,,8,0,4,
+Spark Spirit,,Creature [Elemental],,,,As Spark Spirit enters the field it Gains +3/+1/+2 for every Purple Neon you spent.
+purple/red,,,,,,
+purple/violet,,,,,,
+ThunderBird (REWORDED 4/30/24),3,Creature [Avion],,,,Cannot attack the opponent directly.
+Living Stormcloud,,Creature [Elemental],,,,Flying
+purple/white,,,,,,
+purple/yellow,,,,,,
+Red,,,,,,
+Bloodcrazed Indigenous Berserker,,,0,0,1,this creature comes into play with Bloodlust
+Pound of Flesh /// (Banned),,relic Event,,,,"The caster of this card may use any amount of life to play Red Neon, equal to the amount of life they spent at a 1:2 ratio. Each time this card is used, the life required is doubled."
+Flea,,creature [insectoid],2,1,5,
+Blood Frenzy,,Event,,,,"All creatures attack. They can select any target except for the player, no creatures die until every creature has attacked. Creatures can still be removed by effects."
+The Red Reaper ///,,,5,10,20,"Tactics Mortis When this creature enters the battlefield give all creatures Bleed 5. When this is the only Creature on the field, you may move this card to the Graveyard, whenever a Creature is summoned while this card is in the Graveyard, Revive it. While this card is in your grave, you may Bleed 2 target creature once per round. If this card is Destroyed, remove it from the game."
+red/violet,,,,,,
+Indigenous Duelist,,creature [human duelist],5,3,6,
+Butterfly,5,Creature [Bug],6,2,11,
+Savage Feral Beast,,Creature [Beast],6,3,7,
+red/white,,,,,,
+red/yellow,,,,,,
+Violet,,,,,,
+Skyguard Spear (NEW),2,Equipment,,,,"Give target Creature Blitz. If the Creature activated a Violet color effect, give it Flying. If the target already has Flying, grant it +4/+1/+2"
+Wind Tunnel Golem,3,Creature [Construct],5,2,4,
+Adaptive Ferret (NEW),3,Creature [Beast],4,1,6,
+Air Lurker Juvenile,4,Creature [Lurker],7,1,5,Gains +1/+1/+1 for every friendly Lurker with Flying
+Flock of Birds,5,Creature [Avain],8,0,4,Flying
+Complete Vacuum,6 OR 4 Violet,Event,,,,All Enemy creatures become Suppressed. All 3 Cost or lower enemy creatures or Tokens are destroyed.
+Supersonic Swordsman (NEW),7,Creature [Neonite/Warrior],16,3,8,"If Supersonic Swordsman declares an attack on a target and would Destroy that target as a result of combat, Destroy that target instantly without combat resolving, this still counts as an attack."
+Tornado Wyvern,8,Creature [Draconic/Dragon],15,5,13,
+Violet/White,,,,,,
+Violet/Yellow,,,,,,
+Woodpecker,,Creature [Avion],,,,
+Mantis,,Creature [Bug],6,1,4,
+White,,,,,,
+Cockroach,,creature [insectoid],0,1,4,
+"Lee, Mercenary for Hire (New, 05/24/24)",9,Relic/Creature [Human/Neonite/Chosen],18,5,13,"Immune. Create 2 Neon Crystal in hand (All Neon Crystals created by this card count towards the hand size). During the start of each turn the active player gains control of “Lee, Mercenary for Hire” and creates a Neon Crystal in their hand, When “Lee, Mercenary for Hire” is summoned both players shuffle all other cards from hand, field, grave, and remove from play back into the deck and redraw 7 cards Then Create 2 Neon Crystal in hand (All Neon Crystals created by this card count towards the hand size). Whenever “Lee, Mercenary for Hire” attacks you must pay 1 Neon Crystal."
+White/yellow,,,,,,
+Wandering Light Doctor,1,Creature [Human Mage],,,,Heal (2) to anything once per round.
+Phoenix Egg ///,,Relic/Creature [Elemental],,,,"Once this card has been on the board for 3 rounds, Evolve it into Pheonix (Turns spent in Stealth count as turns spent on the board for this card) Phoenix is a 9 cost orange/white/yellow card"
+"Drask, Paragon of Justice ///",10,Relic/Creature [Human Hero/Paragon],15,10,20,"If Drask, Hero Paragon of Justice would be reshuffled into the deck, remove him from play."
+White/Yellow/Violet,,,,,,
+Cloud Hopping Wanderer,1,Creature [Neonite/Human],2,2,3,
+Yellow,,,,,,
+Targeting Flare,,Event,,,,"Remove Stealth from all enemy creatures and reduce the defense of all creatures in play to 0 until your next turn. If Yellow was used to play this card, refund the Neon spent to play it."
+Aspiring Hero (NEW),1,Creature [Human/Neonite/Hero],2,2,2,
+Chameleon (CHANGED 3/7/25),1,,,,,This Creature can attack unit’s that are Stunned directly.
+Fulgoriego (NEW),2,Creature [Beast/Elemental],5,2,4,"If this card has been played this game and both of it’s Color effects activated at any given point, Gain both of this cards Color effects for free anytime Fulgoriego is summoned to the board and Gain 0/0+5."
+Illusionist (NEW),2,Creature [Human/Mage],1,1,6,
+Trained Sniper (UPDATED 3/4/25),3,Creature [Human],,,,Snipe 4. This card can only Snipe while it has the keyword Stealth. If this card Snipes while Stealthed It loses they keyword Stealth “One Shot. One Kill”
+Proton Beam (REWORDED),X Yellow,Event,,,,Reduce all Creature's armor on your opponent's side of the field to 0. Deal  2 damage for every Yellow you spent playing this card to all enemy Creatures
+Yellow/Black/Orange,,,,,,
+Cordelia ///,7 (UPDATED),Relic/Creature [Humanoid/Demon],6,1,9,
+"Yellow 1: Create a 0/0/1 Crab Token on your side of the field, it has Taunt. If this Token dies from taking combat damage, summon another one at the start of your next turn.",,,,,,"Cordelia cannot be targeted or affected by any effects the user does not wish her to, as long as there is one other unit on your side of the field."
+Fields,,,,,,
+Bright Sentient Lights,0,Field,,,,"Once per round, you may pay X Yellow or 3*X Neon of any other colors to do any of the following X effects, but not the same effects twice. Blind an opponent's card, Stealth a card or remove keyword Stealth from a card. This must be done immediately after the draw phase."
+Freezing Chills,0,Field,,,,"Once per round, you may pay 1 Blue Neon or 3 Neon of any other colors to afflict any unit with Brittle. If a target is already affected with Brittle, the target is instead removed from play ignoring all text and keywords. In addition, as long as this card is in play, the Brittle keyword cannot be removed by any other means."
+Highly Unstable Energy,0,Field,,,,"Once per round you may pay 1 Orange Neon or 3 Neon of any color to make a Volatile creature 'Explode'. When a creature explodes, it deals damage equal to its current health to all other creatures in play."
+Rise of the Dead,0,Field,,,,"At the start of your turn, you must summon a 1/1/1 Zombie token, it has Feed 1. In addition, this Zombie gains +1/0/+1 for every creature in your graveyard. As long as this card is on the field, you may pay 1 White or 3 Neon of any color to summon 1 additional zombie per round."
+Fertile Soil,0,Field,,,,"Once per turn, during your turn, you may target any friendly creature and destroy it regardless of effects, and heal your life for the creature's remaining HP. If a creature is Bleeding, heal double its remaining health. At the cost of 1 Red or 3 Neon of any other color, you may Target a creature on the opponent's side of the field that is Bleeding, and destroy that creature."
+Living Sandstorm,0,Field,,,,"Every turn, at the start of either player's turn, all creatures on the field take 1 damage, if any creature is destroyed by this damage, instead of sending them to the graveyard, flip the card over and create a 2/3/3 Sand Golem Token in their spot. The destroyed creature does not get sent to the graveyard until the golem is destroyed. At the cost of 1 Brown Neon or 3 Neon of any other color, whenever a friendly creature is destroyed by this card's damage, they may instead summon a 5/7/4 Sand Golem Titan with Peirce, this effect can be used multiple times as long as the cost is paid. Constructs and Golems are not affected by the damage from this card."
+Malicious Lightning,0,Field,,,,"After this card is played. Both players summon a 0/0/1 Malicious Lightning Storm Token, with Immortal, Immune, Stealth, and Anchored. It is permanently Exhausted. Every turn, the token gains +1/0/0. At the end of the player's turn, they take damage equal to the token's attack, this damage can be spread out anyway the player chooses to all friendly creatures or their life directly, if there are no creatures in play, all the damage is dealt to the player. You may pay 1 Purple Neon or 3 Neon of any other color to mitigate this part of the effect. The token is removed from play after this card is removed from play."
+Winds of Fate,0,Field,,,,"The defending player may pay 1 Violet Neon, or 3 Neon of any other color to negate a creature's attack, along with all effects correlated to the attack. This effect can be paid for any number of times."
+Haze of Undeath,2,Creature,1,0,5,Corrosive 1 Black 1: Corrosive 2 Brown 2: This creature gains armor equal to the armor it destroys
+Magic Eater ///,3,Creature,0,0,1,"Whenever an Event card is played, give this creature a permanent +2/+1/+2 and make it the target of all Event cards while it is on the field. Magic Eater cannot be damaged, removed from the field or play, switch controllers, or gain negative keywords from the effects of Event cards. While this card is in the graveyard, do not shuffle it back into the deck."
+Anti Matter Construct,4,Creature [Construct],2,3,4,
+Caustic Lurker Juvenile,5,,,,,
